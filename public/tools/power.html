@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线功率单位转换器 - 瓦特、千瓦、马力、英制马力等功率单位互相转换">
+    <title>功率转换 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span><a href="../index.html#unit" data-i18n="categories.unit">单位转换</a><span>/</span><span data-i18n="tools.power.name">功率转换</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row"><div class="info-icon">⚡</div><div class="info-content"><h2 data-i18n="tools.power.name">功率单位转换器</h2><p data-i18n="tools.power.desc">支持瓦特(W)、千瓦(kW)、马力(PS)、英制马力(hp)、BTU/h 等功率单位互转</p></div></div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>📥 输入</h3></div>
+                    <div class="io-panel-body">
+                        <select id="fromUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="w">瓦特 (W)</option>
+                            <option value="kw" selected>千瓦 (kW)</option>
+                            <option value="mw">兆瓦 (MW)</option>
+                            <option value="hp">英制马力 (hp)</option>
+                            <option value="ps">公制马力 (PS)</option>
+                            <option value="btuh">英热/时 (BTU/h)</option>
+                            <option value="cals">卡/秒 (cal/s)</option>
+                            <option value="ftlb">英尺·磅/秒 (ft·lb/s)</option>
+                        </select>
+                        <input type="number" id="fromValue" class="form-control" data-i18n-placeholder="tools.power.value" placeholder="输入数值" value="75" oninput="convert()" step="any">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--primary-color);">⇄</div>
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>📤 输出</h3></div>
+                    <div class="io-panel-body">
+                        <select id="toUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="w">瓦特 (W)</option>
+                            <option value="kw">千瓦 (kW)</option>
+                            <option value="mw">兆瓦 (MW)</option>
+                            <option value="hp" selected>英制马力 (hp)</option>
+                            <option value="ps">公制马力 (PS)</option>
+                            <option value="btuh">英热/时 (BTU/h)</option>
+                            <option value="cals">卡/秒 (cal/s)</option>
+                            <option value="ftlb">英尺·磅/秒 (ft·lb/s)</option>
+                        </select>
+                        <input type="text" id="toValue" class="form-control" readonly style="background: #f0f9ff; font-weight: 600; font-size: 18px;" value="100.55">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="margin-bottom: 16px;">🚗 常见设备功率参考</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+                    <div style="background: #fafafa; padding: 16px; border-radius: var(--border-radius); font-size: 13px; line-height: 2;">
+                        <strong style="color: var(--primary-color); display: block; margin-bottom: 8px;">家用电器</strong>
+                        LED灯泡: 5-15 W<br>
+                        电风扇: 40-60 W<br>
+                        微波炉: 800-1200 W<br>
+                        电热水器: 1500-3000 W
+                    </div>
+                    <div style="background: #fafafa; padding: 16px; border-radius: var(--border-radius); font-size: 13px; line-height: 2;">
+                        <strong style="color: var(--primary-color); display: block; margin-bottom: 8px;">交通工具</strong>
+                        电动自行车: ~400 W<br>
+                        普通汽车: 80-200 hp<br>
+                        跑车: 400-700 hp<br>
+                        F1赛车: >950 hp
+                    </div>
+                    <div style="background: #fafafa; padding: 16px; border-radius: var(--border-radius); font-size: 13px; line-height: 2;">
+                        <strong style="color: var(--primary-color); display: block; margin-bottom: 8px;">换算关系</strong>
+                        1 hp ≈ 745.7 W<br>
+                        1 PS = 735.5 W<br>
+                        1 kW ≈ 1.341 hp<br>
+                        1 BTU/h ≈ 0.293 W
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer" id="footer"></footer>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/power.js"></script>
+</body>
+</html>

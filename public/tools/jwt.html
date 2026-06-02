@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT解析 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.jwt.name">JWT解析</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🎫</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.jwt.name">JWT解析器</h2>
+            <p data-i18n="tools.jwt.desc">JSON Web Token 解析与验证工具，解码Header和Payload，检查Token过期时间</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="form-group">
+          <label data-i18n="tools.jwt.token">JWT Token</label>
+          <textarea id="jwtInput" class="form-control" rows="3" placeholder="请输入JWT Token..." style="font-family:'Consolas','Monaco',monospace;word-break:break-all;"></textarea>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="decodeJWT()" data-i18n="tools.jwt.decode">🔓 解析JWT</button>
+          <button class="btn btn-secondary" onclick="clearJWT()" data-i18n="common.clear">🗑️ 清空</button>
+          <button class="btn btn-secondary" onclick="loadSampleJWT()" data-i18n="tools.jwt.sample">📝 示例</button>
+        </div>
+
+        <div id="jwtResult" style="margin-top:24px;display:none;">
+          <div class="io-container">
+            <div class="io-panel">
+              <div class="io-panel-header">
+                <h3 data-i18n="tools.jwt.header">🔷 Header（头部）</h3>
+                <button class="btn-secondary" style="padding:6px 12px;font-size:12px;border:1px solid var(--border-color);background:white;border-radius:6px;cursor:pointer;" onclick="copyJwtHeader()" data-i18n="common.copy">复制</button>
+              </div>
+              <div class="io-panel-body">
+                <pre id="jwtHeader" style="min-height:120px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-all;overflow:auto;background:#f8fdf8;border:1px solid #e1f3d8;border-radius:6px;color:#67c23a;"></pre>
+              </div>
+            </div>
+
+            <div class="io-panel">
+              <div class="io-panel-header">
+                <h3 data-i18n="tools.jwt.payload">📦 Payload（载荷）</h3>
+                <button class="btn-secondary" style="padding:6px 12px;font-size:12px;border:1px solid var(--border-color);background:white;border-radius:6px;cursor:pointer;" onclick="copyJwtPayload()" data-i18n="common.copy">复制</button>
+              </div>
+              <div class="io-panel-body">
+                <pre id="jwtPayload" style="min-height:180px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-all;overflow:auto;background:#fdf8ff;border:1px solid #f3d8f5;border-radius:6px;color:#764ba2;"></pre>
+              </div>
+            </div>
+          </div>
+
+          <div id="jwtSignature" style="margin-top:16px;background:#fafafa;border:1px solid var(--border-color);border-radius:8px;padding:16px;">
+            <h3 style="font-size:15px;font-weight:600;margin-bottom:10px;" data-i18n="tools.jwt.signature">🔒 Signature（签名）</h3>
+            <code id="jwtSignatureValue" style="font-size:12px;word-break:break-all;color:var(--text-secondary);"></code>
+          </div>
+
+          <div id="jwtValidation" style="margin-top:16px;padding:16px;border-radius:8px;"></div>
+        </div>
+
+        <div id="jwtError" style="display:none;margin-top:24px;padding:16px;background:#fef0f0;border:1px solid #fbc4c4;border-radius:8px;color:#f56c6c;text-align:center;"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/jwt.js"></script>
+</body>
+</html>

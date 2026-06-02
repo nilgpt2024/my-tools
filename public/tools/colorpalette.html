@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色板生成 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .palette-container { padding: 20px 0; }
+        .controls-row {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .gen-btn {
+            padding: 12px 32px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(245,87,108,0.3);
+            transition: all 0.3s ease;
+        }
+        .gen-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(245,87,108,0.4); }
+
+        .palette-section { margin-bottom: 28px; }
+
+        .section-title {
+            font-size: 18px; font-weight: 700; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .palette-card {
+            background: white; border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .palette-preview {
+            height: 80px;
+            display: flex;
+        }
+
+        .preview-swatch { flex: 1; transition: all 0.2s ease; cursor: pointer; position: relative; }
+        .preview-swatch:hover { filter: brightness(1.08); }
+        .preview-swatch::after {
+            content: attr(data-color);
+            position: absolute; bottom: 6px; left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px; font-weight: 600;
+            color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            opacity: 0; transition: opacity 0.2s;
+        }
+        .preview-swatch:hover::after { opacity: 1; }
+
+        .palette-info { padding: 16px; }
+
+        .color-list { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .color-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 14px; border-radius: 10px;
+            background: #fafafa; border: 1px solid var(--border-color);
+            cursor: pointer; transition: all 0.2s; user-select: none;
+        }
+        .color-item:hover { border-color: var(--primary-color); transform: scale(1.03); }
+
+        .color-dot-small {
+            width: 28px; height: 28px; border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.1); flex-shrink: 0;
+        }
+
+        .color-hex { font-family: 'Consolas', monospace; font-weight: 600; font-size: 13px; color: var(--text-primary); }
+        .copy-icon { font-size: 11px; color: var(--text-light); }
+
+        .palettes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .palettes-grid { grid-template-columns: 1fr; }
+            .palette-preview { height: 60px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.colorpalette.name">色板生成</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🎨</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.colorpalette.name">配色方案生成器</h2>
+                        <p data-i18n="tools.colorpalette.desc">一键生成和谐美观的配色方案，点击颜色即可复制HEX值。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content palette-container">
+                <div class="controls-row">
+                    <button class="gen-btn" id="generateBtn" data-i18n="tools.colorpalette.generate">🎲 生成新配色方案</button>
+                </div>
+
+                <div id="palettesOutput"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/colorpalette.js"></script>
+</body>
+</html>

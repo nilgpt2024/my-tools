@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL编码/解码 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.urlencode.name">URL编码/解码</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🔗</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.urlencode.name">URL编码/解码</h2>
+            <p data-i18n="tools.urlencode.desc">在线URL编码和解码工具，支持encodeURIComponent和encodeURI两种模式</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="options-group">
+          <div class="option-item">
+            <label data-i18n="tools.urlencode.encode">编码模式：</label>
+            <select id="encodeMode">
+              <option value="component">encodeURIComponent（完整编码）</option>
+              <option value="uri">encodeURI（部分编码）</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="io-container">
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="common.input">📥 输入内容</h3>
+              <div class="io-actions">
+                <button onclick="clearInput()" data-i18n="common.clear">清空</button>
+                <button onclick="pasteInput()" data-i18n="common.paste">粘贴</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="inputText" placeholder="请输入需要编码或解码的文本..."></textarea>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="common.output">📤 输出结果</h3>
+              <div class="io-actions">
+                <button onclick="copyOutput()" data-i18n="common.copy">复制</button>
+                <button onclick="swapContent()" data-i18n="tools.urlencode.swap">交换</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="outputText" placeholder="输出结果将显示在这里..." readonly></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="urlEncode()">🔒 URL编码</button>
+          <button class="btn btn-primary" onclick="urlDecode()">🔓 URL解码</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/urlencode.js"></script>
+</body>
+</html>

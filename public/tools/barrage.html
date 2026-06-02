@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹幕生成 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .barrage-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .stage-area {
+            width: 100%;
+            max-width: 800px;
+            height: 360px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: var(--border-radius-lg);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .danmaku-item {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            animation: danmakuScroll linear forwards;
+            will-change: transform;
+            pointer-events: none;
+        }
+
+        @keyframes danmakuScroll {
+            from { transform: translateX(100vw); }
+            to { transform: translateX(-100%); }
+        }
+
+        .control-panel {
+            width: 100%;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            align-items: end;
+            margin-bottom: 16px;
+        }
+
+        .input-group { display: flex; flex-direction: column; gap: 6px; }
+        .input-group label { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-row input[type="text"] {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-row input[type="text"]:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(64,158,255,0.12);
+        }
+
+        .send-btn {
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .options-bar {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 16px;
+            padding: 14px 18px;
+            background: #fafafa;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            align-items: center;
+        }
+
+        .option-field {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .option-field label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .option-field select,
+        .option-field input[type="range"] {
+            cursor: pointer;
+        }
+
+        .color-picker-btns {
+            display: flex;
+            gap: 5px;
+        }
+
+        .color-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .color-dot:hover { transform: scale(1.2); }
+        .color-dot.active { border-color: #333; box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor; }
+
+        .preset-phrases {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 8px;
+        }
+
+        .preset-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .preset-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .preset-tag {
+            padding: 5px 14px;
+            background: #f0f0f0;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .preset-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .clear-stage-btn {
+            margin-top: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .control-panel { grid-template-columns: 1fr; }
+            .stage-area { height: 260px; }
+            .options-bar { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.barrage.name">弹幕生成</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">💬</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.barrage.name">弹幕效果生成器</h2>
+                        <p data-i18n="tools.barrage.desc">输入文字，实时生成弹幕滚动效果。支持自定义颜色、速度和字体大小。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="barrage-container">
+                    <div class="stage-area" id="stageArea"></div>
+
+                    <div class="control-panel">
+                        <div class="input-group">
+                            <label data-i18n="tools.barrage.input">弹幕内容</label>
+                            <div class="input-row">
+                                <input type="text" id="danmakuInput" data-i18n="tools.barrage.input" placeholder="输入弹幕文字，按回车发送..." maxlength="50">
+                                <button class="btn btn-primary send-btn" id="sendBtn" data-i18n="tools.barrage.send">发送 🚀</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="options-bar">
+                        <div class="option-field">
+                            <label data-i18n="tools.barrage.color">颜色:</label>
+                            <div class="color-picker-btns" id="colorPicker">
+                                <span class="color-dot active" data-color="#ffffff" style="background:#fff;border:1px solid #ccc"></span>
+                                <span class="color-dot" data-color="#ff5555" style="background:#ff5555"></span>
+                                <span class="color-dot" data-color="#ffff00" style="background:#ffff00"></span>
+                                <span class="color-dot" data-color="#55ff55" style="background:#55ff55"></span>
+                                <span class="color-dot" data-color="#55ffff" style="background:#55ffff"></span>
+                                <span class="color-dot" data-color="#aaaaff" style="background:#aaaaff"></span>
+                                <span class="color-dot" data-color="#ffaa00" style="background:#ffaa00"></span>
+                                <span class="color-dot" data-color="#ff55ff" style="background:#ff55ff"></span>
+                            </div>
+                        </div>
+                        <div class="option-field">
+                            <label data-i18n="tools.barrage.speed">速度:</label>
+                            <select id="speedSelect">
+                                <option value="8" data-i18n="tools.barrage.slow">慢速</option>
+                                <option value="5" selected>正常</option>
+                                <option value="3" data-i18n="tools.barrage.fast">快速</option>
+                                <option value="2">极快</option>
+                            </select>
+                        </div>
+                        <div class="option-field">
+                            <label data-i18n="tools.barrage.fontSize">字号:</label>
+                            <select id="sizeSelect">
+                                <option value="16">小</option>
+                                <option value="20" selected>中</option>
+                                <option value="26">大</option>
+                                <option value="34">特大</option>
+                            </select>
+                        </div>
+                        <div class="option-field">
+                            <label data-i18n="tools.barrage.autoPlay">自动:</label>
+                            <input type="checkbox" id="autoMode" title="开启后自动循环发送示例弹幕">
+                        </div>
+                    </div>
+
+                    <div class="preset-phrases">
+                        <div class="preset-title">📝 <span data-i18n="tools.barrage.presetPhrases">快捷短语（点击发送）</span></div>
+                        <div class="preset-tags" id="presetTags"></div>
+                    </div>
+
+                    <button class="btn btn-secondary clear-stage-btn" id="clearStageBtn" data-i18n="tools.barrage.clearScreen">清空舞台</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/barrage.js"></script>
+</body>
+</html>

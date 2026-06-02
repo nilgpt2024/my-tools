@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>石头剪刀布 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .rps-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .scoreboard {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 28px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, rgba(64,158,255,0.06), rgba(118,75,162,0.06));
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(64,158,255,0.15);
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .score-value {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .score-value.player { color: var(--primary-color); }
+        .score-value.computer { color: #f56c6c; }
+        .score-value.draw { color: #909399; }
+
+        .battle-arena {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 36px;
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .fighter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .fighter-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .hand-display {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .hand-display.player-hand {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 20px rgba(64,158,255,0.2);
+        }
+
+        .hand-display.computer-hand {
+            border-color: #f56c6c;
+            box-shadow: 0 4px 20px rgba(245,108,108,0.2);
+        }
+
+        .hand-display.shaking {
+            animation: handShake 0.15s ease-in-out infinite;
+        }
+
+        @keyframes handShake {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-12px) rotate(10deg); }
+        }
+
+        .vs-badge {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--text-light);
+            background: #fafafa;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-color);
+        }
+
+        .result-banner {
+            min-height: 60px;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .result-text {
+            font-size: 26px;
+            font-weight: 800;
+            opacity: 0;
+            transform: scale(0.5) translateY(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .result-text.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .result-text.win { color: #67c23a; }
+        .result-text.lose { color: #f56c6c; }
+        .result-text.draw { color: #909399; }
+
+        .choice-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .choice-btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 3px solid var(--border-color);
+            background: white;
+            cursor: pointer;
+            font-size: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-btn::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .choice-btn:hover:not(:disabled) {
+            transform: translateY(-6px) scale(1.08);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 24px rgba(64,158,255,0.25);
+        }
+
+        .choice-btn:active:not(:disabled) {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .choice-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .reset-btn-area {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .battle-arena { gap: 20px; }
+            .hand-display { width: 90px; height: 90px; font-size: 42px; }
+            .choice-btn { width: 80px; height: 80px; font-size: 34px; }
+            .scoreboard { gap: 20px; padding: 12px 24px; }
+            .score-value { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.rockpaperscissors.name">石头剪刀布</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">✊</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.rockpaperscissors.name">石头剪刀布</h2>
+                        <p data-i18n="tools.rockpaperscissors.desc">经典猜拳游戏，与AI对战！选择你的出拳，看看谁能赢更多。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="rps-container">
+                    <div class="scoreboard">
+                        <div class="score-item">
+                            <div class="score-label" data-i18n="tools.rockpaperscissors.yourScore">👤 你</div>
+                            <div class="score-value player" id="playerScore">0</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label" data-i18n="tools.rockpaperscissors.draw">🤖 平局</div>
+                            <div class="score-value draw" id="drawScore">0</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label" data-i18n="tools.rockpaperscissors.aiScore">💻 电脑</div>
+                            <div class="score-value computer" id="computerScore">0</div>
+                        </div>
+                    </div>
+
+                    <div class="battle-arena">
+                        <div class="fighter">
+                            <div class="fighter-label" data-i18n="tools.rockpaperscissors.youChoose">你的出拳</div>
+                            <div class="hand-display player-hand" id="playerHand">❓</div>
+                        </div>
+                        <div class="vs-badge">VS</div>
+                        <div class="fighter">
+                            <div class="fighter-label" data-i18n="tools.rockpaperscissors.aiChooses">电脑出拳</div>
+                            <div class="hand-display computer-hand" id="computerHand">❓</div>
+                        </div>
+                    </div>
+
+                    <div class="choice-buttons">
+                        <button class="choice-btn" data-choice="rock" data-label="石头" data-i18n="tools.rockpaperscissors.rock">✊</button>
+                        <button class="choice-btn" data-choice="paper" data-label="布" data-i18n="tools.rockpaperscissors.paper">✋</button>
+                        <button class="choice-btn" data-choice="scissors" data-label="剪刀" data-i18n="tools.rockpaperscissors.scissors">✌️</button>
+                    </div>
+
+                    <div class="reset-btn-area">
+                        <button class="btn btn-secondary" id="resetBtn" data-i18n="tools.rockpaperscissors.resetScore">重置比分</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/rockpaperscissors.js"></script>
+</body>
+</html>

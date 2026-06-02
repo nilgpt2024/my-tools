@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP状态码查询 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.httpstatuscode.name">HTTP状态码查询</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🌐</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.httpstatuscode.name">HTTP状态码查询</h2>
+            <p data-i18n="tools.httpstatuscode.desc">快速查询HTTP状态码含义，包含所有常见状态码的详细说明和分类展示</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="form-group">
+          <label data-i18n="tools.httpstatuscode.searchCode">搜索状态码</label>
+          <input type="text" class="form-control" id="statusCodeSearch" placeholder="输入状态码或关键词搜索，如 200、404、not found..." oninput="searchStatusCode()">
+        </div>
+
+        <div class="tabs" style="margin-bottom:24px;">
+          <button class="tab-btn active" data-tab="allCodes" onclick="filterStatus('all', this)" data-i18n="tools.httpstatuscode.all">全部</button>
+          <button class="tab-btn" data-tab="1xx" onclick="filterStatus('1xx', this)" data-i18n="tools.httpstatuscode.information">1xx 信息</button>
+          <button class="tab-btn" data-tab="2xx" onclick="filterStatus('2xx', this)" data-i18n="tools.httpstatuscode.success">2xx 成功</button>
+          <button class="tab-btn" data-tab="3xx" onclick="filterStatus('3xx', this)" data-i18n="tools.httpstatuscode.redirection">3xx 重定向</button>
+          <button class="tab-btn" data-tab="4xx" onclick="filterStatus('4xx', this)" data-i18n="tools.httpstatuscode.clientError">4xx 客户端错误</button>
+          <button class="tab-btn" data-tab="5xx" onclick="filterStatus('5xx', this)" data-i18n="tools.httpstatuscode.serverError">5xx 服务器错误</button>
+        </div>
+
+        <div id="statusList" style="display:flex;flex-direction:column;gap:12px;"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/httpstatuscode.js"></script>
+</body>
+</html>

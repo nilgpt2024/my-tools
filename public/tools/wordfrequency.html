@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线词频统计工具 - 分析文本中词语出现的频率，支持中英文词频分析、词云生成预览">
+    <meta name="keywords" content="词频统计,词语频率,文本分析,关键词提取,中文分词,词云">
+    <title>词频统计 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+            <span>/</span>
+            <a href="../index.html#text" data-i18n="categories.text">文本处理</a>
+            <span>/</span>
+            <span data-i18n="tools.wordfrequency.name">词频统计</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">📈</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.wordfrequency.name">词频统计工具</h2>
+                    <p data-i18n="tools.wordfrequency.desc">快速分析文本中各词语的出现频率，支持中文按字/词统计，英文按单词统计，可导出词频报告</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3>📝 输入文本</h3>
+                        <div class="io-actions">
+                            <button onclick="clearInput()">清空</button>
+                            <button onclick="pasteText()">粘贴</button>
+                        </div>
+                    </div>
+                    <div class="io-panel-body">
+                        <textarea id="inputText" placeholder="在此输入或粘贴需要分析的文本内容...&#10;&#10;支持中文和英文文本的词频统计分析"></textarea>
+                    </div>
+                </div>
+
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3>📊 <span data-i18n="tools.wordfrequency.topWords">词频结果</span></h3>
+                        <div class="io-actions">
+                            <button onclick="copyResult()" data-i18n="common.copy">复制</button>
+                            <button onclick="downloadResult()" data-i18n="tools.wordfrequency.exportCsv">导出CSV</button>
+                        </div>
+                    </div>
+                    <div class="io-panel-body">
+                        <div id="frequencyResult" class="frequency-result">
+                            <div class="result-empty">请输入文本后点击分析按钮查看词频统计</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options-group">
+                <div class="option-item">
+                    <label>统计模式：</label>
+                    <select id="modeSelect">
+                        <option value="char" data-i18n="tools.wordfrequency.modeChar">按字符统计（中文）</option>
+                        <option value="word" data-i18n="tools.wordfrequency.modeWord">按词语统计（中文）</option>
+                        <option value="english" data-i18n="tools.wordfrequency.modeEnglish">英文单词统计</option>
+                        <option value="mixed" data-i18n="tools.wordfrequency.modeMixed">混合模式</option>
+                    </select>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="ignoreCaseCheck" data-i18n="tools.wordfrequency.caseSensitive"> 忽略大小写(英文)</label>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="ignorePunctuationCheck" checked data-i18n="tools.wordfrequency.ignorePunctuation"> 忽略标点符号</label>
+                </div>
+                <div class="option-item">
+                    <label>显示数量：</label>
+                    <select id="topCountSelect">
+                        <option value="20">Top 20</option>
+                        <option value="50" selected>Top 50</option>
+                        <option value="100">Top 100</option>
+                        <option value="200">Top 200</option>
+                        <option value="0">全部显示</option>
+                    </select>
+                </div>
+                <div class="option-item">
+                    <label>最小词频：</label>
+                    <input type="number" id="minFreqInput" value="1" min="1" placeholder="最小频率">
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="analyzeFrequency()" data-i18n="tools.wordfrequency.analyze">🔍 开始分析</button>
+                <button class="btn btn-secondary" onclick="clearAll()" data-i18n="common.clear">🗑️ 清空全部</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/wordfrequency.js"></script>
+</body>
+</html>

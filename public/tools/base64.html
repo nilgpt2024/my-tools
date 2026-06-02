@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64编解码 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.base64.name">Base64编解码</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🔄</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.base64.name">Base64编解码</h2>
+            <p data-i18n="tools.base64.desc">Base64编码与解码工具，支持文本和文件的Base64互转</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="textMode" onclick="switchTab(this)" data-i18n="tools.base64.textMode">文本模式</button>
+          <button class="tab-btn" data-tab="fileMode" onclick="switchTab(this)" data-i18n="tools.base64.fileMode">文件模式</button>
+        </div>
+
+        <div class="tab-content active" id="textMode">
+          <div class="io-container">
+            <div class="io-panel">
+              <div class="io-panel-header">
+                <h3 data-i18n="tools.base64.originalText">📥 原始文本</h3>
+                <div class="io-actions">
+                  <button onclick="clearB64TextInput()" data-i18n="common.clear">清空</button>
+                  <button onclick="pasteB64Text()" data-i18n="common.paste">粘贴</button>
+                </div>
+              </div>
+              <div class="io-panel-body">
+                <textarea id="b64TextInput" data-i18n-placeholder="tools.base64.inputHint" placeholder="请输入需要编码或解码的文本..."></textarea>
+              </div>
+            </div>
+
+            <div class="io-panel">
+              <div class="io-panel-header">
+                <h3 data-i18n="tools.base64.resultBase64">📤 Base64结果</h3>
+                <div class="io-actions">
+                  <button onclick="copyB64TextOutput()" data-i18n="common.copy">复制</button>
+                  <button onclick="swapB64Content()" data-i18n="tools.base64.swap">交换</button>
+                </div>
+              </div>
+              <div class="io-panel-body">
+                <textarea id="b64TextOutput" data-i18n-placeholder="tools.base64.resultBase64" placeholder="Base64编解码结果..." readonly></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary" onclick="encodeBase64Text()" data-i18n="tools.base64.encode">🔒 编码 (文本→Base64)</button>
+            <button class="btn btn-primary" onclick="decodeBase64Text()" data-i18n="tools.base64.decode">🔓 解码 (Base64→文本)</button>
+          </div>
+        </div>
+
+        <div class="tab-content" id="fileMode">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:600;margin-bottom:16px;" data-i18n="tools.base64.fileToBase64">📁 文件转Base64</h3>
+              <div class="form-group">
+                <label data-i18n="tools.base64.selectFile">选择文件</label>
+                <input type="file" id="b64FileInput" accept="*/*" onchange="fileToBase64()" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:white;">
+              </div>
+              <div class="form-group">
+                <label data-i18n="tools.base64.resultBase64">Base64结果</label>
+                <textarea id="b64FileOutput" rows="6" data-i18n-placeholder="tools.base64.fileResultHint" placeholder="文件的Base64编码将显示在这里..." readonly style="width:100%;min-height:120px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:12px;line-height:1.6;border:1px solid var(--border-color);border-radius:8px;background:#fafafa;resize:vertical;"></textarea>
+              </div>
+              <button class="btn btn-secondary" onclick="copyB64FileOutput()" data-i18n="common.copy">📋 复制Base64</button>
+            </div>
+
+            <div>
+              <h3 style="font-size:16px;font-weight:600;margin-bottom:16px;" data-i18n="tools.base64.base64ToFile">💾 Base64转文件</h3>
+              <div class="form-group">
+                <label data-i18n="tools.base64.pasteBase64">粘贴Base64内容</label>
+                <textarea id="b64FileInputText" rows="4" data-i18n-placeholder="tools.base64.pasteBase64" placeholder="粘贴Base64编码内容..." style="width:100%;min-height:100px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:12px;border:1px solid var(--border-color);border-radius:8px;background:#fafafa;resize:vertical;"></textarea>
+              </div>
+              <div class="form-group">
+                <label data-i18n="tools.base64.fileName">文件名（含扩展名）</label>
+                <input type="text" class="form-control" id="b64FileName" data-i18n-placeholder="tools.base64.fileNameHint" placeholder="例如：image.png" value="output.bin">
+              </div>
+              <button class="btn btn-primary" onclick="base64ToFile()" data-i18n="common.download">💾 下载文件</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/base64.js"></script>
+</body>
+</html>

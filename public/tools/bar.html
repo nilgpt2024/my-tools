@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线柱状图生成器 - 基于ECharts，支持数据输入、样式自定义、导出图片等功能">
+    <title>柱状图 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span><a href="../index.html#chart" data-i18n="categories.chart">图表工具</a><span>/</span><span data-i18n="tools.bar.name">柱状图</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row"><div class="info-icon">📊</div><div class="info-content"><h2 data-i18n="tools.bar.name">柱状图生成器</h2><p data-i18n="tools.bar.desc">基于 ECharts 的在线柱状图生成器，支持数据编辑、样式自定义、导出高清图片</p></div></div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>📝 <span data-i18n="tools.bar.data">数据输入</span></h3></div>
+                    <div class="io-panel-body">
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.bar.xAxis">图表标题：</label>
+                        <input type="text" id="chartTitle" class="form-control" value="月度销售数据" placeholder="输入图表标题" oninput="updateChart()" style="margin-bottom: 12px;">
+                        
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.bar.xAxis">类别名称（逗号分隔）：</label>
+                        <input type="text" id="categories" class="form-control" value="一月,二月,三月,四月,五月,六月" placeholder="如：A,B,C,D" oninput="updateChart()" style="margin-bottom: 12px;">
+                        
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.bar.yAxis">数值（逗号分隔）：</label>
+                        <input type="text" id="values" class="form-control" value="120,200,150,80,70,110" placeholder="如：10,20,30,40" oninput="updateChart()" style="margin-bottom: 12px;">
+                        
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.bar.series">系列名称（可选）：</label>
+                        <input type="text" id="seriesName" class="form-control" value="销售额" placeholder="系列名称" oninput="updateChart()">
+                    </div>
+                </div>
+
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>🎨 <span data-i18n="tools.bar.options">样式设置</span></h3></div>
+                    <div class="io-panel-body">
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;" data-i18n="tools.bar.options">图表类型：</label>
+                            <select id="barType" class="form-control" onchange="updateChart()">
+                                <option value="bar" data-i18n="tools.bar.name">柱状图</option>
+                                <option value="stacked" data-i18n="tools.bar.stacked">堆叠柱状图</option>
+                                <option value="horizontal" data-i18n="tools.bar.horizontal">条形图（横向）</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;">主题色：</label>
+                            <input type="color" id="primaryColor" value="#409EFF" onchange="updateChart()" style="width: 100%; height: 36px; cursor: pointer; border: none; border-radius: 6px;">
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px;"><input type="checkbox" id="showLabel" checked onchange="updateChart()"> <span data-i18n="tools.bar.showLegend">显示数值标签</span></label>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px;"><input type="checkbox" id="showGrid" checked onchange="updateChart()"> <span data-i18n="tools.bar.showGrid">显示网格线</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="margin-bottom: 16px;">📈 <span data-i18n="tools.bar.generate">图表预览</span></h3>
+                <div id="chartContainer" style="width: 100%; height: 450px; background: white; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); padding: 16px;"></div>
+            </div>
+
+            <div class="action-buttons" style="justify-content: center; margin-top: 24px;">
+                <button class="btn btn-primary" onclick="downloadChart()">💾 <span data-i18n="tools.bar.exportImage">下载图片 (PNG)</span></button>
+                <button class="btn btn-secondary" onclick="loadSampleData('sales')">📊 <span data-i18n="tools.bar.sampleData">销售示例</span></button>
+                <button class="btn btn-secondary" onclick="loadSampleData('population')">👥 人口示例</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/bar.js"></script>
+</body>
+</html>

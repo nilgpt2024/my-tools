@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-html="privacy.title">隐私政策 - 在线工具集</title>
+  <meta name="description" data-i18n-html="privacy.metaDesc" content="在线工具集隐私政策 - 了解我们如何收集、使用和保护您的数据">
+  <link rel="canonical" href="https://tools.suipce.com/privacy-policy.html">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .privacy-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .privacy-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .privacy-update-date {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    .privacy-section {
+      margin-bottom: 32px;
+    }
+    .privacy-section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .privacy-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 16px;
+      margin-bottom: 10px;
+    }
+    .privacy-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    .privacy-section ul,
+    .privacy-section ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .privacy-section li {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .privacy-highlight {
+      background: linear-gradient(135deg, rgba(64, 158, 255, 0.08), rgba(118, 75, 162, 0.08));
+      border-left: 4px solid var(--primary-color);
+      padding: 16px 20px;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      margin: 20px 0;
+    }
+    .privacy-highlight p {
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    .privacy-warning {
+      background: linear-gradient(135deg, rgba(245, 108, 108, 0.08), rgba(230, 162, 60, 0.08));
+      border-left: 4px solid #f56c6c;
+      padding: 16px 20px;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      margin: 20px 0;
+    }
+    .privacy-warning p {
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    .privacy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .privacy-table th,
+    .privacy-table td {
+      border: 1px solid var(--border-color);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .privacy-table th {
+      background: linear-gradient(135deg, rgba(64, 158, 255, 0.1), rgba(118, 75, 162, 0.1));
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .privacy-table td {
+      color: var(--text-secondary);
+    }
+    strong {
+      color: var(--text-primary);
+    }
+    a.privacy-link {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+    a.privacy-link:hover {
+      color: var(--primary-dark);
+    }
+    @media (max-width: 768px) {
+      .privacy-page {
+        padding: 24px 16px;
+        margin-top: 16px;
+        margin-bottom: 24px;
+      }
+      .privacy-header h1 {
+        font-size: 22px;
+      }
+      .privacy-section h2 {
+        font-size: 18px;
+      }
+      .privacy-table {
+        font-size: 13px;
+      }
+      .privacy-table th,
+      .privacy-table td {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="container">
+    <div class="privacy-page">
+      <header class="privacy-header">
+        <h1 data-i18n-html="privacy.heading">📋 隐私政策</h1>
+        <p class="privacy-update-date" data-i18n-html="privacy.updateDate">最后更新日期：2026年5月31日</p>
+      </header>
+
+      <section class="privacy-section" id="intro">
+        <h2 data-i18n-html="privacy.s1.title">📌 1. 引言</h2>
+        <p data-i18n-html="privacy.s1.p1">欢迎使用「在线工具集」（以下简称"本网站"、"我们"或"服务"）。我们深知隐私对您的重要性，因此制定本隐私政策（以下简称"本政策"）以说明我们如何收集、使用、存储和保护您的个人信息。</p>
+        <p data-i18n-html="privacy.s1.p2"><strong>使用本网站即表示您同意本政策中描述的做法。如果您不同意本政策的任何条款，请勿使用本网站。</strong></p>
+        <p data-i18n-html="privacy.s1.p3">本政策适用于您通过本网站提供的任何方式向我们提供的所有信息，以及我们在您访问或使用本网站时自动收集的所有信息。本政策符合以下法律法规要求：</p>
+        <ul>
+          <li><strong>欧盟《通用数据保护条例》(GDPR)</strong> — Regulation (EU) 2016/679</li>
+          <li><strong>美国《加州消费者隐私法案》(CCPA/CPRA)</strong> — California Civil Code §§1798.100-199</li>
+          <li><strong>中国《个人信息保护法》(PIPL)</strong> — 中华人民共和国个人信息保护法</li>
+          <li><strong>中国《网络安全法》</strong> — 中华人民共和国网络安全法</li>
+        </ul>
+      </section>
+
+      <section class="privacy-section" id="collection">
+        <h2 data-i18n-html="privacy.s2.title">🔍 2. 信息收集</h2>
+
+        <div class="privacy-highlight">
+          <p data-i18n-html="privacy.s2.highlight"><strong>⚡ 重要声明：</strong>本网站的所有工具均在<strong>浏览器本地（客户端）运行</strong>，我们<strong>不会收集、存储或传输您在工具中输入的任何数据</strong>。您的数据处理完全在您的设备上完成，数据从未离开您的浏览器。</p>
+        </div>
+
+        <h3 data-i18n-html="privacy.s2.notCollectTitle">2.1 我们不收集的信息</h3>
+        <ul>
+          <li data-i18n-html="privacy.s2.nc1">您在各类在线工具中输入的文本、代码、文件内容等原始数据</li>
+          <li data-i18n-html="privacy.s2.nc2">您的计算结果、转换结果等输出数据</li>
+          <li data-i18n-html="privacy.s2.nc3">您上传到浏览器的文件内容（处理在本地完成）</li>
+          <li data-i18n-html="privacy.s2.nc4">任何需要手动输入的敏感信息</li>
+        </ul>
+
+        <h3 data-i18n-html="privacy.s2.autoCollectTitle">2.2 可能自动收集的信息</h3>
+        <p data-i18n-html="privacy.s2.autoCollectDesc">为了提供和维护我们的服务，我们可能通过以下方式自动收集某些匿名化或去标识化的技术信息：</p>
+        <table class="privacy-table">
+          <thead>
+            <tr>
+              <th data-i18n-html="privacy.s2.tableType">信息类型</th>
+              <th data-i18n-html="privacy.s2.tableDesc">说明</th>
+              <th data-i18n-html="privacy.s2.tablePurpose">用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong data-i18n-html="privacy.s2.ipAddr">IP 地址</strong></td>
+              <td data-i18n-html="privacy.s2.ipDesc">经过匿名化处理的 IP 地址（如：192.168.*.*）</td>
+              <td data-i18n-html="privacy.s2.ipPurpose">大致地理位置分析、安全防护</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s2.browser">浏览器类型与版本</strong></td>
+              <td data-i18n-html="privacy.s2.browserDesc">Chrome、Firefox、Safari 等</td>
+              <td data-i18n-html="privacy.s2.browserPurpose">兼容性优化、用户体验改进</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s2.os">操作系统</strong></td>
+              <td data-i18n-html="privacy.s2.osDesc">Windows、macOS、Linux、iOS、Android 等</td>
+              <td data-i18n-html="privacy.s2.osPurpose">平台适配优化</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s2.page">访问页面</strong></td>
+              <td data-i18n-html="privacy.s2.pageDesc">您浏览的页面 URL</td>
+              <td data-i18n-html="privacy.s2.pagePurpose">热门功能分析</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s2.time">访问时间</strong></td>
+              <td data-i18n-html="privacy.s2.timeDesc">日期和时间戳</td>
+              <td data-i18n-html="privacy.s2.timePurpose">流量趋势分析</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s2.referrer">来源网址</strong></td>
+              <td data-i18n-html="privacy.s2.referrerDesc">引荐来源 URL</td>
+              <td data-i18n-html="privacy.s2.referrerPurpose">流量来源分析</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s2.device">设备信息</strong></td>
+              <td data-i18n-html="privacy.s2.deviceDesc">屏幕分辨率、设备类型</td>
+              <td data-i18n-html="privacy.s2.devicePurpose">响应式设计优化</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="privacy-section" id="usage">
+        <h2 data-i18n-html="privacy.s3.title">🎯 3. 信息使用</h2>
+        <p data-i18n-html="privacy.s3.desc">我们收集的信息仅用于以下目的：</p>
+        <ol>
+          <li data-i18n-html="privacy.s3.use1"><strong>提供和维护服务</strong>：确保网站的正常运行和技术维护</li>
+          <li data-i18n-html="privacy.s3.use2"><strong>改进用户体验</strong>：分析用户行为模式以优化界面设计和功能布局</li>
+          <li data-i18n-html="privacy.s3.use3"><strong>显示相关广告</strong>：通过 Google AdSense 展示个性化广告（详见第5节）</li>
+          <li data-i18n-html="privacy.s3.use4"><strong>分析网站流量</strong>：了解用户如何发现和使用我们的工具</li>
+          <li data-i18n-html="privacy.s3.use5"><strong>防止欺诈和滥用</strong>：检测和防止恶意活动、机器人攻击和滥用行为</li>
+          <li data-i18n-html="privacy.s3.use6"><strong>法律合规</strong>：遵守适用的法律法规要求</li>
+        </ol>
+        <p data-i18n-html="privacy.s3.noSell"><strong>我们绝不会将您的个人信息出售给第三方。</strong></p>
+      </section>
+
+      <section class="privacy-section" id="cookies">
+        <h2 data-i18n-html="privacy.s4.title">🍪 4. Cookies 使用</h2>
+        <p data-i18n-html="privacy.s4.desc">Cookies 是存储在您设备上的小型文本文件，用于增强用户体验。我们使用以下类型的 Cookies：</p>
+
+        <h3 data-i18n-html="privacy.s4.essentialTitle">4.1 必要 Cookies</h3>
+        <table class="privacy-table">
+          <thead>
+            <tr>
+              <th data-i18n-html="privacy.s4.cookieName">Cookie 名称</th>
+              <th data-i18n-html="privacy.s4.cookiePurpose">用途</th>
+              <th data-i18n-html="privacy.s4.cookieExpiry">有效期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n-html="privacy.s4.sessionCookie">会话 Cookie (Session)</td>
+              <td data-i18n-html="privacy.s4.sessionDesc">维持您的浏览会话状态</td>
+              <td data-i18n-html="privacy.s4.sessionExpiry">会话期间</td>
+            </tr>
+            <tr>
+              <td data-i18n-html="privacy.s4.langCookie">语言偏好 (Language Preference)</td>
+              <td data-i18n-html="privacy.s4.langDesc">记住您选择的语言设置</td>
+              <td data-i18n-html="privacy.s4.langExpiry">1 年</td>
+            </tr>
+            <tr>
+              <td data-i18n-html="privacy.s4.themeCookie">主题偏好 (Theme Preference)</td>
+              <td data-i18n-html="privacy.s4.themeDesc">记住您的界面主题偏好</td>
+              <td data-i18n-html="privacy.s4.themeExpiry">1 年</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n-html="privacy.s4.analyticsTitle">4.2 分析 Cookies</h3>
+        <p data-i18n-html="privacy.s4.analyticsDesc">我们使用 <strong>Google Analytics</strong> 来了解访客如何与我们的网站互动：</p>
+        <ul>
+          <li><strong>_ga</strong> — 区分用户（2年有效期）</li>
+          <li><strong>_ga_*</strong> — 用于统计网站使用情况（2年有效期）</li>
+          <li><strong>_gid</strong> — 区分用户（24小时有效期）</li>
+        </ul>
+        <p data-i18n-html="privacy.s4.analyticsOptout">Google Analytics 的数据经过匿名化处理，不包含可识别个人身份的信息。您可以访问 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="privacy-link">Google Analytics Opt-out</a> 页面来禁用此跟踪。</p>
+
+        <h3 data-i18n-html="privacy.s4.adCookiesTitle">4.3 广告 Cookies</h3>
+        <p data-i18n-html="privacy.s4.adCookiesDesc">我们使用 <strong>Google AdSense</strong> 展示广告，其可能使用以下 Cookie：</p>
+        <ul>
+          <li><strong>DoubleClick Cookie (__gads, __gpi)</strong> — 用于展示个性化广告</li>
+          <li><strong>NID</strong> — 用于定制 Google 广告</li>
+        </ul>
+        <p data-i18n-html="privacy.s4.adCookiesNote">这些 Cookie 由 Google 设置和管理，用于根据您之前对本网站及其他网站的访问记录来展示相关广告。</p>
+
+        <h3 data-i18n-html="privacy.s4.manageTitle">4.4 管理 Cookies</h3>
+        <p data-i18n-html="privacy.s4.manageDesc">您可以通过以下方式管理 Cookies：</p>
+        <ul>
+          <li data-i18n-html="privacy.s4.manage1">通过浏览器设置接受、拒绝或删除 Cookies（大多数浏览器默认允许 Cookies）</li>
+          <li data-i18n-html="privacy.s4.manage2">访问 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="privacy-link">Google 广告设置</a> 管理个性化广告偏好</li>
+          <li data-i18n-html="privacy.s4.manage3">安装 <a href="https://www.google.com/settings/ads/plugin" target="_blank" rel="noopener noreferrer" class="privacy-link">Google 广告屏蔽插件</a> 完全退出个性化广告</li>
+        </ul>
+        <div class="privacy-warning">
+          <p data-i18n-html="privacy.s4.warning"><strong>⚠️ 注意：</strong>禁用必要的 Cookies 可能会影响网站的正常功能和用户体验。</p>
+        </div>
+      </section>
+
+      <section class="privacy-section" id="third-party">
+        <h2 data-i18n-html="privacy.s5.title">🤝 5. 第三方服务</h2>
+        <p data-i18n-html="privacy.s5.desc">我们可能使用以下第三方服务提供商来支持我们的业务运营。请注意，这些第三方有其独立的隐私政策，我们不对其做法负责：</p>
+
+        <h3 data-i18n-html="privacy.s5.adsenseTitle">5.1 Google AdSense</h3>
+        <ul>
+          <li data-i18n-html="privacy.s5.adsense1"><strong>用途：</strong>在本网站上展示广告</li>
+          <li data-i18n-html="privacy.s5.adsense2"><strong>数据处理：</strong>使用 DoubleClick Cookie 收集关于您访问的信息，用于展示个性化广告</li>
+          <li data-i18n-html="privacy.s5.adsense3"><strong>隐私政策：</strong><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="privacy-link">https://policies.google.com/privacy</a></li>
+        </ul>
+
+        <h3 data-i18n-html="privacy.s5.gaTitle">5.2 Google Analytics</h3>
+        <ul>
+          <li data-i18n-html="privacy.s5.ga1"><strong>用途：</strong>网站流量分析和用户行为统计</li>
+          <li data-i18n-html="privacy.s5.ga2"><strong>数据处理：</strong>收集匿名化的访问数据，帮助我们改进网站</li>
+          <li data-i18n-html="privacy.s5.ga3"><strong>隐私政策：</strong><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="privacy-link">https://policies.google.com/privacy</a></li>
+        </ul>
+
+        <h3 data-i18n-html="privacy.s5.cdnTitle">5.3 内容分发网络 (CDN)</h3>
+        <ul>
+          <li data-i18n-html="privacy.s5.cdn1"><strong>用途：</strong>加速静态资源的加载速度</li>
+          <li data-i18n-html="privacy.s5.cdn2"><strong>数据处理：</strong>可能记录请求日志用于性能监控和安全防护</li>
+        </ul>
+
+        <h3 data-i18n-html="privacy.s5.linksTitle">5.4 其他第三方链接</h3>
+        <p data-i18n-html="privacy.s5.linksDesc">本网站可能包含指向第三方网站或服务的链接。我们对这些外部网站的内容、隐私政策或做法不承担任何责任。我们建议您在向任何第三方提交个人信息之前查看其隐私政策。</p>
+      </section>
+
+      <section class="privacy-section" id="security">
+        <h2 data-i18n-html="privacy.s6.title">🔒 6. 数据安全</h2>
+        <p data-i18n-html="privacy.s6.desc">我们采取适当的技术和组织措施来保护您的信息安全：</p>
+        <ol>
+          <li data-i18n-html="privacy.s6.sec1"><strong>HTTPS 加密传输</strong>：本网站全程使用 HTTPS/TLS 加密协议，确保数据在传输过程中的安全性</li>
+          <li data-i18n-html="privacy.s6.sec2"><strong>本地数据处理</strong>：如前所述，您的输入数据在浏览器端完成处理，无需上传至服务器</li>
+          <li data-i18n-html="privacy.s6.sec3"><strong>最小化数据收集</strong>：我们只收集提供服务所必需的最少量信息</li>
+          <li data-i18n-html="privacy.s6.sec4"><strong>定期安全审查</strong>：我们会定期评估和更新安全措施</li>
+          <li data-i18n-html="privacy.s6.sec5"><strong>访问控制</strong>：严格限制对收集数据的访问权限</li>
+        </ol>
+        <p data-i18n-html="privacy.s6.disclaimer">虽然我们努力保护您的信息，但没有任何互联网传输方法或电子存储方法是 100% 安全的。我们不能保证绝对的安全性。</p>
+      </section>
+
+      <section class="privacy-section" id="rights">
+        <h2 data-i18n-html="privacy.s7.title">⚖️ 7. 用户权利</h2>
+        <p data-i18n-html="privacy.s7.desc">根据适用的隐私法规（GDPR、CCPA、PIPL），您享有以下权利：</p>
+
+        <h3 data-i18n-html="privacy.s7.gdprTitle">7.1 GDPR 下的权利（欧盟用户）</h3>
+        <table class="privacy-table">
+          <thead>
+            <tr>
+              <th data-i18n-html="privacy.s7.rightName">权利名称</th>
+              <th data-i18n-html="privacy.s7.rightDesc">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong data-i18n-html="privacy.s7.accessRight">访问权 (Right of Access)</strong></td>
+              <td data-i18n-html="privacy.s7.accessDesc">您可以要求获取我们持有的关于您的个人数据的副本</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s7.rectifyRight">更正权 (Right to Rectification)</strong></td>
+              <td data-i18n-html="privacy.s7.rectifyDesc">如果您认为我们持有的数据不准确或不完整，可以要求更正</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s7.eraseRight">删除权 (Right to Erasure / "被遗忘权")</strong></td>
+              <td data-i18n-html="privacy.s7.eraseDesc">在某些情况下，您可以要求删除您的个人数据</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s7.restrictRight">限制处理权 (Right to Restrict Processing)</strong></td>
+              <td data-i18n-html="privacy.s7.restrictDesc">您可以限制我们处理您数据的方式</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s7.portableRight">数据可携带权 (Right to Data Portability)</strong></td>
+              <td data-i18n-html="privacy.s7.portableDesc">您可以要求以结构化、机器可读的格式获取您的数据</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s7.objectRight">反对权 (Right to Object)</strong></td>
+              <td data-i18n-html="privacy.s7.objectDesc">您可以反对基于合法利益的数据处理活动</td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s7.consentRight">撤回同意权 (Right to Withdraw Consent)</strong></td>
+              <td data-i18n-html="privacy.s7.consentDesc">如果处理基于您的同意，您可以随时撤回</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n-html="privacy.s7.ccpaTitle">7.2 CCPA 下的权利（加州居民）</h3>
+        <p data-i18n-html="privacy.s7.ccpaDesc">作为加州居民，您还享有以下额外权利：</p>
+        <ul>
+          <li data-i18n-html="privacy.s7.ccpaKnow"><strong>知情权 (Right to Know)</strong>：了解我们收集了哪些关于您的个人信息类别及其用途</li>
+          <li data-i18n-html="privacy.s7.ccpaDelete"><strong>删除权 (Right to Delete)</strong>：要求删除我们收集的您的个人信息</li>
+          <li data-i18n-html="privacy.s7.ccpaOptOut"><strong>拒绝出售权 (Right to Opt-Out of Sale)</strong>：<strong>我们不出售您的个人信息。</strong>如需确认或行使此权利，请联系我们</li>
+          <li data-i18n-html="privacy.s7.ccpaDiscrim"><strong>非歧视权 (Right to Non-Discrimination)</strong>：行使您的 CCPA 权利不会导致我们向您提供差别待遇</li>
+        </ul>
+        <div class="privacy-highlight">
+          <p data-i18n-html="privacy.s7.dnsHighlight"><strong>🛑 不要出售我的信息 (Do Not Sell My Personal Information)</strong><br>我们承诺不出售您的个人信息的任何部分。如需了解更多或行使此权利，请通过下方联系方式与我们联系。</p>
+        </div>
+
+        <h3 data-i18n-html="privacy.s7.plplTitle">7.3 PIPL 下的权利（中国用户）</h3>
+        <ul>
+          <li data-i18n-html="privacy.s7.pipl1">知情权和决定权</li>
+          <li data-i18n-html="privacy.s7.pipl2">查阅、复制权</li>
+          <li data-i18n-html="privacy.s7.pipl3">更正、补充权</li>
+          <li data-i18n-html="privacy.s7.pipl4">删除权</li>
+          <li data-i18n-html="privacy.s7.pipl5">撤回同意权</li>
+          <li data-i18n-html="privacy.s7.pipl6">注销账号权</li>
+        </ul>
+
+        <h3 data-i18n-html="privacy.s7.howToExerciseTitle">7.4 如何行使权利</h3>
+        <p data-i18n-html="privacy.s7.howToExerciseDesc">如需行使上述任何权利，请通过第 10 节中的联系方式联系我们。我们将在收到请求后合理时间内（通常不超过 30 天）回复您的请求。</p>
+      </section>
+
+      <section class="privacy-section" id="children">
+        <h2 data-i18n-html="privacy.s8.title">🧒 8. 儿童隐私</h2>
+        <div class="privacy-warning">
+          <p data-i18n-html="privacy.s8.warning"><strong>⚠️ 本服务不面向 13 岁以下的儿童。</strong></p>
+        </div>
+        <p data-i18n-html="privacy.s8.p1">我们不会故意收集 13 岁以下儿童的个人信息。如果我们发现未经父母同意收集了儿童个人信息，我们将采取措施尽快删除该信息。如果您是父母或监护人并发现您的孩子向我们提供了个人信息，请立即联系我们。</p>
+        <p data-i18n-html="privacy.s8.p2">如果我们确定年龄为该司法管辖区定义的"儿童"的用户，我们将按照适用法律的要求处理此类信息，包括在收集前获得父母同意。</p>
+      </section>
+
+      <section class="privacy-section" id="changes">
+        <h2 data-i18n-html="privacy.s9.title">📝 9. 隐私政策更新</h2>
+        <p data-i18n-html="privacy.s9.desc">我们可能会不时更新本隐私政策以反映以下变化：</p>
+        <ul>
+          <li data-i18n-html="privacy.s9.reason1">我们实践的变化</li>
+          <li data-i18n-html="privacy.s9.reason2">新功能的推出</li>
+          <li data-i18n-html="privacy.s9.reason3">法律法规的变更</li>
+          <li data-i18n-html="privacy.s9.reason4">业务运营的调整</li>
+        </ul>
+        <p data-i18n-html="privacy.s9.notifyLabel"><strong>通知方式：</strong></p>
+        <ol>
+          <li data-i18n-html="privacy.s9.notify1">在本页面上发布更新的版本，并更新"最后更新日期"</li>
+          <li data-i18n-html="privacy.s9.notify2">对于重大变更，我们可能会通过网站上的显著通知告知您</li>
+        </ol>
+        <p data-i18n-html="privacy.s9.effective"><strong>生效时间：</strong>修订后的政策将在发布后立即生效。我们鼓励您定期查阅本页面以了解最新信息。继续使用我们的服务即表示您接受更新后的政策。</p>
+      </section>
+
+      <section class="privacy-section" id="contact">
+        <h2 data-i18n-html="privacy.s10.title">📬 10. 联系我们</h2>
+        <p data-i18n-html="privacy.s10.desc">如果您对本隐私政策有任何疑问、疑虑或建议，或者希望行使您的隐私权利，请通过以下方式联系我们：</p>
+
+        <h3 data-i18n-html="privacy.s10.contactInfoTitle">联系信息</h3>
+        <table class="privacy-table">
+          <thead>
+            <tr>
+              <th data-i18n-html="privacy.s10.contactMethod">联系方式</th>
+              <th data-i18n-html="privacy.s10.contactDetail">详情</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong data-i18n-html="privacy.s10.emailLabel">电子邮件 (Email)</strong></td>
+              <td><a href="mailto:privacy@tools.suipce.com" class="privacy-link">privacy@tools.suipce.com</a></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n-html="privacy.s10.addressLabel">邮寄地址 (Mailing Address)</strong></td>
+              <td>[您的公司名称]<br>[详细地址]<br>[城市, 省/州, 邮编]<br>[国家]</td>
+            </tr>
+            <tr>
+              <td><strong>Data Protection Officer (DPO)</strong></td>
+              <td data-i18n-html="privacy.s10.dpoDesc">可通过上述邮箱联系</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n-html="privacy.s10.regulatorTitle">监管机构</h3>
+        <p data-i18n-html="privacy.s10.regulatorDesc">如果您认为我们处理您数据的方式违反了适用的数据保护法规，您有权向相关监管机构投诉：</p>
+        <ul>
+          <li data-i18n-html="privacy.s10.regEu"><strong>欧盟 (EU)：</strong>您居住地成员国的数据保护机构</li>
+          <li data-i18n-html="privacy.s10.regCa"><strong>美国加州 (California)：</strong>California Privacy Protection Agency (CPPA)</li>
+          <li data-i18n-html="privacy.s10.regCn"><strong>中国 (China)：</strong>国家互联网信息办公室及地方网信部门</li>
+        </ul>
+      </section>
+
+      <footer style="margin-top:40px;padding-top:24px;border-top:2px solid var(--border-color);text-align:center;color:var(--text-light);font-size:13px;">
+        <p data-i18n-html="privacy.footerCopyright">© 2026 在线工具集. 保留所有权利.</p>
+        <p style="margin-top:8px;" data-i18n-html="privacy.footerUpdate">本隐私政策的最后更新时间为 2026 年 5 月 31 日。</p>
+      </footer>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+  <script src="js/common.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>

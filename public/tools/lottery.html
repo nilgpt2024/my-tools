@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖转盘 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .lottery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .lottery-layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .wheel-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wheel-wrapper {
+            position: relative;
+            width: 340px;
+            height: 340px;
+        }
+
+        #lotteryCanvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 8px rgba(255,255,255,0.9),
+                0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-top: 36px solid var(--primary-color);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            z-index: 10;
+        }
+
+        .wheel-center-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            border: 4px solid var(--primary-color);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wheel-center-btn:hover:not(:disabled) {
+            transform: translate(-50%, -50%) scale(1.08);
+            box-shadow: 0 6px 24px rgba(64,158,255,0.35);
+        }
+
+        .wheel-center-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .config-panel {
+            width: 320px;
+            background: #fafafa;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        .config-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .prize-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 16px;
+        }
+
+        .prize-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .prize-item input[type="text"] {
+            flex: 1;
+            padding: 6px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .prize-item input[type="text"]:focus {
+            border-color: var(--primary-color);
+        }
+
+        .color-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .remove-prize-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .remove-prize-btn:hover {
+            background: #fee;
+            color: #f56c6c;
+            border-color: #f56c6c;
+        }
+
+        .panel-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .result-banner {
+            text-align: center;
+            margin-top: 20px;
+            min-height: 60px;
+        }
+
+        .result-text {
+            font-size: 28px;
+            font-weight: 800;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .result-text.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .lottery-layout { gap: 24px; }
+            .wheel-wrapper { width: 280px; height: 280px; }
+            .config-panel { width: 100%; max-width: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.lottery.name">抽奖转盘</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🎡</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.lottery.name">抽奖转盘</h2>
+                        <p data-i18n="tools.lottery.desc">自定义奖品和颜色，创建专属抽奖转盘，点击中心按钮开始抽奖！</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="lottery-container">
+                    <div class="lottery-layout">
+                        <div class="wheel-section">
+                            <div class="wheel-wrapper">
+                                <canvas id="lotteryCanvas" width="680" height="680"></canvas>
+                                <div class="wheel-pointer"></div>
+                                <button class="wheel-center-btn" id="spinBtn" data-i18n="tools.lottery.spin">抽奖</button>
+                            </div>
+                        </div>
+
+                        <div class="config-panel">
+                            <div class="config-title">⚙️ <span data-i18n="tools.lottery.prizes">奖品设置</span></div>
+                            <div class="prize-list" id="prizeList"></div>
+                            <div class="panel-actions">
+                                <button class="btn btn-primary" id="addPrizeBtn" data-i18n="tools.lottery.addPrize">+ 添加奖品</button>
+                                <button class="btn btn-secondary" id="resetPrizesBtn" data-i18n="tools.lottery.reset">重置</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-banner">
+                        <div class="result-text" id="resultText"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/lottery.js"></script>
+</body>
+</html>

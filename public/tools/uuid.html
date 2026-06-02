@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UUID生成器 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev">开发运维</a>
+        <span>/</span>
+        <span>UUID生成器</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🆔</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.uuid.name">UUID生成器</h2>
+            <p data-i18n="tools.uuid.desc">批量生成通用唯一识别码(UUID)，支持标准UUID v4格式，可自定义数量</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="options-group">
+          <div class="option-item">
+            <label data-i18n="tools.uuid.version">UUID版本：</label>
+            <select id="uuidVersion">
+              <option value="v4">UUID v4（随机）</option>
+            </select>
+          </div>
+          <div class="option-item">
+            <label>生成数量：</label>
+            <input type="number" id="uuidCount" value="5" min="1" max="100">
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="uppercase" checked> 大写显示</label>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="noHyphens"> <span data-i18n="tools.uuid.noDash">去除连字符</span></label>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="generateUUID()">🔄 生成UUID</button>
+          <button class="btn btn-secondary" onclick="copyAllUUIDs()">📋 复制全部</button>
+          <button class="btn btn-secondary" onclick="downloadUUIDs()">💾 下载文件</button>
+          <button class="btn btn-secondary" onclick="clearResult()">🗑️ 清空</button>
+        </div>
+
+        <div class="output-section">
+          <h3>生成结果</h3>
+          <div class="result-display" id="resultDisplay">
+            <div class="result-empty">点击上方按钮生成UUID</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/uuid.js"></script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>服务条款 - 在线工具集</title>
+  <meta name="description" content="在线工具集服务条款 - 使用本站工具和服务需遵守的条款和条件">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.suipce.com/terms-of-service.html">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .terms-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+    .terms-header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .terms-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .terms-header .last-updated {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .terms-content {
+      background: var(--card-bg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+    .terms-content h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .terms-content h2:first-child {
+      margin-top: 0;
+    }
+    .terms-content h2 .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .terms-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .terms-content p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .terms-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 16px;
+    }
+    .terms-content ul li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .terms-content ul li::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-color);
+      border-radius: 50%;
+    }
+    .terms-content strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(64, 158, 255, 0.06), rgba(118, 75, 162, 0.06));
+      border-left: 4px solid var(--primary-color);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .warning-box {
+      background: linear-gradient(135deg, rgba(245, 108, 108, 0.06), rgba(230, 162, 60, 0.06));
+      border-left: 4px solid #f56c6c;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .ad-disclosure {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      border-radius: var(--border-radius);
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .ad-disclosure-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ad-disclosure p {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .toc {
+      background: var(--bg-color);
+      border-radius: var(--border-radius);
+      padding: 24px 28px;
+      margin-bottom: 32px;
+    }
+    .toc h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 14px 0;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      padding-left: 0;
+      margin: 0;
+    }
+    .toc ol li {
+      counter-increment: toc-counter;
+      padding: 6px 0 6px 28px;
+      position: relative;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .toc ol li::before {
+      content: counter(toc-counter);
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .toc ol li a {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    .contact-info {
+      background: var(--bg-color);
+      border-radius: var(--border-radius);
+      padding: 20px 24px;
+      margin-top: 12px;
+    }
+    .contact-info p {
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .terms-page {
+        padding: 24px 16px 40px;
+      }
+      .terms-header h1 {
+        font-size: 24px;
+      }
+      .terms-content {
+        padding: 24px 20px;
+      }
+      .terms-content h2 {
+        font-size: 17px;
+      }
+      .terms-content h2 .section-num {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+      }
+      .toc {
+        padding: 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="terms-page">
+    <div class="terms-header">
+      <h1>服务条款 / Terms of Service</h1>
+      <p class="last-updated">最后更新日期 (Last Updated): 2025年5月31日</p>
+    </div>
+
+    <div class="terms-content">
+      <div class="toc">
+        <h3>目录 / Table of Contents</h3>
+        <ol>
+          <li><a href="#overview">服务条款概述 (Terms of Service Overview)</a></li>
+          <li><a href="#service">服务描述 (Description of Service)</a></li>
+          <li><a href="#responsibilities">用户责任 (User Responsibilities)</a></li>
+          <li><a href="#ip">知识产权 (Intellectual Property)</a></li>
+          <li><a href="#disclaimer">免责声明 (Disclaimer of Warranties)</a></li>
+          <li><a href="#liability">责任限制 (Limitation of Liability)</a></li>
+          <li><a href="#advertising">广告 (Advertising)</a></li>
+          <li><a href="#third-party">第三方链接 (Third-Party Links)</a></li>
+          <li><a href="#termination">终止 (Termination)</a></li>
+          <li><a href="#governing">适用法律 (Governing Law)</a></li>
+          <li><a href="#changes">条款变更 (Changes to Terms)</a></li>
+          <li><a href="#contact">联系方式 (Contact)</a></li>
+        </ol>
+      </div>
+
+      <h2 id="overview"><span class="section-num">1</span> 服务条款概述 / Terms of Service Overview</h2>
+      <p>欢迎使用<strong>在线工具集</strong>（以下简称"本站"或"我们"）。在访问和使用本网站及其提供的任何工具和服务之前，请仔细阅读以下服务条款（以下简称"本条款"）。</p>
+      <div class="highlight-box">
+        <strong>重要提示 / Important Notice:</strong> 访问或使用本网站即表示您已阅读、理解并同意受本条款约束。如果您不同意本条款的任何部分，请立即停止使用本网站。
+      </div>
+      <p><em>Welcome to use Online Tools Hub (hereinafter referred to as "the Site" or "we"). Before accessing and using this website and any tools and services provided hereby, please carefully read the following Terms of Service (hereinafter referred to as "these Terms").</em></p>
+      <p><em>By accessing or using this website, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to any part of these Terms, please discontinue use of this website immediately.</em></p>
+      <ul>
+        <li>本条款适用于本网站提供的所有工具、内容和服务的所有用户。</li>
+        <li>These Terms apply to all users of all tools, content, and services provided on this website.</li>
+        <li>我们保留随时修改本条款的权利。继续使用本站即表示您接受修改后的条款。</li>
+        <li>We reserve the right to modify these Terms at any time. Continued use of the Site constitutes acceptance of the modified Terms.</li>
+      </ul>
+
+      <h2 id="service"><span class="section-num">2</span> 服务描述 / Description of Service</h2>
+      <p>本站提供多种免费在线工具，旨在帮助用户高效完成各类日常任务。我们的核心服务包括但不限于：</p>
+      <ul>
+        <li><strong>开发运维类工具：</strong>JSON 格式化、代码格式化（HTML/CSS/JS/SQL）、Base64 编解码、MD5/SHA 哈希计算、正则表达式测试等；</li>
+        <li><strong>文本处理类工具：</strong>文字统计、词频分析、文本去重、文本替换、Markdown 编辑器、Unicode 转换等；</li>
+        <li><strong>图像处理类工具：</strong>图片裁剪、图片水印、颜色拾取器、图片取色等；</li>
+        <li><strong>实用工具类：</strong>二维码生成、UUID 生成、随机密码生成、时间戳转换、单位换算、计算器等；</li>
+        <li><strong>娱乐工具类：</strong>掷骰子、抛硬币、石头剪刀布、抽奖转盘、反应力测试等。</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>关于工具运行方式 / About Tool Operation:</strong> 本站所有工具均在您的浏览器中<strong>本地运行</strong>，您的输入数据不会上传至我们的服务器（除非明确标注）。这保护了您的数据隐私和安全。
+      </div>
+      <ul>
+        <li>目前提供 <strong>60+</strong> 款免费在线工具，我们将持续更新和增加新工具。</li>
+        <li>We currently provide over <strong>60 free online tools</strong>, and we will continue to update and add new tools.</li>
+        <li>我们不保证服务 100% 无中断或无错误。所有工具均按"原样"提供。</li>
+        <li>We do not guarantee that the service will be uninterrupted or error-free. All tools are provided on an "as-is" basis.</li>
+        <li>我们保留随时修改、暂停或终止任何工具或整个服务的权利，恕不另行通知。</li>
+        <li>We reserve the right to modify, suspend, or terminate any tool or the entire service at any time without prior notice.</li>
+      </ul>
+
+      <h2 id="responsibilities"><span class="section-num">3</span> 用户责任 / User Responsibilities</h2>
+      <p>在使用本站服务时，您同意遵守以下规定：</p>
+      <h3>年龄限制 / Age Restriction</h3>
+      <ul>
+        <li>您必须年满 <strong>18 周岁</strong>，或在父母或法定监护人的同意下使用本站服务。</li>
+        <li>You must be at least <strong>18 years old</strong>, or use this service with the consent of a parent or legal guardian.</li>
+      </ul>
+      <h3>合法使用 / Lawful Use</h3>
+      <ul>
+        <li>您仅可将本站工具用于<strong>合法目的</strong>，不得用于任何非法活动或违反适用法律法规的行为。</li>
+        <li>You may only use our tools for <strong>lawful purposes</strong> and shall not engage in any illegal activities or actions that violate applicable laws and regulations.</li>
+        <li>您不得尝试通过任何方式破坏、攻击、干扰本网站的正常运行，包括但不限于：DDoS 攻击、SQL 注入、XSS 攻击、爬虫滥用等。</li>
+        <li>You shall not attempt to damage, attack, or interfere with the normal operation of this website by any means, including but not limited to: DDoS attacks, SQL injection, XSS attacks, crawler abuse, etc.</li>
+      </ul>
+      <h3>行为责任 / Conduct Responsibility</h3>
+      <ul>
+        <li>您对使用本站服务期间的<strong>所有行为</strong>承担全部责任。</li>
+        <li>You bear full responsibility for <strong>all actions</strong> taken while using our services.</li>
+        <li>不得利用自动化脚本大量发送请求，以免对服务器造成不当负担。</li>
+        <li>Do not use automated scripts to send large numbers of requests, which may cause undue burden on the server.</li>
+        <li>不得将本站工具用于侵犯他人隐私、知识产权或其他合法权益的行为。</li>
+        <li>Do not use our tools for acts that infringe upon others' privacy, intellectual property rights, or other legitimate rights and interests.</li>
+      </ul>
+
+      <h2 id="ip"><span class="section-num">4</span> 知识产权 / Intellectual Property</h2>
+      <ul>
+        <li>本网站的<strong>整体设计、源代码、图形界面、文字内容、商标、标识</strong>及其他所有原创内容，其知识产权归站长所有，受中华人民共和国著作权法及相关国际条约保护。</li>
+        <li>The <strong>overall design, source code, graphical interface, textual content, trademarks, logos</strong>, and all other original content of this website are owned by the site owner and are protected by the Copyright Law of the PRC and relevant international treaties.</li>
+        <li>使用本站提供的工具<strong>不转移</strong>任何知识产权给您。您获得的是有限的、非独占的、可撤销的使用许可。</li>
+        <li>Using the tools provided on this Site does <strong>not transfer</strong> any intellectual property rights to you. You are granted a limited, non-exclusive, revocable license to use.</li>
+        <li>您对其输入到本站工具中的<strong>原始数据</strong>保留完整的知识产权。我们不会声称对您的输入数据拥有任何权利。</li>
+        <li>You retain complete intellectual property rights over your <strong>original data</strong> input into our tools. We do not claim any rights over your input data.</li>
+        <li>本站使用的开源组件均遵循其各自的开源许可证协议。相关许可证信息可在相应项目中查阅。</li>
+        <li>Open-source components used on this Site comply with their respective open-source license agreements. Relevant license information can be found in the respective projects.</li>
+      </ul>
+
+      <h2 id="disclaimer"><span class="section-num">5</span> 免责声明 / Disclaimer of Warranties</h2>
+      <div class="warning-box">
+        <strong>重要免责声明 / Important Disclaimer:</strong> 本站及所有工具均按"<strong>原样（AS-IS）</strong>"和"<strong>按可用状态（AS-AVAILABLE）</strong>"基础提供，不附带任何明示或暗示的保证。
+      </div>
+      <ul>
+        <li>我们不保证工具输出的<strong>准确性、完整性、可靠性</strong>或适用于特定用途。</li>
+        <li>We do not warrant the <strong>accuracy, completeness, reliability</strong> or fitness for a particular purpose of the tool outputs.</li>
+        <li>所有工具结果仅供参考，<strong>不构成任何专业建议</strong>（包括但不限于法律、财务、医疗、安全等方面的建议）。在做出重要决策前，请咨询相关专业人士。</li>
+        <li>All tool results are for reference only and <strong>do not constitute professional advice</strong> of any kind (including but not limited to legal, financial, medical, security advice, etc.). Please consult relevant professionals before making important decisions.</li>
+      </ul>
+      <h3>特别说明 / Special Notes</h3>
+      <ul>
+        <li><strong>密码生成器：</strong>生成的密码安全性取决于您选择的配置参数（长度、字符类型等）。我们不保证生成的密码能抵御所有类型的攻击。对于高安全性需求的场景，建议使用专业密码管理工具。</li>
+        <li><strong>Password Generator:</strong> The security of generated passwords depends on your chosen configuration parameters (length, character types, etc.). We do not guarantee that generated passwords can resist all types of attacks. For high-security scenarios, professional password management tools are recommended.</li>
+        <li><strong>加密/哈希工具：</strong>MD5 等哈希算法已被证明存在碰撞风险，不建议用于安全性要求高的场景（如密码存储、数字签名等）。加密工具的结果应谨慎使用。</li>
+        <li><strong>Encryption/Hash Tools:</strong> Hash algorithms such as MD5 have been proven to have collision risks and are not recommended for high-security scenarios (such as password storage, digital signatures, etc.). Results from encryption tools should be used with caution.</li>
+        <li><strong>单位转换/计算器工具：</strong>计算结果可能因四舍五入或算法精度限制而存在微小误差，不适用于需要精确计算的专业场景。</li>
+        <li><strong>Unit Conversion/Calculator Tools:</strong> Calculation results may have minor errors due to rounding or algorithm precision limitations and are not suitable for professional scenarios requiring precise calculations.</li>
+      </ul>
+
+      <h2 id="liability"><span class="section-num">6</span> 责任限制 / Limitation of Liability</h2>
+      <ul>
+        <li>在任何情况下，本站及其运营者、关联方、员工、代理人均不对以下损失承担责任：</li>
+        <li>In no event shall the Site, its operators, affiliates, employees, or agents be liable for the following damages:</li>
+      </ul>
+      <ul>
+        <li>任何<strong>间接性、惩罚性、特殊性、后果性</strong>损害（包括但不限于利润损失、数据丢失、业务中断等）；</li>
+        <li>Any <strong>indirect, punitive, special, consequential</strong> damages (including but not limited to loss of profits, data loss, business interruption, etc.);</li>
+        <li>因使用或无法使用本站服务而产生的任何损害，即使我们已被告知可能造成此类损害；</li>
+        <li>Any damages arising from the use or inability to use our services, even if we have been advised of the possibility of such damages;</li>
+        <li>因依赖工具输出结果而导致的任何决策失误或损失。</li>
+        <li>Any decision-making errors or losses resulting from reliance on tool output results.</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>赔偿上限 / Maximum Liability:</strong> 在法律允许的最大范围内，我们对因使用本站服务所产生的任何损害的全部赔偿责任，<strong>不超过您使用本站服务期间所支付的金额</strong>（鉴于本站为免费服务，该金额为零）。
+      </div>
+      <p>上述责任限制将在法律允许的最大范围内适用，且不因本条款任何条款被认定为无效而受到影响。</p>
+
+      <h2 id="advertising"><span class="section-num">7</span> 广告 / Advertising</h2>
+      <p>为了维持网站的正常运营和持续发展，本网站展示广告。以下是关于广告的重要信息：</p>
+      <ul>
+        <li>本网站使用 <strong>Google AdSense</strong> 展示广告，广告内容由 Google 及其广告合作伙伴控制。</li>
+        <li>This website uses <strong>Google AdSense</strong> to display advertisements. Ad content is controlled by Google and its advertising partners.</li>
+        <li>广告展示的位置、频率和内容由 Google 广告系统根据多种因素自动决定，包括但不限于页面内容、用户地理位置、浏览历史等。</li>
+        <li>The placement, frequency, and content of advertisements are automatically determined by Google's advertising system based on various factors, including but not limited to page content, user geographic location, browsing history, etc.</li>
+        <li>点击广告后跳转到的第三方网站由其各自的所有者运营，我们<strong>不对第三方网站的内容、产品或服务</strong>承担任何责任。</li>
+        <li>Third-party websites accessed by clicking ads are operated by their respective owners, and we assume <strong>no responsibility for the content, products, or services</strong> of third-party websites.</li>
+      </ul>
+      <div class="ad-disclosure">
+        <div class="ad-disclosure-title">📢 广告披露声明 / Advertising Disclosure</div>
+        <p>本网站使用 Google AdSense 展示广告。Google 可能使用 Cookie 来基于用户之前对此网站或其他网站的访问来展示广告。您可以通过访问 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 广告设置</a> 来管理您的广告偏好设置。</p>
+        <p><em>This website uses Google AdSense to display ads. Google may use cookies to serve ads based on user's prior visits to this website or other websites. You can manage your ad preferences by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.</em></p>
+        <p style="margin-top: 10px; font-size: 13px; color: var(--text-light);">请注意：本站的广告收入用于支付服务器托管费用、域名维护费用以及新工具的开发成本，以确保能够持续为您提供免费的在线工具服务。</p>
+      </div>
+
+      <h2 id="third-party"><span class="section-num">8</span> 第三方链接 / Third-Party Links</h2>
+      <ul>
+        <li>本网站可能包含指向第三方网站或资源的链接。这些链接仅为方便用户提供，并不表示我们对该第三方网站的认可或推荐。</li>
+        <li>This website may contain links to third-party websites or resources. These links are provided for user convenience only and do not imply endorsement or recommendation of such third-party websites by us.</li>
+        <li>我们<strong>没有控制权</strong>也不对任何第三方网站的内容、隐私政策或做法负责。</li>
+        <li>We have <strong>no control over</strong> and are not responsible for the content, privacy policies, or practices of any third-party websites.</li>
+        <li>第三方网站有其独立的服务条款和隐私政策，我们建议您在使用第三方网站前仔细阅读。</li>
+        <li>Third-party websites have their own independent terms of service and privacy policies. We recommend that you read them carefully before using any third-party websites.</li>
+        <li>您对第三方链接的风险自行承担，包括但不限于可能遇到的恶意软件、欺诈内容或不适当的信息。</li>
+        <li>You assume all risks associated with third-party links, including but not limited to potential malware, fraudulent content, or inappropriate information.</li>
+      </ul>
+
+      <h2 id="termination"><span class="section-num">9</span> 终止 / Termination</h2>
+      <h3>用户终止 / User Termination</h3>
+      <ul>
+        <li>您可以随时<strong>停止使用</strong>本站的服务，无需通知我们。</li>
+        <li>You may <strong>discontinue use</strong> of our services at any time without notice to us.</li>
+      </ul>
+      <h3>站长终止 / Site Owner Termination</h3>
+      <ul>
+        <li>如果我们认为您违反了本条款的任何规定，我们有权<strong>立即终止</strong>您访问和使用本站服务的权限，恕不另行通知。</li>
+        <li>If we determine that you have violated any provision of these Terms, we reserve the right to <strong>immediately terminate</strong> your access to and use of our services without prior notice.</li>
+        <li>违规行为包括但不限于：非法使用、攻击网站、滥用服务、侵犯他人权益等。</li>
+        <li>Violations include but are not limited to: illegal use, attacking the website, abusing services, infringing on others' rights, etc.</li>
+      </ul>
+      <h3>终止后效力 / Post-Termination Effect</h3>
+      <ul>
+        <li>本条款中关于知识产权、免责声明、责任限制、适用法律和争议解决的条款，在服务终止后仍然有效。</li>
+        <li>The provisions of these Terms regarding intellectual property, disclaimer of warranties, limitation of liability, governing law, and dispute resolution shall remain in effect after termination of the service.</li>
+      </ul>
+
+      <h2 id="governing"><span class="section-num">10</span> 适用法律 / Governing Law</h2>
+      <ul>
+        <li>本条款的订立、执行、解释及争议解决均适用<strong>中华人民共和国法律</strong>（不包括冲突法规则）。</li>
+        <li>The formation, performance, interpretation, and dispute resolution of these Terms shall be governed by the <strong>laws of the People's Republic of China</strong> (excluding conflict of laws rules).</li>
+        <li>因本条款引起的或与本条款有关的任何争议，双方应首先通过<strong>友好协商</strong>解决；协商不成的，任何一方有权向本站运营者所在地有管辖权的人民法院提起诉讼。</li>
+        <li>Any dispute arising from or relating to these Terms shall first be resolved through <strong>friendly consultation</strong>; if consultation fails, either party has the right to file a lawsuit with the people's court having jurisdiction at the location of the Site operator.</li>
+        <li>如果本条款的任何条款被有管辖权的法院认定为无效或不可执行，其余条款的效力和可执行性不受影响。</li>
+        <li>If any provision of these Terms is deemed invalid or unenforceable by a court of competent jurisdiction, the validity and enforceability of the remaining provisions shall not be affected.</li>
+      </ul>
+
+      <h2 id="changes"><span class="section-num">11</span> 条款变更 / Changes to Terms</h2>
+      <ul>
+        <li>我们保留随时修改本条款的权利。修改后的条款将在本页面上发布，并更新"最后更新日期"。</li>
+        <li>We reserve the right to modify these Terms at any time. Modified Terms will be published on this page with an updated "Last Updated" date.</li>
+        <li>对于重大变更，我们可能会通过在本网站首页发布公告等方式进行额外通知。</li>
+        <li>For significant changes, we may provide additional notice through announcements on the homepage of this website or other means.</li>
+        <li><strong>继续使用</strong>本站服务即表示您接受修改后的条款。如果您不接受修改后的条款，应立即停止使用本站服务。</li>
+        <li><strong>Continued use</strong> of our services constitutes acceptance of the modified Terms. If you do not accept the modified Terms, you should immediately discontinue use of our services.</li>
+        <li>建议您定期查看本页面以了解最新的服务条款内容。</li>
+        <li>We recommend that you review this page regularly to stay informed about the latest Terms of Service.</li>
+      </ul>
+
+      <h2 id="contact"><span class="section-num">12</span> 联系方式 / Contact</h2>
+      <p>如果您对本服务条款有任何疑问、意见或建议，欢迎通过以下方式联系我们：</p>
+      <div class="contact-info">
+        <p><strong>网站名称 / Website:</strong> 在线工具集 (Online Tools Hub)</p>
+        <p><strong>邮箱 / Email:</strong> 请参考本站首页联系方式</p>
+        <p><strong>地址 / Address:</strong> 请参考本站关于页面</p>
+        <p style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-color); font-size: 13px; color: var(--text-light);">我们通常会在收到消息后的合理时间内回复。感谢您使用在线工具集！</p>
+      </div>
+
+      <div style="margin-top: 40px; padding-top: 24px; border-top: 2px solid var(--border-color); text-align: center; font-size: 13px; color: var(--text-light);">
+        <p>&copy; 2025 在线工具集 (Online Tools Hub). 保留所有权利 / All Rights Reserved.</p>
+        <p style="margin-top: 6px;">本条款最后更新于 2025 年 5 月 31 日 / These Terms were last updated on May 31, 2025.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+  <script src="js/common.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线重量单位转换器 - 支持千克、克、磅、盎司、吨等重量质量单位互相转换">
+    <title>重量转换 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html">首页</a><span>/</span><a href="../index.html#unit">单位转换</a><span>/</span><span>重量转换</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row"><div class="info-icon">⚖️</div><div class="info-content"><h2 data-i18n="tools.weight.name">重量单位转换器</h2><p data-i18n="tools.weight.desc">支持千克、克、磅、盎司、吨、斤、两等重量/质量单位互转</p></div></div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>📥 输入</h3></div>
+                    <div class="io-panel-body">
+                        <select id="fromUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="kg" selected>千克 (kg)</option>
+                            <option value="g">克 (g)</option>
+                            <option value="mg">毫克 (mg)</option>
+                            <option value="t">公吨 (t)</option>
+                            <option value="lb">磅 (lb)</option>
+                            <option value="oz">盎司 (oz)</option>
+                            <option value="jin">斤 (jin)</option>
+                            <option value="liang">两 (liang)</option>
+                            <option value="qian">钱 (qian)</option>
+                            <option value="st">英石 (st)</option>
+                            <option value="ct">克拉 (ct)</option>
+                        </select>
+                        <input type="number" id="fromValue" class="form-control" placeholder="输入数值" value="1" oninput="convert()" step="any">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--primary-color);">⇄</div>
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3 data-i18n="common.output">📤 输出</h3></div>
+                    <div class="io-panel-body">
+                        <select id="toUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="kg">千克 (kg)</option>
+                            <option value="g" selected>克 (g)</option>
+                            <option value="mg">毫克 (mg)</option>
+                            <option value="t">公吨 (t)</option>
+                            <option value="lb">磅 (lb)</option>
+                            <option value="oz">盎司 (oz)</option>
+                            <option value="jin">斤 (jin)</option>
+                            <option value="liang">两 (liang)</option>
+                            <option value="qian">钱 (qian)</option>
+                            <option value="st">英石 (st)</option>
+                            <option value="ct">克拉 (ct)</option>
+                        </select>
+                        <input type="text" id="toValue" class="form-control" readonly style="background: #f0f9ff; font-weight: 600; font-size: 18px;" value="1000">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="margin-bottom: 16px;">📊 常用换算参考</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px;">
+                    <div style="background: #fafafa; padding: 16px; border-radius: var(--border-radius);">
+                        <strong style="color: var(--primary-color);">中国市制</strong>
+                        <ul style="margin: 8px 0 0 20px; font-size: 13px; line-height: 2; color: var(--text-secondary);">
+                            <li>1 斤 = 500 克 = 1.1023 磅</li>
+                            <li>1 两 = 50 克 = 1.7637 盎司</li>
+                            <li>1 公斤 = 2 斤</li>
+                        </ul>
+                    </div>
+                    <div style="background: #fafafa; padding: 16px; border-radius: var(--border-radius);">
+                        <strong style="color: var(--primary-color);">英美制</strong>
+                        <ul style="margin: 8px 0 0 20px; font-size: 13px; line-height: 2; color: var(--text-secondary);">
+                            <li>1 磅 = 16 盎司 ≈ 453.59 克</li>
+                            <li>1 盎司 ≈ 28.35 克</li>
+                            <li>1 英石 = 14 磅 ≈ 6.35 千克</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer" id="footer"></footer>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/weight.js"></script>
+</body>
+</html>

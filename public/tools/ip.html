@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP查询 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .ip-container { display: flex; flex-direction: column; align-items: center; padding: 20px 0; }
+        .ip-hero {
+            text-align: center;
+            margin-bottom: 28px;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(64,158,255,0.06), rgba(118,75,162,0.06));
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(64,158,255,0.15);
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .ip-display {
+            font-size: 36px;
+            font-weight: 800;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .ip-label { font-size: 14px; color: var(--text-secondary); }
+
+        .query-btn {
+            padding: 12px 36px;
+            font-size: 15px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(102,126,234,0.3);
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        .query-btn:hover:not(:disabled) { transform: translateY(-2px); }
+        .query-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            padding: 18px;
+            transition: all 0.25s ease;
+        }
+
+        .info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+        .info-card-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .info-card-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .info-card-value {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        .loading-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 480px) {
+            .ip-display { font-size: 24px; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.ip.name">IP查询</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🌐</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.ip.name">IP地址查询</h2>
+                        <p data-i18n="tools.ip.desc">一键查询你的公网IP地址及地理位置信息，数据来自 ip-api.com。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="ip-container">
+                    <div class="ip-hero">
+                        <div class="ip-label" data-i18n="tools.ip.yourIP">你的公网 IP 地址</div>
+                        <div class="ip-display" id="ipDisplay" data-i18n="tools.ip.clickQuery">点击下方按钮查询</div>
+                        <button class="query-btn" id="queryBtn" data-i18n="tools.ip.query">🔍 查询我的 IP 信息</button>
+                    </div>
+
+                    <div class="info-grid" id="infoGrid"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/ip.js"></script>
+</body>
+</html>

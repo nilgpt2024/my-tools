@@ -1,0 +1,3 @@
+# Google AdSense 发布商验证文件
+# 请将下面的 publisher-id 替换为您的实际 Google AdSense 发布商 ID
+google.com, pub-7457140883364636, DIRECT, f08c47fec0942fa0

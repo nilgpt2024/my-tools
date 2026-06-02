@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML实体转义 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.htmlentity.name">HTML实体转义</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">📝</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.htmlentity.name">HTML实体转义</h2>
+            <p data-i18n="tools.htmlentity.desc">HTML实体编码与解码工具，将特殊字符转换为HTML实体或反向操作</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="options-group">
+          <div class="option-item">
+            <label data-i18n="tools.htmlentity.encodeMode">编码方式：</label>
+            <select id="entityMode">
+              <option value="named">命名实体 (&amp; &lt; &gt;)</option>
+              <option value="numeric">十进制数字 (&#60;)</option>
+              <option value="hex">十六进制数字 (&#x3C;)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="io-container">
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="common.input">📥 输入内容</h3>
+              <div class="io-actions">
+                <button onclick="clearEntityInput()" data-i18n="common.clear">清空</button>
+                <button onclick="pasteEntityInput()" data-i18n="common.paste">粘贴</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="entityInput" placeholder="输入包含HTML特殊字符的文本..."></textarea>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="common.output">📤 转换结果</h3>
+              <div class="io-actions">
+                <button onclick="copyEntityOutput()" data-i18n="common.copy">复制</button>
+                <button onclick="swapEntityContent()" data-i18n="tools.htmlentity.swap">交换</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="entityOutput" placeholder="转换结果将显示在这里..." readonly></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="encodeEntity()" data-i18n="tools.htmlentity.encode">🔒 HTML实体编码</button>
+          <button class="btn btn-primary" onclick="decodeEntity()" data-i18n="tools.htmlentity.decode">🔓 HTML实体解码</button>
+        </div>
+
+        <div style="margin-top:24px;padding:16px;background:#fafafa;border:1px solid var(--border-color);border-radius:8px;">
+          <h3 style="font-size:15px;font-weight:600;margin-bottom:12px;" data-i18n="tools.htmlentity.referenceTable">常用HTML实体对照表</h3>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;">
+            <thead>
+              <tr style="background:#f0f2f5;">
+                <th style="padding:8px 12px;text-align:left;border:1px solid #e4e7ed;" data-i18n="tools.htmlentity.char">字符</th>
+                <th style="padding:8px 12px;text-align:left;border:1px solid #e4e7ed;" data-i18n="tools.htmlentity.namedEntity">命名实体</th>
+                <th style="padding:8px 12px;text-align:left;border:1px solid #e4e7ed;" data-i18n="tools.htmlentity.decimal">十进制</th>
+                <th style="padding:8px 12px;text-align:left;border:1px solid #e4e7ed;" data-i18n="tools.htmlentity.hexadecimal">十六进制</th>
+              </tr>
+            </thead>
+            <tbody id="entityTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/htmlentity.js"></script>
+</body>
+</html>

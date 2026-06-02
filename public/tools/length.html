@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线长度单位转换器 - 支持米、千米、英尺、英寸、海里等常用长度单位互相转换">
+    <title>长度转换 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span>
+            <a href="../index.html#unit" data-i18n="categories.unit">单位转换</a><span>/</span>
+            <span data-i18n="tools.length.name">长度转换</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">📏</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.length.name">长度单位转换器</h2>
+                    <p data-i18n="tools.length.desc">支持米、千米、厘米、毫米、英尺、英寸、码、英里、海里、光年等长度单位互转</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3 data-i18n="common.input">📥 输入</h3>
+                    </div>
+                    <div class="io-panel-body">
+                        <div style="margin-bottom: 12px;">
+                            <select id="fromUnit" class="form-control" onchange="convert()">
+                                <option value="m" selected>米 (m)</option>
+                                <option value="km">千米 (km)</option>
+                                <option value="cm">厘米 (cm)</option>
+                                <option value="mm">毫米 (mm)</option>
+                                <option value="um">微米 (μm)</option>
+                                <option value="nm">纳米 (nm)</option>
+                                <option value="ft">英尺 (ft)</option>
+                                <option value="in">英寸 (in)</option>
+                                <option value="yd">码 (yd)</option>
+                                <option value="mi">英里 (mi)</option>
+                                <option value="nmi">海里 (nmi)</option>
+                                <option value="li">里 (li)</option>
+                                <option value="zhang">丈 (zhang)</option>
+                                <option value="chi">尺 (chi)</option>
+                                <option value="cun">寸 (cun)</option>
+                                <option value="fen">分 (fen)</option>
+                                <option value="au">天文单位 (AU)</option>
+                                <option value="ly">光年 (ly)</option>
+                                <option value="pc">秒差距 (pc)</option>
+                            </select>
+                        </div>
+                        <input type="number" id="fromValue" class="form-control" data-i18n-placeholder="tools.length.value" placeholder="输入数值" value="1" oninput="convert()" step="any">
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--primary-color);">
+                    ⇄
+                </div>
+
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3 data-i18n="common.output">📤 输出</h3>
+                    </div>
+                    <div class="io-panel-body">
+                        <div style="margin-bottom: 12px;">
+                            <select id="toUnit" class="form-control" onchange="convert()">
+                                <option value="m">米 (m)</option>
+                                <option value="km" selected>千米 (km)</option>
+                                <option value="cm">厘米 (cm)</option>
+                                <option value="mm">毫米 (mm)</option>
+                                <option value="um">微米 (μm)</option>
+                                <option value="nm">纳米 (nm)</option>
+                                <option value="ft">英尺 (ft)</option>
+                                <option value="in">英寸 (in)</option>
+                                <option value="yd">码 (yd)</option>
+                                <option value="mi">英里 (mi)</option>
+                                <option value="nmi">海里 (nmi)</option>
+                                <option value="li">里 (li)</option>
+                                <option value="zhang">丈 (zhang)</option>
+                                <option value="chi">尺 (chi)</option>
+                                <option value="cun">寸 (cun)</option>
+                                <option value="fen">分 (fen)</option>
+                                <option value="au">天文单位 (AU)</option>
+                                <option value="ly">光年 (ly)</option>
+                                <option value="pc">秒差距 (pc)</option>
+                            </select>
+                        </div>
+                        <input type="text" id="toValue" class="form-control" readonly style="background: #f0f9ff; font-weight: 600; font-size: 18px;" value="0.001">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="margin-bottom: 16px;">📊 常用单位换算表</h3>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
+                                <th style="padding: 12px; text-align: left;">单位</th>
+                                <th style="padding: 12px; text-align: right;">换算为米</th>
+                            </tr>
+                        </thead>
+                        <tbody id="conversionTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/length.js"></script>
+</body>
+</html>

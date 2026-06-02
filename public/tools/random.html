@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机选择 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .random-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .input-area {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 24px;
+        }
+
+        .input-area textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 16px;
+            font-size: 15px;
+            line-height: 1.8;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            background: #fafafa;
+            color: var(--text-primary);
+            resize: vertical;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .input-area textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(64,158,255,0.12);
+            background: white;
+        }
+
+        .input-hint {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .options-row {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .option-field {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #fafafa;
+            padding: 8px 14px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .option-field label {
+            font-size: 14px;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .option-field input[type="number"] {
+            width: 60px;
+            padding: 6px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-align: center;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .option-field input[type="number"]:focus {
+            border-color: var(--primary-color);
+        }
+
+        .result-display-area {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 24px;
+        }
+
+        .slot-machine {
+            height: 100px;
+            border: 3px solid var(--primary-color);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(180deg, rgba(64,158,255,0.05), rgba(118,75,162,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slot-text {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-align: center;
+            padding: 0 20px;
+            word-break: break-all;
+            transition: opacity 0.2s;
+        }
+
+        .slot-text.rolling {
+            animation: slotRoll 0.08s linear infinite;
+        }
+
+        @keyframes slotRoll {
+            0% { transform: translateY(-4px); opacity: 0.5; }
+            50% { transform: translateY(4px); opacity: 1; }
+            100% { transform: translateY(-4px); opacity: 0.5; }
+        }
+
+        .slot-text.selected {
+            animation: selectedPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: var(--accent-color);
+        }
+
+        @keyframes selectedPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .pick-btn {
+            padding: 14px 48px;
+            font-size: 18px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(245,87,108,0.35);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .pick-btn:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 8px 28px rgba(245,87,108,0.45);
+        }
+
+        .pick-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .history-panel {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .history-title {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .clear-history-btn {
+            padding: 4px 14px;
+            font-size: 12px;
+        }
+
+        .history-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 16px;
+            background: #fafafa;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            min-height: 52px;
+        }
+
+        .history-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            animation: tagPopIn 0.3s ease;
+        }
+
+        @keyframes tagPopIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .empty-tip {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .slot-text { font-size: 24px; }
+            .pick-btn { padding: 12px 32px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.random.name">随机选择</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🎯</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.random.name">随机选择器</h2>
+                        <p data-i18n="tools.random.desc">输入选项列表，一键随机抽取。支持抽取多个结果和重复抽取。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="random-container">
+                    <div class="input-area">
+                        <textarea id="itemInput" data-i18n="tools.random.items" placeholder="每行输入一个选项，例如：&#10;火锅&#10;烧烤&#10;日料&#10;西餐&#10;快餐"></textarea>
+                        <div class="input-hint">💡 每行一个选项，支持中英文、数字等任意文本</div>
+                    </div>
+
+                    <div class="options-row">
+                        <div class="option-field">
+                            <label data-i18n="tools.random.count">抽取数量:</label>
+                            <input type="number" id="pickCount" value="1" min="1" max="100">
+                        </div>
+                        <button class="btn btn-primary pick-btn" id="pickBtn" data-i18n="tools.random.pickOne">🎯 开始抽取</button>
+                    </div>
+
+                    <div class="result-display-area">
+                        <div class="slot-machine">
+                            <div class="slot-text" id="slotText" data-i18n="tools.random.spinning">等待抽取...</div>
+                        </div>
+                    </div>
+
+                    <div class="history-panel">
+                        <div class="history-header">
+                            <div class="history-title">📜 <span data-i18n="tools.random.history">抽取历史</span></div>
+                            <button class="btn btn-secondary clear-history-btn" id="clearHistoryBtn" data-i18n="tools.random.clear">清空</button>
+                        </div>
+                        <div class="history-tags" id="historyTags">
+                            <span class="empty-tip">暂无记录</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/random.js"></script>
+</body>
+</html>

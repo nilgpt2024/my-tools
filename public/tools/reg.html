@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则测试 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.reg.name">正则测试</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🔍</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.reg.name">正则表达式测试</h2>
+            <p data-i18n="tools.reg.desc">在线正则表达式测试工具，实时匹配高亮显示，支持常用正则预设</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="form-group">
+          <label data-i18n="tools.reg.pattern">正则表达式</label>
+          <input type="text" class="form-control" id="regexPattern" placeholder="例如：^\d{4}-\d{2}-\d{2}$" style="font-family:'Consolas','Monaco',monospace;">
+        </div>
+
+        <div class="options-group">
+          <div class="option-item">
+            <label><input type="checkbox" id="flagG"> <span data-i18n="tools.reg.global">g（全局匹配）</span></label>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="flagI" checked> <span data-i18n="tools.reg.ignoreCase">i（忽略大小写）</span></label>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="flagM"> <span data-i18n="tools.reg.multiline">m（多行模式）</span></label>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="flagS"> s（单行模式）</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="tools.reg.testString">测试文本</label>
+          <textarea id="testText" class="form-control" rows="6" placeholder="请输入需要测试的文本..."></textarea>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="testRegex()" data-i18n="tools.reg.match">🔍 测试匹配</button>
+          <button class="btn btn-secondary" onclick="clearRegex()" data-i18n="common.clear">🗑️ 清空</button>
+        </div>
+
+        <div class="output-section" style="margin-top:20px;">
+          <h3 data-i18n="tools.reg.matches">匹配结果</h3>
+          <div id="matchResult" style="background:#f8f9fa;border:1px solid var(--border-color);border-radius:8px;padding:16px;min-height:100px;font-size:14px;">
+            <div class="result-empty" style="text-align:center;color:var(--text-light);padding:30px;" data-i18n="tools.reg.inputHint">输入正则和测试文本后点击匹配</div>
+          </div>
+        </div>
+
+        <div class="output-section">
+          <h3 data-i18n="tools.reg.commonPatterns">常用正则表达式</h3>
+          <div id="commonPatterns" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/reg.js"></script>
+</body>
+</html>

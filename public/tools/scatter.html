@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线散点图生成器 - 基于ECharts，支持多组数据、气泡图、回归线等功能">
+    <title>散点图 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span><a href="../index.html#chart" data-i18n="categories.chart">图表工具</a><span>/</span><span data-i18n="tools.scatter.name">散点图</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row"><div class="info-icon">⭐</div><div class="info-content"><h2 data-i18n="tools.scatter.name">散点图生成器</h2><p data-i18n="tools.scatter.desc">基于 ECharts 的在线散点图生成器，支持多组数据、气泡图、数据回归分析等功能</p></div></div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>📝 <span data-i18n="tools.scatter.name">数据输入</span></h3></div>
+                    <div class="io-panel-body">
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.scatter.name">图表标题：</label>
+                        <input type="text" id="chartTitle" class="form-control" value="身高体重分布" oninput="updateChart()" style="margin-bottom: 12px;">
+                        
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.bar.xAxis">X轴名称：</label>
+                        <input type="text" id="xName" class="form-control" value="身高 (cm)" oninput="updateChart()" style="margin-bottom: 12px;">
+                        
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.bar.yAxis">Y轴名称：</label>
+                        <input type="text" id="yName" class="form-control" value="体重 (kg)" oninput="updateChart()" style="margin-bottom: 12px;">
+                        
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.scatter.name">数据点（每行一个，格式：x,y 或 x,y,size）：</label>
+                        <textarea id="scatterData" class="form-control" rows="10" oninput="updateChart()" placeholder="165,58&#10;170,65&#10;175,72&#10;...">165,55
+170,62
+172,68
+168,57
+178,75
+175,70
+180,82
+163,52
+176,71
+169,64
+173,67
+171,63
+177,74
+166,56
+174,69</textarea>
+                    </div>
+                </div>
+
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>🎨 <span data-i18n="tools.bar.options">样式设置</span></h3></div>
+                    <div class="io-panel-body">
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;" data-i18n="tools.scatter.name">散点类型：</label>
+                            <select id="scatterType" class="form-control" onchange="updateChart()">
+                                <option value="scatter" data-i18n="tools.scatter.basic">普通散点图</option>
+                                <option value="bubble" data-i18n="tools.scatter.bubble">气泡图</option>
+                                <option value="effect">特效散点图</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;">主色调：</label>
+                            <input type="color" id="primaryColor" value="#409EFF" onchange="updateChart()" style="width: 100%; height: 36px; cursor: pointer; border: none; border-radius: 6px;">
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;" data-i18n="tools.scatter.symbolSize">点大小：<span id="symbolSizeValue">10</span></label>
+                            <input type="range" id="symbolSize" min="4" max="30" value="10" oninput="document.getElementById('symbolSizeValue').textContent=this.value; updateChart();" style="width: 100%;">
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="font-size: 13px;"><input type="checkbox" id="showTrendLine" onchange="updateChart()"> <span data-i18n="tools.scatter.trendLine">趋势线</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="margin-bottom: 16px;">⭐ <span data-i18n="tools.scatter.generate">图表预览</span></h3>
+                <div id="chartContainer" style="width: 100%; height: 450px; background: white; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); padding: 16px;"></div>
+            </div>
+
+            <div class="action-buttons" style="justify-content: center; margin-top: 24px;">
+                <button class="btn btn-primary" onclick="downloadChart()">💾 <span data-i18n="common.download">下载图片</span></button>
+                <button class="btn btn-secondary" onclick="loadSampleData('height')">👤 身高体重</button>
+                <button class="btn btn-secondary" onclick="loadSampleData('gdp')">🌍 GDP vs 寿命</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/scatter.js"></script>
+</body>
+</html>

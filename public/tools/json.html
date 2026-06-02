@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-title="tools.json.name">JSON格式化 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.json.name">JSON格式化</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">📋</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.json.name">JSON格式化</h2>
+            <p data-i18n="tools.json.desc">JSON格式化、压缩、验证工具，支持语法高亮显示和错误提示</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="options-group">
+          <div class="option-item">
+            <label data-i18n="tools.json.indentSize">缩进空格数：</label>
+            <select id="indentSize">
+              <option value="2" data-i18n="tools.json.indent2">2 空格</option>
+              <option value="4" selected data-i18n="tools.json.indent4">4 空格</option>
+              <option value="8" data-i18n="tools.json.indent8">8 空格</option>
+              <option value="\t" data-i18n="tools.json.tab">Tab</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="io-container">
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.json.inputJson">📥 JSON输入</h3>
+              <div class="io-actions">
+                <button onclick="clearJsonInput()" data-i18n="common.clear">清空</button>
+                <button onclick="pasteJsonInput()" data-i18n="common.paste">粘贴</button>
+                <button onclick="loadSample()" data-i18n="tools.json.sample">示例</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="jsonInput" data-i18n-placeholder="tools.json.inputPlaceholder" placeholder='请输入JSON数据，例如：{"name": "test", "value": 123}'></textarea>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="common.output">📤 输出结果</h3>
+              <div class="io-actions">
+                <button onclick="copyJsonOutput()" data-i18n="common.copy">复制</button>
+                <button onclick="downloadJson()" data-i18n="common.download">下载</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <pre id="jsonOutput" style="min-height:250px;padding:12px;font-family:'Consolas','Monaco','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-all;overflow:auto;"><div class="result-empty" data-i18n="tools.json.outputPlaceholder" style="text-align:center;color:var(--text-light);padding:40px 20px;">输出结果将显示在这里...</div></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="formatJson()" data-i18n="tools.json.format">✨ 格式化</button>
+          <button class="btn btn-primary" onclick="compressJson()" data-i18n="tools.json.compress">📦 压缩</button>
+          <button class="btn btn-secondary" onclick="validateJson()" data-i18n="tools.json.validate">✅ 验证</button>
+          <button class="btn btn-secondary" onclick="escapeJson()" data-i18n="tools.json.escape">转义</button>
+          <button class="btn btn-secondary" onclick="unescapeJson()" data-i18n="tools.json.unescape">反转义</button>
+        </div>
+
+        <div id="jsonError" style="display:none;margin-top:16px;padding:12px 16px;background:#fef0f0;border:1px solid #fbc4c4;border-radius:8px;color:#f56c6c;font-size:14px;"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/json.js"></script>
+</body>
+</html>

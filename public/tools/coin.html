@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抛硬币 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .coin-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .coin-stage {
+            width: 200px;
+            height: 200px;
+            perspective: 1000px;
+            margin-bottom: 32px;
+        }
+
+        .coin {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        .coin.flipping {
+            animation: coinFlip 2s ease-out forwards;
+        }
+
+        .coin-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            box-shadow:
+                inset 0 0 20px rgba(0,0,0,0.15),
+                0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .coin-heads {
+            background: linear-gradient(145deg, #ffd700, #ffb300, #ff9500, #e6a000, #cc9900);
+            color: #8B6914;
+            border: 6px solid #DAA520;
+        }
+
+        .coin-tails {
+            background: linear-gradient(145deg, #c0c0c0, #b0b0b0, #999999, #888888, #777777);
+            color: #555;
+            border: 6px solid #A9A9A9;
+            transform: rotateY(180deg);
+        }
+
+        @keyframes coinFlip {
+            0% { transform: rotateY(0) rotateX(0); }
+            20% { transform: rotateY(720deg) rotateX(30deg) translateY(-80px); }
+            40% { transform: rotateY(1440deg) rotateX(-20deg) translateY(-120px); }
+            60% { transform: rotateY(2160deg) rotateX(25deg) translateY(-90px); }
+            80% { transform: rotateY(2880deg) rotateX(-10deg) translateY(-40px); }
+            100% { transform: rotateY(var(--final-rotation)) rotateX(0) translateY(0); }
+        }
+
+        .coin-shadow {
+            width: 160px;
+            height: 20px;
+            background: radial-gradient(ellipse, rgba(0,0,0,0.3), transparent);
+            border-radius: 50%;
+            margin-top: -10px;
+            transition: all 0.3s ease;
+        }
+
+        .coin-container.flipping .coin-shadow {
+            transform: scale(0.5);
+            opacity: 0.3;
+        }
+
+        .result-display {
+            text-align: center;
+            margin: 24px 0;
+            min-height: 80px;
+        }
+
+        .result-text {
+            font-size: 28px;
+            font-weight: 700;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .result-text.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .result-text.heads {
+            color: #E6A000;
+        }
+
+        .result-text.tails {
+            color: #777;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 24px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(192,192,192,0.08));
+            border-radius: var(--border-radius-lg);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .stat-value.heads-count {
+            color: #E6A000;
+        }
+
+        .stat-value.tails-count {
+            color: #777;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .flip-btn {
+            padding: 16px 48px;
+            font-size: 18px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(255,165,0,0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .flip-btn:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 28px rgba(255,165,0,0.5);
+        }
+
+        .flip-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .reset-btn {
+            margin-left: 12px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .coin-stage {
+                width: 160px;
+                height: 160px;
+            }
+            .stats-bar {
+                gap: 24px;
+                padding: 12px 20px;
+            }
+            .stat-value {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.coin.name">抛硬币</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🪙</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.coin.name">抛硬币模拟器</h2>
+                        <p data-i18n="tools.coin.desc">点击按钮抛出硬币，观看流畅的3D翻转动画。支持统计正反面出现次数。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="coin-container" id="coinContainer">
+                    <div class="coin-stage">
+                        <div class="coin" id="coin">
+                            <div class="coin-face coin-heads">正</div>
+                            <div class="coin-face coin-tails">反</div>
+                        </div>
+                    </div>
+                    <div class="coin-shadow"></div>
+
+                    <div class="result-display">
+                        <div class="result-text" id="resultText"></div>
+                    </div>
+
+                    <button class="flip-btn" id="flipBtn" data-i18n="tools.coin.toss">抛硬币</button>
+                    <button class="btn btn-secondary reset-btn" id="resetBtn" data-i18n="tools.coin.resetStats">重置统计</button>
+
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <div class="stat-value heads-count" id="headsCount">0</div>
+                            <div class="stat-label" data-i18n="tools.coin.headsCount">正面 (👑)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value tails-count" id="tailsCount">0</div>
+                            <div class="stat-label" data-i18n="tools.coin.tailsCount">反面 (🌸)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/coin.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线文本替换工具 - 支持普通替换和正则表达式替换，批量查找替换文本内容">
+    <meta name="keywords" content="文本替换,正则替换,查找替换,批量替换,正则表达式,Regex">
+    <title>文本替换 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+            <span>/</span>
+            <a href="../index.html#text" data-i18n="categories.text">文本处理</a>
+            <span>/</span>
+            <span data-i18n="tools.textreplace.name">文本替换</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">🔄</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.textreplace.name">文本替换工具</h2>
+                    <p data-i18n="tools.textreplace.desc">支持普通文本替换和正则表达式替换，可配置全局匹配、大小写敏感等选项，支持多规则批量替换</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3>📝 原始文本</h3>
+                        <div class="io-actions">
+                            <button onclick="clearInput()">清空</button>
+                            <button onclick="pasteText()">粘贴</button>
+                        </div>
+                    </div>
+                    <div class="io-panel-body">
+                        <textarea id="inputText" placeholder="在此输入或粘贴需要处理的原始文本..."></textarea>
+                    </div>
+                </div>
+
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3>✨ 替换结果</h3>
+                        <div class="io-actions">
+                            <button onclick="copyResult()" data-i18n="common.copy">复制</button>
+                            <button onclick="downloadResult()" data-i18n="common.download">下载</button>
+                        </div>
+                    </div>
+                    <div class="io-panel-body">
+                        <textarea id="outputText" readonly placeholder="替换后的结果将显示在这里..."></textarea>
+                        <div style="margin-top: 12px; padding: 10px 14px; background: rgba(64,158,255,0.05); border-radius: 6px; font-size: 13px;">
+                            <span id="replaceSummary">等待执行替换操作...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="replace-rules-section">
+                <h3 style="font-size: 15px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                    ⚙️ <span data-i18n="tools.textreplace.rules">替换规则</span>
+                    <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px;" onclick="addRule()" data-i18n="tools.textreplace.addRule">+ 添加规则</button>
+                </h3>
+                <div id="rulesContainer">
+                    <div class="rule-item" data-rule-index="0">
+                        <div class="rule-row">
+                            <div class="rule-field">
+                                <label data-i18n="tools.textreplace.find">查找内容</label>
+                                <input type="text" class="form-control rule-search" placeholder="输入要查找的文本或正则表达式">
+                            </div>
+                            <div class="rule-arrow">→</div>
+                            <div class="rule-field">
+                                <label data-i18n="tools.textreplace.replace">替换为</label>
+                                <input type="text" class="form-control rule-replace" placeholder="输入替换内容（留空表示删除）">
+                            </div>
+                            <div class="rule-actions">
+                                <button class="btn-remove-rule" onclick="removeRule(this)" title="删除规则">×</button>
+                            </div>
+                        </div>
+                        <div class="rule-options">
+                            <label><input type="checkbox" class="rule-regex" onchange="toggleRegexOptions(this)" data-i18n="tools.textreplace.useRegex"> 正则表达式</label>
+                            <label><input type="checkbox" class="rule-global" checked data-i18n="tools.textreplace.globalReplace"> 全局匹配 (g)</label>
+                            <label><input type="checkbox" class="rule-case" data-i18n="tools.textreplace.caseSensitive"> 忽略大小写 (i)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options-group" style="margin-top: 20px;">
+                <div class="option-item">
+                    <label><input type="checkbox" id="highlightDiff" checked> 高亮显示差异</label>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="showMatchCount" checked> 显示匹配数量</label>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="doReplace()">🚀 执行替换</button>
+                <button class="btn btn-secondary" onclick="swapContent()">🔄 交换内容</button>
+                <button class="btn btn-secondary" onclick="clearAll()">🗑️ 清空全部</button>
+            </div>
+
+            <div id="regexHelper" class="regex-helper" style="margin-top: 20px; display: none;">
+                <h4 style="font-size: 14px; margin-bottom: 12px; color: var(--primary-color);">📖 常用正则表达式参考</h4>
+                <div class="regex-quick-ref">
+                    <div class="regex-item"><code>\d</code><span>匹配数字</span></div>
+                    <div class="regex-item"><code>\w</code><span>匹配字母数字下划线</span></div>
+                    <div class="regex-item"><code>\s</code><span>匹配空白字符</span></div>
+                    <div class="regex-item"><code>.</code><span>匹配任意字符(除换行)</span></div>
+                    <div class="regex-item"><code>*</code><span>匹配0次或多次</span></div>
+                    <div class="regex-item"><code>+</code><span>匹配1次或多次</span></div>
+                    <div class="regex-item"><code>?</code><span>匹配0次或1次</span></div>
+                    <div class="regex-item"><code>[abc]</code><span>匹配a/b/c任一</span></div>
+                    <div class="regex-item"><code>(a|b)</code><span>匹配a或b</span></div>
+                    <div class="regex-item"><code>^...$</code><span>行首/行尾</span></div>
+                    <div class="regex-item"><code>{n,m}</code><span>n到m次</span></div>
+                    <div class="regex-item"><code>(?&lt;name&gt;)</code><span>命名捕获组</span></div>
+                    <div class="regex-item"><code>$1 $2</code><span>引用捕获组</span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/tools/textreplace.js"></script>
+</body>
+</html>

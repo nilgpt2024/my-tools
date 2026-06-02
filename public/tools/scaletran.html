@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>进制转换 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.scaletran.name">进制转换</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🔢</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.scaletran.name">进制转换器</h2>
+            <p data-i18n="tools.scaletran.desc">二进制、八进制、十进制、十六进制之间相互转换，支持大整数运算</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="options-group">
+          <div class="option-item">
+            <label data-i18n="tools.scaletran.inputBase">输入进制：</label>
+            <select id="fromBase">
+              <option value="2" data-i18n="tools.scaletran.binary">二进制 (Binary)</option>
+              <option value="8" data-i18n="tools.scaletran.octal">八进制 (Octal)</option>
+              <option value="10" selected data-i18n="tools.scaletran.decimal">十进制 (Decimal)</option>
+              <option value="16" data-i18n="tools.scaletran.hexadecimal">十六进制 (Hexadecimal)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="tools.scaletran.inputValue">输入数值</label>
+          <input type="text" class="form-control" id="scaleInput" placeholder="请输入数值..." oninput="convertScale()" style="font-family:'Consolas','Monaco',monospace;">
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="convertScale()" data-i18n="tools.scaletran.convert">🔄 转换</button>
+          <button class="btn btn-secondary" onclick="clearScale()" data-i18n="common.clear">🗑️ 清空</button>
+        </div>
+
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;" id="scaleResults">
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.scaletran.binaryResult">二进制 (Base 2)</h3>
+              <button class="btn-secondary" style="padding:6px 12px;font-size:12px;border:1px solid var(--border-color);background:white;border-radius:6px;cursor:pointer;" onclick="copyScaleResult('binary')" data-i18n="common.copy">复制</button>
+            </div>
+            <div class="io-panel-body">
+              <pre id="resultBinary" style="min-height:60px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:14px;line-height:1.6;word-break:break-all;overflow:auto;">-</pre>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.scaletran.octalResult">八进制 (Base 8)</h3>
+              <button class="btn-secondary" style="padding:6px 12px;font-size:12px;border:1px solid var(--border-color);background:white;border-radius:6px;cursor:pointer;" onclick="copyScaleResult('octal')" data-i18n="common.copy">复制</button>
+            </div>
+            <div class="io-panel-body">
+              <pre id="resultOctal" style="min-height:60px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:14px;line-height:1.6;word-break:break-all;overflow:auto;">-</pre>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.scaletran.decimalResult">十进制 (Base 10)</h3>
+              <button class="btn-secondary" style="padding:6px 12px;font-size:12px;border:1px solid var(--border-color);background:white;border-radius:6px;cursor:pointer;" onclick="copyScaleResult('decimal')" data-i18n="common.copy">复制</button>
+            </div>
+            <div class="io-panel-body">
+              <pre id="resultDecimal" style="min-height:60px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:14px;line-height:1.6;word-break:break-all;overflow:auto;">-</pre>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.scaletran.hexResult">十六进制 (Base 16)</h3>
+              <button class="btn-secondary" style="padding:6px 12px;font-size:12px;border:1px solid var(--border-color);background:white;border-radius:6px;cursor:pointer;" onclick="copyScaleResult('hex')" data-i18n="common.copy">复制</button>
+            </div>
+            <div class="io-panel-body">
+              <pre id="resultHex" style="min-height:60px;padding:12px;font-family:'Consolas','Monaco',monospace;font-size:14px;line-height:1.6;word-break:break-all;overflow:auto;">-</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/scaletran.js"></script>
+</body>
+</html>

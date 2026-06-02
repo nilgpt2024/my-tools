@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转盘选择 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .wheel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .wheel-layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .wheel-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wheel-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+        }
+
+        #wheelCanvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 8px rgba(255,255,255,0.9),
+                0 8px 32px rgba(0,0,0,0.18);
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            border-top: 32px solid var(--accent-color);
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+            z-index: 10;
+        }
+
+        .spin-btn-large {
+            margin-top: 24px;
+            padding: 14px 44px;
+            font-size: 17px;
+            font-weight: 700;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102,126,234,0.35);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .spin-btn-large:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 8px 28px rgba(102,126,234,0.45);
+        }
+
+        .spin-btn-large:disabled { opacity: 0.7; cursor: not-allowed; }
+
+        .config-panel {
+            width: 300px;
+            background: #fafafa;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        .config-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .option-list { max-height: 280px; overflow-y: auto; margin-bottom: 14px; }
+        .option-list::-webkit-scrollbar { width: 5px; }
+        .option-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+        .option-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 7px 10px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .option-row input[type="text"] {
+            flex: 1;
+            padding: 5px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .option-row input[type="text"]:focus { border-color: var(--primary-color); }
+        .remove-opt-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .remove-opt-btn:hover { background: #fee; color: #f56c6c; border-color: #f56c6c; }
+
+        .panel-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .result-area {
+            text-align: center;
+            margin-top: 24px;
+            min-height: 60px;
+        }
+
+        .result-text {
+            font-size: 26px;
+            font-weight: 800;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: var(--accent-color);
+        }
+
+        .result-text.show { opacity: 1; transform: scale(1); }
+
+        @media (max-width: 768px) {
+            .wheel-layout { gap: 24px; }
+            .wheel-wrapper { width: 270px; height: 270px; }
+            .config-panel { width: 100%; max-width: 380px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.wheel.name">大转盘</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🎯</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.wheel.name">幸运大转盘</h2>
+                        <p data-i18n="tools.wheel.desc">自定义选项，创建专属转盘。点击按钮开始旋转，随机选择结果。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="wheel-container">
+                    <div class="wheel-layout">
+                        <div class="wheel-section">
+                            <div class="wheel-wrapper">
+                                <canvas id="wheelCanvas" width="640" height="640"></canvas>
+                                <div class="wheel-pointer"></div>
+                            </div>
+                            <button class="spin-btn-large" id="spinBtn" data-i18n="tools.wheel.spin">🎯 开始转动！</button>
+                        </div>
+
+                        <div class="config-panel">
+                            <div class="config-title">⚙️ 转盘选项</div>
+                            <div class="option-list" id="optionList"></div>
+                            <div class="panel-actions">
+                                <button class="btn btn-primary" id="addOptBtn">+ 添加选项</button>
+                                <button class="btn btn-secondary" id="resetOptsBtn">重置</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-area">
+                        <div class="result-text" id="resultText"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/wheel.js"></script>
+</body>
+</html>

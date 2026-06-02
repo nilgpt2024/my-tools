@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 基础 SEO Meta -->
+    <meta name="description" content="在线工具集 - 免费、实用的在线工具平台，提供开发运维、文本处理、图像处理、单位转换等多种工具，无需安装，即开即用。">
+    <meta name="keywords" content="在线工具,JSON格式化,MD5加密,Base64,URL编码,时间戳转换,二维码生成,开发工具,文本处理,Online Tools,JSON Formatter,MD5 Hash">
+    <meta name="author" content="在线工具集 | Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="在线工具集 - 免费实用工具平台 | Online Tools Hub">
+    <meta property="og:description" content="60+ 免费在线工具，涵盖开发运维、文本处理、图像处理等多个领域，无需安装，即开即用">
+    <meta property="og:url" content="https://tools.suipce.com/">
+    <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="在线工具集 | Online Tools Hub">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="在线工具集 - 免费实用工具平台">
+    <meta name="twitter:description" content="60+ 免费在线工具，涵盖开发运维、文本处理、图像处理等多个领域">
+    <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tools.suipce.com/">
+    
+    <!-- Hreflang for Internationalization -->
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/?lang=zh-CN">
+    <link rel="alternate" hreflang="en" href="https://tools.suipce.com/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#409EFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="在线工具集">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#409EFF">
+    <meta name="msapplication-TileImage" content="/assets/images/logo.png">
+    
+    <title>在线工具集 - 免费、实用的在线工具平台 | Online Tools Hub</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <!-- Google SEO -->
+    <meta name="google-site-verification" content="itS741AiaAowIyMk1suwEkHwKTnrXMAtsSggEUJkh98" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7457140883364636"
+     crossorigin="anonymous"></script>
+      <!-- 百度自动推送 -->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "在线工具集 | Online Tools Hub",
+      "url": "https://tools.suipce.com/",
+      "description": "免费、实用的在线工具集合，提供60+常用在线工具",
+      "inLanguage": ["zh-CN", "en"],
+      "image": "https://tools.suipce.com/assets/images/logo.png",
+      "publisher": {
+        "@type": "Organization",
+        "name": "在线工具集",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tools.suipce.com/assets/images/logo.png"
+        }
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://tools.suipce.com/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar"></nav>
+    
+    <!-- 语言切换器 -->
+    <div style="position: fixed; top: 80px; right: 20px; z-index: 999;" class="lang-switcher"></div>
+    
+    <!-- 主内容区 -->
+    <main class="container" style="padding: 40px 20px;">
+        
+        <!-- Hero 区域 -->
+        <section class="hero">
+            <h1 data-i18n="siteName">🛠️ 在线工具集</h1>
+            <p data-i18n="siteDescription">免费、实用的在线工具平台，提供 60+ 款常用工具<br>无需安装，打开即用，数据本地处理，保护您的隐私安全</p>
+            
+            <div class="hero-actions">
+                <a href="#categories" class="btn btn-primary" data-i18n="allTools">📚 浏览全部工具</a>
+                <a href="#popular" class="btn btn-secondary" data-i18n="popular">⭐ 热门推荐</a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">60+</span>
+                    <span class="stat-label" data-i18n="stats.tools">实用工具</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label" data-i18n="stats.categories">工具分类</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label" data-i18n="stats.free">免费使用</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label" data-i18n="stats.privacy">数据收集</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 搜索区域 -->
+        <section class="search-section" id="search">
+            <div class="search-box">
+                <input type="text" id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="🔍 搜索工具... 例如：JSON、MD5、Base64、二维码" autocomplete="off">
+                <button onclick="performSearch()" aria-label="搜索">
+                    🔍
+                </button>
+            </div>
+            <div id="searchResults" style="display: none; margin-top: 20px;"></div>
+        </section>
+
+        <!-- 特色功能 -->
+        <section class="features-section">
+            <h2 class="section-title"><span data-i18n="features.title">✨ 为什么选择我们？</span></h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <h3 data-i18n="features.instant.title">即开即用</h3>
+                    <p data-i18n="features.instant.desc">无需下载安装，浏览器打开即可使用，支持所有现代浏览器</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3 data-i18n="features.secure.title">隐私安全</h3>
+                    <p data-i18n="features.secure.desc">所有数据处理均在浏览器本地完成，不会上传到任何服务器</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💯</div>
+                    <h3 data-i18n="features.free.title">完全免费</h3>
+                    <p data-i18n="features.free.desc">所有工具永久免费使用，无广告干扰，无隐藏收费</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3 data-i18n="features.responsive.title">响应式设计</h3>
+                    <p data-i18n="features.responsive.desc">完美适配桌面端和移动端，随时随地使用各种工具</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工具分类 -->
+        <section id="categories">
+            <h2 class="section-title"><span>📂 <span data-i18n="allTools">全部工具分类</span></span></h2>
+            <div id="categoriesGrid" class="categories-grid">
+                <!-- 由 JS 动态生成 -->
+            </div>
+        </section>
+
+        <!-- 热门工具 -->
+        <section class="popular-tools" id="popular">
+            <h2 class="section-title"><span>🔥 <span data-i18n="popular">热门工具推荐</span></span></h2>
+            <div class="tools-scroll" id="popularToolsScroll">
+                <!-- 由 JS 动态生成 -->
+            </div>
+        </section>
+
+        <!-- 常用工具速览 -->
+        <section style="margin-bottom: 48px;">
+            <h2 class="section-title"><span>⚡ <span data-i18n="recent">常用工具速览</span></span></h2>
+            <div class="quick-tools-grid" id="recentToolsGrid">
+                <!-- 由 JS 动态生成 -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- 引入脚本（按顺序加载） -->
+    <script src="js/common.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/seo.js"></script>
+    <script src="js/performance.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    
+    <!-- 首页专用脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCategories();
+            renderPopularTools();
+            renderRecentTools();
+            initSearch();
+        });
+
+        function getToolId(url) {
+            return url.replace('tools/', '').replace('.html', '');
+        }
+
+        function getCategoryId(categoryName) {
+            const cat = ToolsConfig.categories.find(c => c.title === categoryName);
+            return cat ? cat.id : '';
+        }
+
+        function renderCategories() {
+            const grid = document.getElementById('categoriesGrid');
+            if (!grid) return;
+
+            grid.innerHTML = ToolsConfig.categories.map(category => `
+                <div class="category-card-wrapper" id="${category.id}">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <span style="font-size: 48px;">${category.icon}</span>
+                        <h2 style="font-size: 24px; margin-top: 12px; color: var(--text-primary);">${I18N.t(`categories.${category.id}`) || category.title}</h2>
+                        <p style="color: var(--text-secondary); font-size: 14px; margin-top: 8px;">${category.tools.length} ${I18N.currentLang === 'en' ? 'tools' : '个工具'}</p>
+                    </div>
+                    
+                    <div style="display: grid; gap: 12px;">
+                        ${category.tools.map(tool => `
+                            <a href="${tool.url}" class="category-card" style="padding: 16px 20px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+                                <img src="assets/images/logo/${getToolIconName(tool.url)}" alt="${tool.name}" 
+                                     style="width: 36px; height: 36px; object-fit: contain;"
+                                     onerror="this.outerHTML='<span style=\\'width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,rgba(64,158,255,0.1),rgba(118,75,162,0.1));border-radius:8px\\'>${tool.icon}</span>'">
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">${I18N.t('tools.' + getToolId(tool.url) + '.name') || tool.name}</h4>
+                                    <p style="font-size: 13px; color: var(--text-light); line-height: 1.4;">${I18N.t('tools.' + getToolId(tool.url) + '.desc') || tool.desc}</p>
+                                </div>
+                                <span style="color: var(--primary-color); font-size: 20px;">→</span>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getToolIconName(url) {
+            const toolMap = {
+                'tools/randompassword.html': 'keywords.png',
+                'tools/urlencode.html': 'url.png',
+                'tools/uuid.html': 'uuid.png',
+                'tools/timetran.html': 'Time.png',
+                'tools/md5.html': 'md5.png',
+                'tools/json.html': 'json.png',
+                'tools/reg.html': 'reg.png',
+                'tools/unicode.html': 'union.png',
+                'tools/httpstatuscode.html': 'http_code.png',
+                'tools/jwt.html': 'jwt_parse.png',
+                'tools/htmlentity.html': 'HtmlEntity.png',
+                'tools/jsformat.html': 'JSForamt.png',
+                'tools/htmlformat.html': 'HtmlFormat.png',
+                'tools/cssformat.html': 'CssFormat.png',
+                'tools/base64.html': 'Base64.svg',
+                'tools/scaletran.html': 'scaletran.png',
+                'tools/hashcalculator.html': 'hashcalculator.svg',
+                'tools/sqlformat.html': 'sqlformat.svg',
+                'tools/xmlformat.html': 'xmlformat.svg',
+                'tools/wordcount.html': 'wordCount.png',
+                'tools/wordfrequency.html': 'wordfrequency.svg',
+                'tools/textremoveduplicate.html': 'textRemoveDuplicate.png',
+                'tools/textreplace.html': 'textreplace.svg',
+                'tools/markdown.html': 'file-markdown-fill.png',
+                'tools/asciiwordpic.html': 'ascii_word_pic.png',
+                'tools/numbertochinese.html': 'numberToChinese.png',
+                'tools/morse.html': 'dm.png',
+                'tools/imgcut.html': 'imgCut.png',
+                'tools/imagewatermark.html': 'imagewatermark.svg',
+                'tools/colorpicker.html': 'color_picker.png',
+                'tools/imagecolorpicker.html': 'imagecolorpicker.svg',
+                'tools/qrcode.html': 'qrcode.png',
+                'tools/length.html': 'length.png',
+                'tools/area.html': 'area.png',
+                'tools/weight.html': 'weight.png',
+                'tools/temperature.html': 'temperature.png',
+                'tools/time.html': 'time_unit.png',
+                'tools/pressure.html': 'pressure.png',
+                'tools/power.html': 'power.png',
+                'tools/storageconverter.html': 'storageconverter.svg',
+                'tools/heat.html': 'heat.png',
+                'tools/bar.html': 'bar.png',
+                'tools/line.html': 'line.png',
+                'tools/pie.html': 'pie.png',
+                'tools/scatter.html': 'scatter.png',
+                'tools/wordcloud.html': 'wordcloud.svg',
+                'tools/coin.html': 'coin.png',
+                'tools/dice.html': 'dice.png',
+                'tools/random.html': 'choose.png',
+                'tools/lottery.html': 'lottery.svg',
+                'tools/rockpaperscissors.html': 'rockpaperscissors.svg',
+                'tools/reactiontest.html': 'reactiontest.svg',
+                'tools/pomodoro.html': 'pomodoro.svg',
+                'tools/barrage.html': 'medium.png',
+                'tools/wheel.html': 'wheel.svg',
+                'tools/emoji.html': 'emoji.svg',
+                'tools/diff.html': 'diff.png',
+                'tools/calculator.html': 'calculator.svg',
+                'tools/colorpalette.html': 'palettes.png',
+                'tools/ip.html': 'IP.png',
+                'tools/webinfo.html': 'webInfo.png'
+            };
+            return toolMap[url] || 'json.png';
+        }
+
+        function renderPopularTools() {
+            const scroll = document.getElementById('popularToolsScroll');
+            if (!scroll) return;
+
+            const popularTools = [
+                ToolsConfig.categories[0].tools[0],
+                ToolsConfig.categories[0].tools[4],
+                ToolsConfig.categories[0].tools[5],
+                ToolsConfig.categories[0].tools[14],
+                ToolsConfig.categories[0].tools[3],
+                ToolsConfig.categories[4].tools[4],
+                ToolsConfig.categories[2].tools[4],
+                ToolsConfig.categories[5].tools[0]
+            ];
+
+            scroll.innerHTML = popularTools.map(tool => `
+                <a href="${tool.url}" class="tool-mini-card">
+                    <img src="assets/images/logo/${getToolIconName(tool.url)}" alt="${I18N.t('tools.' + getToolId(tool.url) + '.name') || tool.name}"
+                         onerror="this.style.display='none'">
+                    <h4>${I18N.t('tools.' + getToolId(tool.url) + '.name') || tool.name}</h4>
+                    <p>${I18N.t('tools.' + getToolId(tool.url) + '.desc') || tool.desc}</p>
+                </a>
+            `).join('');
+        }
+
+        function renderRecentTools() {
+            const grid = document.getElementById('recentToolsGrid');
+            if (!grid) return;
+
+            const recentTools = [
+                ...ToolsConfig.categories[0].tools.slice(0, 4),
+                ...ToolsConfig.categories[1].tools.slice(0, 2),
+                ...ToolsConfig.categories[2].tools.slice(0, 2),
+                ...ToolsConfig.categories[3].tools.slice(0, 2)
+            ];
+
+            grid.innerHTML = recentTools.map(tool => `
+                <a href="${tool.url}" class="quick-tool-card">
+                    <span class="quick-tool-icon">${tool.icon}</span>
+                    <div class="quick-tool-info">
+                        <strong>${I18N.t('tools.' + getToolId(tool.url) + '.name') || tool.name}</strong>
+                        <span>${I18N.t('tools.' + getToolId(tool.url) + '.desc') || tool.desc}</span>
+                    </div>
+                    <span class="quick-tool-arrow">→</span>
+                </a>
+            `).join('');
+        }
+
+        function initSearch() {
+            const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
+
+            let debounceTimer;
+            searchInput.addEventListener('input', function() {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    performSearch();
+                }, 300);
+            });
+
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const resultsDiv = document.getElementById('searchResults');
+            
+            if (!searchInput || !resultsDiv) return;
+
+            const keyword = searchInput.value.trim();
+            
+            if (!keyword) {
+                resultsDiv.style.display = 'none';
+                return;
+            }
+
+            const results = ToolsConfig.searchTools(keyword);
+            
+            if (results.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: var(--text-light);">
+                        <p style="font-size: 48px; margin-bottom: 16px;">😕</p>
+                        <p style="font-size: 16px;">${I18N.t('noResults')} "${Utils.escapeHtml(keyword)}"</p>
+                        <p style="font-size: 14px; margin-top: 8px;">${I18N.t('tryOtherKeywords')}</p>
+                    </div>
+                `;
+                resultsDiv.style.display = 'block';
+                return;
+            }
+
+            resultsDiv.innerHTML = `
+                <div style="background: white; border-radius: 12px; padding: 20px; box-shadow: var(--shadow);">
+                    <h3 style="margin-bottom: 16px; color: var(--text-primary); font-size: 16px;">
+                        ${I18N.t('foundTools', { count: results.length })}
+                    </h3>
+                    <div style="display: grid; gap: 8px;">
+                        ${results.map(tool => `
+                            <a href="${tool.url}" style="
+                                display: flex; align-items: center; gap: 12px;
+                                padding: 12px 16px; background: #f8f9fa;
+                                border-radius: 8px; text-decoration: none;
+                                color: var(--text-primary);
+                                transition: all 0.2s;
+                            " 
+                            onmouseover="this.style.background='#e8f4ff'; this.style.transform='translateX(4px)'"
+                            onmouseout="this.style.background='#f8f9fa'; this.style.transform='translateX(0)'">
+                                <img src="assets/images/logo/${getToolIconName(tool.url)}" alt="${I18N.t('tools.' + getToolId(tool.url) + '.name') || tool.name}"
+                                     style="width: 32px; height: 32px; object-fit: contain;"
+                                     onerror="this.style.display='none'">
+                                <div style="flex: 1;">
+                                    <strong style="font-size: 14px;">${I18N.t('tools.' + getToolId(tool.url) + '.name') || tool.name}</strong>
+                                    <span style="font-size: 12px; color: var(--text-light); margin-left: 8px; background: #e4e7ed; padding: 2px 8px; border-radius: 4px;">${I18N.t('categories.' + getCategoryId(tool.category)) || tool.category}</span>
+                                    <p style="font-size: 13px; color: var(--text-secondary); margin-top: 2px;">${I18N.t('tools.' + getToolId(tool.url) + '.desc') || tool.desc}</p>
+                                </div>
+                                <span style="color: var(--primary-color); font-size: 18px;">→</span>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            resultsDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

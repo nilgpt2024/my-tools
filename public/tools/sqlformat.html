@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL格式化 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.sqlformat.name">SQL格式化</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🗄️</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.sqlformat.name">SQL格式化</h2>
+            <p data-i18n="tools.sqlformat.desc">SQL语句格式化与美化工具，支持MySQL、PostgreSQL、SQL Server等多种SQL方言</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="options-group">
+          <div class="option-item">
+            <label data-i18n="tools.sqlformat.dialect">SQL方言：</label>
+            <select id="sqlDialect">
+              <option value="standard">标准 SQL</option>
+              <option value="mysql">MySQL</option>
+              <option value="postgresql">PostgreSQL</option>
+              <option value="sqlserver">SQL Server</option>
+              <option value="oracle">Oracle</option>
+              <option value="sqlite">SQLite</option>
+            </select>
+          </div>
+          <div class="option-item">
+            <label data-i18n="tools.sqlformat.indentSize">缩进大小：</label>
+            <select id="sqlIndentSize">
+              <option value="2" selected>2 空格</option>
+              <option value="4">4 空格</option>
+            </select>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="sqlUppercase" checked> <span data-i18n="tools.sqlformat.uppercaseKeywords">关键字大写</span></label>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="sqlLineBetween"> <span data-i18n="tools.sqlformat.lineBetweenClauses">子句间换行</span></label>
+          </div>
+        </div>
+
+        <div class="io-container">
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.sqlformat.inputSql">📥 SQL语句输入</h3>
+              <div class="io-actions">
+                <button onclick="clearSqlInput()" data-i18n="common.clear">清空</button>
+                <button onclick="pasteSqlInput()" data-i18n="common.paste">粘贴</button>
+                <button onclick="loadSqlSample()" data-i18n="tools.sqlformat.sample">示例</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="sqlInput" placeholder="请输入SQL语句..."></textarea>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.sqlformat.formattedResult">📤 格式化结果</h3>
+              <div class="io-actions">
+                <button onclick="copySqlOutput()" data-i18n="common.copy">复制</button>
+                <button onclick="downloadSql()" data-i18n="common.download">下载</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="sqlOutput" placeholder="格式化结果将显示在这里..." readonly></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="formatSqlCode()" data-i18n="tools.sqlformat.format">✨ 格式化</button>
+          <button class="btn btn-secondary" onclick="compressSqlCode()" data-i18n="tools.sqlformat.compress">📦 压缩</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/sqlformat.js"></script>
+</body>
+</html>

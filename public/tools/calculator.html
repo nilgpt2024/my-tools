@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科学计算器 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .calc-container { display: flex; flex-direction: column; align-items: center; padding: 20px 0; }
+        .calc-wrapper {
+            width: 100%;
+            max-width: 400px;
+            background: linear-gradient(145deg, #1e1e2e, #2a2a3d);
+            border-radius: var(--border-radius-lg);
+            padding: 20px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+        }
+
+        .calc-display {
+            background: #0f0f1a;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 16px;
+            text-align: right;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .calc-expression {
+            font-size: 14px;
+            color: #8888aa;
+            font-family: 'Consolas', monospace;
+            min-height: 20px;
+            word-break: break-all;
+            margin-bottom: 6px;
+        }
+
+        .calc-result {
+            font-size: 38px;
+            font-weight: 700;
+            color: white;
+            font-family: 'Consolas', monospace;
+            line-height: 1.2;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .mode-toggle {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 14px;
+            background: rgba(255,255,255,0.06);
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 7px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: #8888aa;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .mode-btn.active { background: var(--primary-color); color: white; }
+
+        .calc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+        .calc-grid.scientific { grid-template-columns: repeat(5, 1fr); }
+
+        .calc-btn {
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 12px;
+            font-size: 19px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Consolas', monospace;
+        }
+
+        .calc-btn:hover { transform: scale(1.06); filter: brightness(1.15); }
+        .calc-btn:active { transform: scale(0.96); }
+
+        .btn-num { background: #33334d; }
+        .btn-op { background: #5544aa; }
+        .btn-op:hover { background: #6666cc; }
+        .btn-func { background: #334455; font-size: 15px; }
+        .btn-eq { background: linear-gradient(135deg, #667eea, #764ba2); grid-column: span 2; aspect-ratio: auto; }
+        .btn-clear { background: #aa4444; }
+        .btn-clear:hover { background: #cc5555; }
+        .btn-zero { grid-column: span 2; aspect-ratio: auto; }
+
+        @media (max-width: 480px) {
+            .calc-wrapper { max-width: 340px; padding: 14px; }
+            .calc-result { font-size: 30px; }
+            .calc-btn { font-size: 17px; border-radius: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.calculator.name">计算器</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🔢</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.calculator.name">科学计算器</h2>
+                        <p data-i18n="tools.calculator.desc">支持基础运算和科学函数（三角函数、对数、幂运算等），键盘友好。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="calc-container">
+                    <div class="calc-wrapper">
+                        <div class="mode-toggle">
+                            <button class="mode-btn active" data-mode="basic" data-i18n="tools.calculator.basic">基础</button>
+                            <button class="mode-btn" data-mode="scientific" data-i18n="tools.calculator.scientific">科学</button>
+                        </div>
+
+                        <div class="calc-display">
+                            <div class="calc-expression" id="expression"></div>
+                            <div class="calc-result" id="result">0</div>
+                        </div>
+
+                        <div class="calc-grid" id="calcGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/calculator.js"></script>
+</body>
+</html>

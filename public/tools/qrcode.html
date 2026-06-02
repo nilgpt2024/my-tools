@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线二维码生成器 - 支持文本、网址、名片等多种内容类型，可自定义样式和下载">
+    <title>二维码生成 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .qrcode-preview-area { text-align: center; padding: 32px 20px; background: #f8f9fa; border-radius: var(--border-radius-lg); margin: 24px 0; }
+        #qrcodeCanvas { max-width: 256px; border: 1px solid var(--border-color); border-radius: 8px; background: white; padding: 16px; }
+        .qrcode-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+        .option-card { background: #fafafa; padding: 16px; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
+        .option-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .qr-size-presets { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        .size-preset-btn { padding: 6px 12px; font-size: 12px; border: 1px solid var(--border-color); background: white; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .size-preset-btn:hover, .size-preset-btn.active { border-color: var(--primary-color); color: var(--primary-color); background: rgba(64,158,255,0.05); }
+        .color-picker-inline { display: flex; align-items: center; gap: 8px; }
+        .color-picker-inline input[type="color"] { width: 40px; height: 36px; border: none; border-radius: 6px; cursor: pointer; }
+        .content-type-tabs { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; }
+        .type-tab { padding: 10px 20px; font-size: 13px; border: 1px solid var(--border-color); background: white; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .type-tab:hover { border-color: var(--primary-color); color: var(--primary-color); }
+        .type-tab.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+        .dynamic-fields { display: none; }
+        .dynamic-fields.active { display: block; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span>
+            <a href="../index.html#image" data-i18n="categories.image">图像处理</a><span>/</span>
+            <span data-i18n="tools.qrcode.name">二维码生成</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">📱</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.qrcode.name">二维码生成器</h2>
+                    <p data-i18n="tools.qrcode.desc">支持文本、网址、WiFi、名片等多种内容类型，可自定义颜色、尺寸、容错级别等参数</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="input-section">
+                <h3>📝 内容设置</h3>
+
+                <div class="content-type-tabs" id="contentTypeTabs">
+                    <button class="type-tab active" onclick="switchContentType('text')">文本</button>
+                    <button class="type-tab" onclick="switchContentType('url')">网址</button>
+                    <button class="type-tab" onclick="switchContentType('wifi')">WiFi</button>
+                    <button class="type-tab" onclick="switchContentType('vcard')">名片</button>
+                    <button class="type-tab" onclick="switchContentType('email')">邮件</button>
+                </div>
+
+                <div id="field-text" class="dynamic-fields active">
+                    <div class="form-group">
+                        <label data-i18n="tools.qrcode.content">输入文本内容：</label>
+                        <textarea id="textContent" class="form-control" rows="3" placeholder="输入要编码的文本内容..." oninput="generateQR()"></textarea>
+                    </div>
+                </div>
+
+                <div id="field-url" class="dynamic-fields">
+                    <div class="form-group">
+                        <label>网址 URL：</label>
+                        <input type="url" id="urlContent" class="form-control" placeholder="https://example.com" oninput="generateQR()">
+                    </div>
+                </div>
+
+                <div id="field-wifi" class="dynamic-fields">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label>网络名称 (SSID)：</label>
+                            <input type="text" id="wifiSsid" class="form-control" placeholder="WiFi名称" oninput="generateQR()">
+                        </div>
+                        <div class="form-group">
+                            <label>密码：</label>
+                            <input type="password" id="wifiPassword" class="form-control" placeholder="WiFi密码" oninput="generateQR()">
+                        </div>
+                        <div class="form-group">
+                            <label>加密方式：</label>
+                            <select id="wifiSecurity" class="form-control" onchange="generateQR()">
+                                <option value="WPA">WPA/WPA2</option>
+                                <option value="WEP">WEP</option>
+                                <option value="nopass">无加密</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>隐藏网络：</label>
+                            <select id="wifiHidden" class="form-control" onchange="generateQR()">
+                                <option value="false">否</option>
+                                <option value="true">是</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="field-vcard" class="dynamic-fields">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label>姓名：</label>
+                            <input type="text" id="vcardName" class="form-control" placeholder="张三" oninput="generateQR()">
+                        </div>
+                        <div class="form-group">
+                            <label>电话：</label>
+                            <input type="tel" id="vcardPhone" class="form-control" placeholder="13800138000" oninput="generateQR()">
+                        </div>
+                        <div class="form-group">
+                            <label>邮箱：</label>
+                            <input type="email" id="vcardEmail" class="form-control" placeholder="example@email.com" oninput="generateQR()">
+                        </div>
+                        <div class="form-group">
+                            <label>公司：</label>
+                            <input type="text" id="vcardCompany" class="form-control" placeholder="公司名称" oninput="generateQR()">
+                        </div>
+                        <div class="form-group" style="grid-column: span 2;">
+                            <label>地址：</label>
+                            <input type="text" id="vcardAddress" class="form-control" placeholder="详细地址" oninput="generateQR()">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="field-email" class="dynamic-fields">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label>收件人：</label>
+                            <input type="email" id="emailTo" class="form-control" placeholder="recipient@example.com" oninput="generateQR()">
+                        </div>
+                        <div class="form-group">
+                            <label>主题：</label>
+                            <input type="text" id="emailSubject" class="form-control" placeholder="邮件主题" oninput="generateQR()">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>正文：</label>
+                        <textarea id="emailBody" class="form-control" rows="2" placeholder="邮件内容..." oninput="generateQR()"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qrcode-options">
+                <div class="option-card">
+                    <h4>🎨 样式设置</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div class="color-picker-inline">
+                            <label style="font-size: 13px;" data-i18n="tools.qrcode.foregroundColor">前景色：</label>
+                            <input type="color" id="fgColor" value="#000000" onchange="generateQR()">
+                            <span id="fgColorText">#000000</span>
+                        </div>
+                        <div class="color-picker-inline">
+                            <label style="font-size: 13px;" data-i18n="tools.qrcode.backgroundColor">背景色：</label>
+                            <input type="color" id="bgColor" value="#ffffff" onchange="generateQR()">
+                            <span id="bgColorText">#ffffff</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h4>📐 尺寸设置</h4>
+                    <div class="form-group" style="margin-bottom: 8px;">
+                        <label style="font-size: 13px;" data-i18n="tools.qrcode.size">像素大小：<span id="sizeValue">200</span> px</label>
+                        <input type="range" id="qrSize" min="100" max="500" value="200" style="width: 100%;" oninput="updateSizeValue(); generateQR();">
+                    </div>
+                    <div class="qr-size-presets">
+                        <button class="size-preset-btn active" onclick="setSize(128)">128</button>
+                        <button class="size-preset-btn" onclick="setSize(200)">200</button>
+                        <button class="size-preset-btn" onclick="setSize(256)">256</button>
+                        <button class="size-preset-btn" onclick="setSize(384)">384</button>
+                        <button class="size-preset-btn" onclick="setSize(512)">512</button>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h4>⚙️ 高级选项</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div>
+                            <label style="font-size: 13px;" data-i18n="tools.qrcode.errorCorrection">容错级别：</label>
+                            <select id="errorLevel" class="form-control" style="margin-top: 4px;" onchange="generateQR()">
+                                <option value="L" data-i18n="tools.qrcode.low">L - 7%</option>
+                                <option value="M" selected data-i18n="tools.qrcode.medium">M - 15%</option>
+                                <option value="Q" data-i18n="tools.qrcode.high">Q - 25%</option>
+                                <option value="H" data-i18n="tools.qrcode.highest">H - 30%</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qrcode-preview-area">
+                <div id="qrcodeCanvas" style="display:inline-block"></div>
+                <p style="margin-top: 16px; color: var(--text-light); font-size: 13px;" id="qrStatus" data-i18n="tools.qrcode.content">请输入内容以生成二维码</p>
+            </div>
+
+            <div class="action-buttons" style="justify-content: center;">
+                <button class="btn btn-primary" onclick="downloadQRCode()" data-i18n="tools.qrcode.downloadPng">💾 下载 PNG</button>
+                <button class="btn btn-secondary" onclick="downloadSVG()" data-i18n="tools.qrcode.downloadSvg">📥 下载 SVG</button>
+                <button class="btn btn-secondary" onclick="copyQRImage()">📋 复制图片</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/qrcode.min.js"></script>
+    <script src="../js/tools/qrcode.js"></script>
+</body>
+</html>

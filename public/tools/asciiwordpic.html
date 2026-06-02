@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线ASCII艺术字生成器 - 将文字转换为ASCII艺术字体，支持多种风格，可用于签名、Banner等场景">
+    <meta name="keywords" content="ASCII艺术字,文字转ASCII,ASCII字体,Banner生成,文本艺术,ASCII Art">
+    <title>ASCII艺术字 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html">首页</a>
+            <span>/</span>
+            <a href="../index.html#text">文本处理</a>
+            <span>/</span>
+            <span>ASCII艺术字</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">🎨</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.asciiwordpic.name">ASCII 艺术字生成器</h2>
+                    <p data-i18n="tools.asciiwordpic.desc">将普通文字转换为酷炫的 ASCII 艺术字体，支持 10+ 种不同风格，适用于代码注释、终端 Banner、签名等场景</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="ascii-input-section">
+                <div class="form-group">
+                    <label>输入文字</label>
+                    <div style="display:flex;gap:12px;">
+                        <input type="text" id="asciiInput" class="form-control" 
+                               placeholder="输入要转换的文字（支持 A-Z、0-9 和常用符号）"
+                               value="HELLO" maxlength="20"
+                               style="flex:1;font-size:18px;letter-spacing:2px;">
+                        <button class="btn btn-primary" onclick="generateAscii()" style="padding:12px 28px;">✨ 生成</button>
+                    </div>
+                    <small style="color:var(--text-light);margin-top:6px;display:block;">
+                        提示：支持大写字母 A-Z、数字 0-9 和常用符号，部分字体仅支持大写字母
+                    </small>
+                </div>
+            </div>
+
+            <div class="options-group">
+                <div class="option-item">
+                    <label>字体风格：</label>
+                    <select id="fontStyle" onchange="generateAscii()">
+                        <option value="standard">Standard（标准）</option>
+                        <option value="banner">Banner（横幅）</option>
+                        <option value="block">Block（方块）</option>
+                        <option value="bubble">Bubble（气泡）</option>
+                        <option value="digital">Digital（数字）</option>
+                        <option value="slant">Slant（倾斜）</option>
+                        <option value="small">Small（小型）</option>
+                        <option value="big">Big（大型）</option>
+                        <option value="3d">3D（立体）</option>
+                        <option value="shadow">Shadow（阴影）</option>
+                        <option value="speed">Speed（速度）</option>
+                        <option value="star">Star（星星）</option>
+                    </select>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="mirrorCheck" onchange="generateAscii()"> 镜像翻转</label>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="flipCheck" onchange="generateAscii()"> 垂直翻转</label>
+                </div>
+            </div>
+
+            <div class="ascii-preview-section">
+                <h3 style="font-size:15px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
+                    <span>🎨 预览效果</span>
+                    <div style="display:flex;gap:8px;">
+                        <button class="btn btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="copyAscii()">📋 复制</button>
+                        <button class="btn btn-secondary" style="padding:6px 14px;font-size:12px;" onclick="downloadAscii()">💾 下载</button>
+                    </div>
+                </h3>
+                <pre id="asciiOutput" class="ascii-output"><div class="result-empty">输入文字后点击"生成"按钮查看 ASCII 艺术字效果</div></pre>
+            </div>
+
+            <div style="margin-top:24px;padding:20px;background:linear-gradient(135deg,rgba(64,158,255,0.03),rgba(118,75,162,0.03));border-radius:12px;border:1px solid rgba(64,158,255,0.1);">
+                <h4 style="font-size:14px;color:var(--primary-color);margin-bottom:14px;">📖 字体预览（所有字母 A-Z）</h4>
+                <div id="fontPreviewAll" style="overflow-x:auto;"></div>
+            </div>
+
+            <div class="action-buttons" style="margin-top:24px;">
+                <button class="btn btn-primary" onclick="generateAscii()" data-i18n="tools.asciiwordpic.generate">🔄 重新生成</button>
+                <button class="btn btn-secondary" onclick="clearAll()" data-i18n="common.clear">🗑️ 清空</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/tools/asciiwordpic.js"></script>
+</body>
+</html>

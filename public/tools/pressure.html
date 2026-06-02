@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线压力单位转换器 - 帕斯卡、巴、大气压、PSI等压力单位互相转换">
+    <title>压力转换 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span><a href="../index.html#unit" data-i18n="categories.unit">单位转换</a><span>/</span><span data-i18n="tools.pressure.name">压力转换</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row"><div class="info-icon">🎈</div><div class="info-content"><h2 data-i18n="tools.pressure.name">压力单位转换器</h2><p data-i18n="tools.pressure.desc">支持帕斯卡、千帕、兆帕、巴、大气压、PSI 等压力单位互转</p></div></div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3 data-i18n="common.input">📥 输入</h3></div>
+                    <div class="io-panel-body">
+                        <select id="fromUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="pa">帕斯卡 (Pa)</option>
+                            <option value="kpa" selected>千帕 (kPa)</option>
+                            <option value="mpa">兆帕 (MPa)</option>
+                            <option value="bar">巴 (bar)</option>
+                            <option value="mbar">毫巴 (mbar)</option>
+                            <option value="atm">标准大气压 (atm)</option>
+                            <option value="psi">磅/平方英寸 (psi)</option>
+                            <option value="mmhg">毫米汞柱 (mmHg)</option>
+                            <option value="torr">托 (Torr)</option>
+                            <option value="inh2o">英寸水柱 (inH₂O)</option>
+                        </select>
+                        <input type="number" id="fromValue" class="form-control" placeholder="输入数值" value="101.325" oninput="convert()" step="any">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--primary-color);">⇄</div>
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>📤 输出</h3></div>
+                    <div class="io-panel-body">
+                        <select id="toUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="pa">帕斯卡 (Pa)</option>
+                            <option value="kpa">千帕 (kPa)</option>
+                            <option value="mpa">兆帕 (MPa)</option>
+                            <option value="bar">巴 (bar)</option>
+                            <option value="mbar">毫巴 (mbar)</option>
+                            <option value="atm" selected>标准大气压 (atm)</option>
+                            <option value="psi">磅/平方英寸 (psi)</option>
+                            <option value="mmhg">毫米汞柱 (mmHg)</option>
+                            <option value="torr">托 (Torr)</option>
+                            <option value="inh2o">英寸水柱 (inH₂O)</option>
+                        </select>
+                        <input type="text" id="toValue" class="form-control" readonly style="background: #f0f9ff; font-weight: 600; font-size: 18px;" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="margin-bottom: 16px;">🌍 常见场景参考</h3>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
+                                <th style="padding: 12px; text-align: left;">场景</th>
+                                <th style="padding: 12px; text-align: right;">大气压</th>
+                                <th style="padding: 12px; text-align: right;">kPa</th>
+                                <th style="padding: 12px; text-align: right;">psi</th>
+                                <th style="padding: 12px; text-align: right;">mmHg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color); background: #fafafa;"><td style="padding: 10px 12px;">标准大气压</td><td style="padding: 10px 12px; text-align: right;">1 atm</td><td style="padding: 10px 12px; text-align: right;">101.325</td><td style="padding: 10px 12px; text-align: right;">14.696</td><td style="padding: 10px 12px; text-align: right;">760</td></tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 10px 12px;">汽车轮胎</td><td style="padding: 10px 12px; text-align: right;">~2.4 atm</td><td style="padding: 10px 12px; text-align: right;">~240</td><td style="padding: 10px 12px; text-align: right;">~35</td><td style="padding: 10px 12px; text-align: right;">~1800</td></tr>
+                            <tr style="border-bottom: 1px solid var(--border-color); background: #fafafa;"><td style="padding: 10px 12px;">高压锅</td><td style="padding: 10px 12px; text-align: right;">~2 atm</td><td style="padding: 10px 12px; text-align: right;">~200</td><td style="padding: 10px 12px; text-align: right;">~29</td><td style="padding: 10px 12px; text-align: right;">~1500</td></tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 10px 12px;">真空</td><td style="padding: 10px 12px; text-align: right;">~0 atm</td><td style="padding: 10px 12px; text-align: right;">~0</td><td style="padding: 10px 12px; text-align: right;">~0</td><td style="padding: 10px 12px; text-align: right;">~0</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer" id="footer"></footer>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/pressure.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线存储容量转换器 - 字节、KB、MB、GB、TB、PB等存储单位互相转换">
+    <title>存储转换 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .storage-visual { display: flex; align-items: flex-end; gap: 4px; height: 120px; margin-top: 16px; padding: 20px; background: white; border-radius: var(--border-radius); }
+        .storage-bar { flex: 1; border-radius: 4px 4px 0 0; transition: height 0.3s; min-height: 4px; position: relative; }
+        .storage-bar span { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--text-light); white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span><a href="../index.html#unit" data-i18n="categories.unit">单位转换</a><span>/</span><span data-i18n="tools.storageconverter.name">存储转换</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row"><div class="info-icon">💾</div><div class="info-content"><h2 data-i18n="tools.storageconverter.name">存储容量转换器</h2><p data-i18n="tools.storageconverter.desc">支持字节(B)、KB、MB、GB、TB、PB 等存储单位互转，同时显示二进制（1024）和十进制（1000）两种标准</p></div></div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3>📥 输入</h3></div>
+                    <div class="io-panel-body">
+                        <select id="fromUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="b">位 (bit)</option>
+                            <option value="B" selected>字节 (B)</option>
+                            <option value="KB">千字节 (KB)</option>
+                            <option value="MB">兆字节 (MB)</option>
+                            <option value="GB">吉字节 (GB)</option>
+                            <option value="TB">太字节 (TB)</option>
+                            <option value="PB">拍字节 (PB)</option>
+                            <option value="EB">艾字节 (EB)</option>
+                        </select>
+                        <input type="number" id="fromValue" class="form-control" placeholder="输入数值" value="1" oninput="convert()" step="any">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--primary-color);">⇄</div>
+                <div class="io-panel">
+                    <div class="io-panel-header"><h3 data-i18n="common.output">📤 输出</h3></div>
+                    <div class="io-panel-body">
+                        <select id="toUnit" class="form-control" style="margin-bottom: 12px;" onchange="convert()">
+                            <option value="b">位 (bit)</option>
+                            <option value="B">字节 (B)</option>
+                            <option value="KB">千字节 (KB)</option>
+                            <option value="MB" selected>兆字节 (MB)</option>
+                            <option value="GB">吉字节 (GB)</option>
+                            <option value="TB">太字节 (TB)</option>
+                            <option value="PB">拍字节 (PB)</option>
+                            <option value="EB">艾字节 (EB)</option>
+                        </select>
+                        <input type="text" id="toValue" class="form-control" readonly style="background: #f0f9ff; font-weight: 600; font-size: 18px;" value="0.0009765625">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <h3 style="margin-bottom: 12px;">📊 全部单位换算结果</h3>
+                <div id="allConversions" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;"></div>
+
+                <div class="storage-visual" id="storageVisual"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer" id="footer"></footer>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/storageconverter.js"></script>
+</body>
+</html>

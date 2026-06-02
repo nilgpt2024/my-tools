@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线Markdown编辑器 - 实时预览Markdown渲染效果，支持常用语法，无需安装即可使用">
+    <meta name="keywords" content="Markdown编辑器,Markdown预览,在线编辑器,MD编辑,实时预览">
+    <title>Markdown编辑器 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+            <span>/</span>
+            <a href="../index.html#text" data-i18n="categories.text">文本处理</a>
+            <span>/</span>
+            <span data-i18n="tools.markdown.name">Markdown编辑器</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">📝</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.markdown.name">Markdown 编辑器</h2>
+                    <p data-i18n="tools.markdown.desc">实时 Markdown 编辑与预览，支持标题、列表、代码块、表格、引用等常用语法，所见即所得</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="md-toolbar" id="mdToolbar">
+                <button type="button" onclick="insertMd('bold')" title="粗体 (Ctrl+B)"><b>B</b></button>
+                <button type="button" onclick="insertMd('italic')" title="斜体 (Ctrl+I)"><i>I</i></button>
+                <button type="button" onclick="insertMd('strikethrough')" title="删除线"><s>S</s></button>
+                <span class="toolbar-divider"></span>
+                <button type="button" onclick="insertMd('h1')" title="标题1">H1</button>
+                <button type="button" onclick="insertMd('h2')" title="标题2">H2</button>
+                <button type="button" onclick="insertMd('h3')" title="标题3">H3</button>
+                <span class="toolbar-divider"></span>
+                <button type="button" onclick="insertMd('ul')" title="无序列表">≡</button>
+                <button type="button" onclick="insertMd('ol')" title="有序列表">1.</button>
+                <button type="button" onclick="insertMd('checklist')" title="任务列表">☑</button>
+                <span class="toolbar-divider"></span>
+                <button type="button" onclick="insertMd('quote')" title="引用">"</button>
+                <button type="button" onclick="insertMd('code')" title="行内代码">&lt;/&gt;</button>
+                <button type="button" onclick="insertMd('codeblock')" title="代码块">{ }</button>
+                <button type="button" onclick="insertMd('link')" title="链接">🔗</button>
+                <button type="button" onclick="insertMd('image')" title="图片">🖼️</button>
+                <button type="button" onclick="insertMd('table')" title="表格">⊞</button>
+                <button type="button" onclick="insertMd('hr')" title="分割线">―</button>
+                <span class="toolbar-divider"></span>
+                <button type="button" onclick="undoEdit()" title="撤销 (Ctrl+Z)">↩</button>
+                <button type="button" onclick="redoEdit()" title="重做 (Ctrl+Y)">↪</button>
+            </div>
+
+            <div class="md-editor-container">
+                <div class="md-panel md-editor-panel">
+                    <div class="md-panel-header">
+                        <span>✏️ <span data-i18n="tools.markdown.editor">编辑</span></span>
+                        <span style="font-size:12px;color:var(--text-light);" id="charCount">0 字符</span>
+                    </div>
+                    <textarea id="markdownInput" 
+                              class="md-textarea" 
+                              placeholder="# 在这里编写 Markdown 内容&#10;&#10;支持以下语法：&#10;- 标题、粗体、斜体&#10;- 列表（有序/无序/任务）&#10;- 代码块和行内代码&#10;- 表格、链接、图片&#10;- 引用和分割线"
+                              spellcheck="false"></textarea>
+                </div>
+                <div class="md-resizer" id="resizer"></div>
+                <div class="md-panel md-preview-panel">
+                    <div class="md-panel-header">
+                        <span>👁️ 预览</span>
+                        <div class="preview-actions">
+                            <button onclick="copyHtml()" style="padding:4px 10px;font-size:11px;border:1px solid var(--border-color);background:#fff;border-radius:4px;cursor:pointer;" title="复制HTML">复制HTML</button>
+                        </div>
+                    </div>
+                    <div id="markdownPreview" class="md-preview"></div>
+                </div>
+            </div>
+
+            <div class="action-buttons" style="margin-top: 20px;">
+                <button class="btn btn-primary" onclick="downloadMd()" data-i18n="tools.markdown.exportMd">📥 下载 .md 文件</button>
+                <button class="btn btn-secondary" onclick="downloadHtml()" data-i18n="tools.markdown.exportHtml">📄 下载 HTML</button>
+                <button class="btn btn-secondary" onclick="copyMd()" data-i18n="common.copy">📋 复制 Markdown</button>
+                <button class="btn btn-secondary" onclick="loadExample()">📖 加载示例</button>
+                <button class="btn btn-danger" onclick="clearAll()" data-i18n="common.clear">🗑️ 清空</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/markdown.js"></script>
+</body>
+</html>

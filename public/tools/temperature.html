@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线温度转换器 - 摄氏度、华氏度、开尔文互相转换，支持实时计算">
+    <title>温度转换 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .temp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px; }
+        .temp-card { background: linear-gradient(135deg, rgba(64,158,255,0.05), rgba(118,75,162,0.05)); border: 1px solid rgba(64,158,255,0.15); border-radius: var(--border-radius-lg); padding: 24px; text-align: center; }
+        .temp-card h4 { font-size: 18px; margin-bottom: 12px; color: var(--text-primary); }
+        .temp-card input[type="number"] { width: 100%; font-size: 28px; font-weight: 700; text-align: center; border: none; background: transparent; outline: none; color: var(--primary-color); }
+        .temp-card input[type="number"]::placeholder { color: var(--text-light); opacity: 0.5; }
+        .temp-visual { margin-top: 24px; padding: 24px; background: white; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm); }
+        .thermometer { width: 60px; height: 300px; background: linear-gradient(to bottom, #ff4444, #ffaa00, #44bb44, #44aaff); border-radius: 30px; margin: 0 auto; position: relative; box-shadow: inset 0 0 10px rgba(0,0,0,0.2); }
+        .thermometer-fill { position: absolute; bottom: 0; left: 5px; right: 5px; background: rgba(255,255,255,0.9); border-radius: 25px; transition: height 0.3s ease; }
+        .thermometer-labels { display: flex; justify-content: space-between; max-width: 300px; margin: 16px auto; font-size: 13px; color: var(--text-secondary); }
+        .common-temps { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+        .temp-preset { padding: 8px 16px; background: #f0f2f5; border-radius: 20px; font-size: 13px; cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
+        .temp-preset:hover { background: rgba(64,158,255,0.1); border-color: var(--primary-color); color: var(--primary-color); }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span><a href="../index.html#unit" data-i18n="categories.unit">单位转换</a><span>/</span><span data-i18n="tools.temperature.name">温度转换</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row"><div class="info-icon">🌡️</div><div class="info-content"><h2>温度转换器</h2><p>摄氏度(°C)、华氏度(°F)、开尔文(K)三种温标实时互转</p></div></div>
+        </div>
+
+        <div class="tool-content">
+            <div class="temp-grid">
+                <div class="temp-card">
+                    <h4 data-i18n="tools.temperature.celsius">🌡️ 摄氏度 °C</h4>
+                    <input type="number" id="celsius" placeholder="0" oninput="convertFromC()" step="any">
+                    <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Celsius</p>
+                </div>
+                <div class="temp-card">
+                    <h4>🔥 华氏度 °F</h4>
+                    <input type="number" id="fahrenheit" placeholder="32" oninput="convertFromF()" step="any">
+                    <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Fahrenheit</p>
+                </div>
+                <div class="temp-card">
+                    <h4 data-i18n="tools.temperature.kelvin">❄️ 开尔文 K</h4>
+                    <input type="number" id="kelvin" placeholder="273.15" oninput="convertFromK()" step="any">
+                    <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Kelvin</p>
+                </div>
+            </div>
+
+            <div class="temp-visual">
+                <h3 style="margin-bottom: 16px;">🌡️ 温度可视化</h3>
+                <div class="thermometer">
+                    <div class="thermometer-fill" id="thermoFill" style="height: 50%;"></div>
+                </div>
+                <div class="thermometer-labels">
+                    <span>-40°C / -40°F</span>
+                    <span>0°C / 32°F</span>
+                    <span>100°C / 212°F</span>
+                </div>
+
+                <h4 style="margin: 24px 0 12px; font-size: 15px;">常用温度快捷选择：</h4>
+                <div class="common-temps">
+                    <button class="temp-preset" onclick="setTemp(-273.15)">绝对零度 -273.15°C</button>
+                    <button class="temp-preset" onclick="setTemp(0)">水的冰点 0°C</button>
+                    <button class="temp-preset" onclick="setTemp(25)">室温 ~25°C</button>
+                    <button class="temp-preset" onclick="setTemp(36.6)">体温 36.6°C</button>
+                    <button class="temp-preset" onclick="setTemp(100)">水沸点 100°C</button>
+                    <button class="temp-preset" onclick="setTemp(200)">烤箱 200°C</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer" id="footer"></footer>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/temperature.js"></script>
+</body>
+</html>

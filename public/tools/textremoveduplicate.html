@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线文本去重工具 - 快速去除文本中的重复行，支持忽略大小写、去除空行、排序等功能">
+    <meta name="keywords" content="文本去重,去除重复,重复行删除,数据清洗,文本处理">
+    <title>文本去重 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+            <span>/</span>
+            <a href="../index.html#text" data-i18n="categories.text">文本处理</a>
+            <span>/</span>
+            <span data-i18n="tools.textremoveduplicate.name">文本去重</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">🗑️</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.textremoveduplicate.name">文本去重工具</h2>
+                    <p data-i18n="tools.textremoveduplicate.desc">快速去除文本中的重复行或重复内容，支持多种去重模式、大小写敏感控制及结果排序功能</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="io-container">
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3>📝 原始文本</h3>
+                        <div class="io-actions">
+                            <button onclick="clearInput()" data-i18n="common.clear">清空</button>
+                            <button onclick="pasteText()" data-i18n="common.copy">粘贴</button>
+                            <button onclick="loadExample()">示例</button>
+                        </div>
+                    </div>
+                    <div class="io-panel-body">
+                        <textarea id="inputText" placeholder="在此输入或粘贴需要去重的文本（每行一条记录）...&#10;&#10;例如：&#10;苹果&#10;香蕉&#10;苹果&#10;橙子&#10;香蕉"></textarea>
+                        <div style="margin-top: 8px; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-light);">
+                            <span id="inputLineCount">行数：0</span>
+                            <span id="inputCharCount">字符数：0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="io-panel">
+                    <div class="io-panel-header">
+                        <h3>✨ 去重结果</h3>
+                        <div class="io-actions">
+                            <button onclick="copyResult()" data-i18n="common.copy">复制</button>
+                            <button onclick="downloadResult()" data-i18n="common.download">下载</button>
+                        </div>
+                    </div>
+                    <div class="io-panel-body">
+                        <textarea id="outputText" readonly placeholder="去重后的结果将显示在这里..."></textarea>
+                        <div style="margin-top: 8px; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-light);">
+                            <span id="outputLineCount">行数：0</span>
+                            <span id="removedCount">已去除：0 行重复</span>
+                            <span id="outputCharCount">字符数：0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options-group">
+                <div class="option-item">
+                    <label data-i18n="tools.textremoveduplicate.mode">去重模式：</label>
+                    <select id="dedupeMode">
+                        <option value="line" data-i18n="tools.textremoveduplicate.lineByLine">按行去重</option>
+                        <option value="continuous" data-i18n="tools.textremoveduplicate.continuous">连续重复去重</option>
+                        <option value="character" data-i18n="tools.textremoveduplicate.character">按字符去重</option>
+                    </select>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="ignoreCaseCheck" data-i18n="tools.textremoveduplicate.caseSensitive"> 忽略大小写</label>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="trimSpaceCheck" checked data-i18n="tools.textremoveduplicate.trimSpaces"> 去除首尾空格</label>
+                </div>
+                <div class="option-item">
+                    <label><input type="checkbox" id="removeEmptyCheck" checked> 删除空行</label>
+                </div>
+                <div class="option-item">
+                    <label data-i18n="tools.textremoveduplicate.sortResult">结果排序：</label>
+                    <select id="sortMode">
+                        <option value="none">保持原序</option>
+                        <option value="asc" data-i18n="tools.textremoveduplicate.ascending">升序排列 (A→Z)</option>
+                        <option value="desc" data-i18n="tools.textremoveduplicate.descending">降序排列 (Z→A)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="doDeduplicate()" data-i18n="tools.textremoveduplicate.remove">🚀 开始去重</button>
+                <button class="btn btn-secondary" onclick="swapContent()">🔄 交换内容</button>
+                <button class="btn btn-secondary" onclick="clearAll()" data-i18n="common.clear">🗑️ 清空全部</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/textremoveduplicate.js"></script>
+</body>
+</html>

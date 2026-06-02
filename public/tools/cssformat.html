@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS格式化 - 在线工具集</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <main class="tool-layout">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+        <span>/</span>
+        <a href="../index.html#dev" data-i18n="categories.dev">开发运维</a>
+        <span>/</span>
+        <span data-i18n="tools.cssformat.name">CSS格式化</span>
+      </div>
+
+      <div class="tool-info-card">
+        <div class="info-row">
+          <div class="info-icon">🎨</div>
+          <div class="info-content">
+            <h2 data-i18n="tools.cssformat.name">CSS格式化</h2>
+            <p data-i18n="tools.cssformat.desc">CSS代码格式化与压缩工具，美化CSS样式或压缩以减小文件体积</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-content">
+        <div class="options-group">
+          <div class="option-item">
+            <label data-i18n="tools.cssformat.indentSize">缩进大小：</label>
+            <select id="cssIndentSize">
+              <option value="2" selected>2 空格</option>
+              <option value="4">4 空格</option>
+            </select>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="cssNewlineEachProp" checked> <span data-i18n="tools.cssformat.newlineEachProp">每个属性单独一行</span></label>
+          </div>
+          <div class="option-item">
+            <label><input type="checkbox" id="cssSemicolonLast"> <span data-i18n="tools.cssformat.semicolonLast">最后属性加分号</span></label>
+          </div>
+        </div>
+
+        <div class="io-container">
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="tools.cssformat.inputCss">📥 CSS代码输入</h3>
+              <div class="io-actions">
+                <button onclick="clearCssInput()" data-i18n="common.clear">清空</button>
+                <button onclick="pasteCssInput()" data-i18n="common.paste">粘贴</button>
+                <button onclick="loadCssSample()" data-i18n="tools.cssformat.sample">示例</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="cssInput" placeholder="请输入CSS代码..."></textarea>
+            </div>
+          </div>
+
+          <div class="io-panel">
+            <div class="io-panel-header">
+              <h3 data-i18n="common.output">📤 输出结果</h3>
+              <div class="io-actions">
+                <button onclick="copyCssOutput()" data-i18n="common.copy">复制</button>
+                <button onclick="downloadCss()" data-i18n="common.download">下载</button>
+              </div>
+            </div>
+            <div class="io-panel-body">
+              <textarea id="cssOutput" placeholder="输出结果将显示在这里..." readonly></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="formatCssCode()" data-i18n="tools.cssformat.format">✨ 格式化</button>
+          <button class="btn btn-primary" onclick="compressCssCode()" data-i18n="tools.cssformat.compress">📦 压缩</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/tools/cssformat.js"></script>
+</body>
+</html>

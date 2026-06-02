@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线图片取色器 - 从图片中提取颜色，支持点击取色和自动取色板生成">
+    <title>图片取色器 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .image-canvas-wrapper { position: relative; display: inline-block; max-width: 100%; margin-bottom: 20px; }
+        #imageCanvas { max-width: 100%; border: 1px solid var(--border-color); border-radius: var(--border-radius); cursor: crosshair; }
+        .color-magnifier { position: absolute; width: 80px; height: 80px; border: 2px solid var(--primary-color); border-radius: 50%; overflow: hidden; pointer-events: none; display: none; box-shadow: var(--shadow-lg); z-index: 10; }
+        .color-magnifier canvas { position: absolute; top: 0; left: 0; }
+        .picked-color-display {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px; margin-top: 20px;
+        }
+        .picked-color-card {
+            background: white; border-radius: 8px; padding: 12px;
+            box-shadow: var(--shadow-sm); text-align: center; transition: transform 0.2s;
+        }
+        .picked-color-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+        .picked-color-swatch { width: 100%; height: 60px; border-radius: 6px; margin-bottom: 8px; cursor: pointer; }
+        .picked-color-info { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+        .extracted-palette { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; align-items: center; }
+        .palette-color { width: 48px; height: 48px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
+        .palette-color:hover { transform: scale(1.15); border-color: var(--primary-color); }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span>
+            <a href="../index.html#image" data-i18n="categories.image">图像处理</a><span>/</span>
+            <span data-i18n="tools.imagecolorpicker.name">图片取色器</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">🖌️</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.imagecolorpicker.name">图片取色器</h2>
+                    <p data-i18n="tools.imagecolorpicker.desc">从图片中提取任意位置的颜色，支持放大镜预览、自动生成配色方案</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="input-section">
+                <h3>📁 <span data-i18n="tools.imagecolorpicker.uploadImage">选择图片</span></h3>
+                <div style="border: 2px dashed var(--border-color); border-radius: var(--border-radius); padding: 30px; text-align: center; background: #fafafa; cursor: pointer;" id="dropZone" onclick="document.getElementById('imageInput').click()">
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="loadImage(event)">
+                    <div style="font-size: 40px; margin-bottom: 12px;">📷</div>
+                    <p style="color: var(--text-secondary);" data-i18n="tools.imagecolorpicker.orDragDrop">点击或拖拽图片到此处</p>
+                </div>
+            </div>
+
+            <div id="pickerSection" style="display: none;">
+                <div class="options-group">
+                    <div class="option-item">
+                        <label data-i18n="tools.imagecolorpicker.pickColor">取色模式：</label>
+                        <select id="pickMode">
+                            <option value="single">单点取色</option>
+                            <option value="multiple">多点取色</option>
+                        </select>
+                    </div>
+                    <div class="option-item">
+                        <label data-i18n="tools.imagecolorpicker.paletteSize">提取主色调数量：</label>
+                        <input type="number" id="colorCount" value="8" min="3" max="20">
+                    </div>
+                    <div class="option-item">
+                        <button class="btn btn-primary" onclick="extractPalette()" data-i18n="tools.imagecolorpicker.extractPalette">🎨 提取主色调</button>
+                        <button class="btn btn-secondary" onclick="clearPickedColors()">🗑️ 清空记录</button>
+                    </div>
+                </div>
+
+                <div class="image-canvas-wrapper">
+                    <canvas id="imageCanvas"></canvas>
+                    <div class="color-magnifier" id="magnifier"><canvas id="magnifierCanvas" width="80" height="80"></canvas></div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #f5f7fa, #e8ecf1); padding: 16px; border-radius: var(--border-radius); margin-bottom: 20px;">
+                    <strong style="font-size: 14px;" data-i18n="tools.imagecolorpicker.selectedColor">当前颜色：</strong>
+                    <span id="currentColorDisplay" style="display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
+                        <span id="currentSwatch" style="width: 32px; height: 32px; border-radius: 6px; background: #ccc; border: 1px solid var(--border-color);"></span>
+                        <span id="currentColorInfo" style="font-family: monospace; font-size: 14px;">-</span>
+                    </span>
+                    <button class="btn btn-secondary" style="margin-left: 12px; padding: 6px 12px; font-size: 12px;" onclick="copyCurrentColor()" data-i18n="common.copy">复制</button>
+                </div>
+
+                <div id="extractedPaletteSection" style="display: none; margin-bottom: 20px;">
+                    <h3>🎨 <span data-i18n="tools.imagecolorpicker.extractPalette">提取的主色调</span></h3>
+                    <div class="extracted-palette" id="extractedPalette"></div>
+                </div>
+
+                <div id="pickedColorsSection" style="display: none;">
+                    <h3>📍 <span data-i18n="tools.imagecolorpicker.colorHistory">取色记录</span> (<span id="pickedCount">0</span>)</h3>
+                    <div class="picked-color-display" id="pickedColorsList"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/imagecolorpicker.js"></script>
+</body>
+</html>

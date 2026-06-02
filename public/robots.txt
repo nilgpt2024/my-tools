@@ -1,0 +1,13 @@
+# robots.txt - 在线工具集网站
+# 允许所有搜索引擎抓取
+
+User-agent: *
+Allow: /
+Disallow: /js/lib/
+Disallow: /*.json$
+
+# 站点地图
+Sitemap: https://tools.suipce.com/sitemap.xml
+
+# 爬取延迟（可选，友好对待服务器）
+Crawl-delay: 1

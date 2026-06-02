@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线图片水印添加工具 - 支持文字水印和图片水印，可自定义位置、透明度、大小等参数">
+    <title>图片水印 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+            <span>/</span>
+            <a href="../index.html#image" data-i18n="categories.image">图像处理</a>
+            <span>/</span>
+            <span data-i18n="tools.imagewatermark.name">图片水印</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">💧</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.imagewatermark.name">图片水印添加工具</h2>
+                    <p data-i18n="tools.imagewatermark.desc">为图片添加文字或图片水印，支持自定义位置、透明度、字体大小等参数，保护您的图片版权</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('text')" data-i18n="tools.imagewatermark.textWatermark">文字水印</button>
+                <button class="tab-btn" onclick="switchTab('image')" data-i18n="tools.imagewatermark.imageWatermark">图片水印</button>
+            </div>
+
+            <div id="textTab" class="tab-content active">
+                <div class="input-section">
+                    <h3>📁 <span data-i18n="tools.imagewatermark.uploadImage">选择图片</span></h3>
+                    <div style="border: 2px dashed var(--border-color); border-radius: var(--border-radius); padding: 30px; text-align: center; background: #fafafa; cursor: pointer;" id="dropZoneText" onclick="document.getElementById('imageInputText').click()">
+                        <input type="file" id="imageInputText" accept="image/*" style="display: none;" onchange="loadImage(this, 'text')">
+                        <div style="font-size: 40px; margin-bottom: 12px;">📷</div>
+                        <p style="color: var(--text-secondary);" data-i18n="tools.imagewatermark.uploadImage">点击选择图片</p>
+                    </div>
+                </div>
+
+                <div class="options-group">
+                    <div class="option-item">
+                        <label data-i18n="tools.imagewatermark.watermarkText">水印文字：</label>
+                        <input type="text" id="watermarkText" value="版权所有" placeholder="输入水印文字" style="width: 200px;">
+                    </div>
+                    <div class="option-item">
+                        <label data-i18n="tools.imagewatermark.fontSize">字体大小：</label>
+                        <input type="number" id="fontSize" value="24" min="12" max="200">
+                        <span style="font-size: 13px; color: var(--text-light);">px</span>
+                    </div>
+                    <div class="option-item">
+                        <label data-i18n="tools.imagewatermark.opacity">透明度：</label>
+                        <input type="range" id="textOpacity" min="0.1" max="1" step="0.1" value="0.5" style="width: 100px;">
+                        <span id="textOpacityValue">50%</span>
+                    </div>
+                    <div class="option-item">
+                        <label data-i18n="tools.imagewatermark.color">颜色：</label>
+                        <input type="color" id="textColor" value="#ffffff">
+                    </div>
+                    <div class="option-item">
+                        <label data-i18n="tools.imagewatermark.position">位置：</label>
+                        <select id="textPosition">
+                            <option value="center" data-i18n="tools.imagewatermark.center">居中</option>
+                            <option value="top-left" data-i18n="tools.imagewatermark.topLeft">左上角</option>
+                            <option value="top-right" data-i18n="tools.imagewatermark.topRight">右上角</option>
+                            <option value="bottom-left" data-i18n="tools.imagewatermark.bottomLeft">左下角</option>
+                            <option value="bottom-right" data-i18n="tools.imagewatermark.bottomRight">右下角</option>
+                            <option value="tile">平铺</option>
+                        </select>
+                    </div>
+                    <div class="option-item">
+                        <label><input type="checkbox" id="textRotate" checked> <span data-i18n="tools.imagewatermark.rotation">旋转</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="imageTab" class="tab-content">
+                <div class="io-container">
+                    <div class="io-panel">
+                        <div class="io-panel-header">
+                            <h3>🖼️ 原始图片</h3>
+                        </div>
+                        <div class="io-panel-body">
+                            <div style="border: 2px dashed var(--border-color); border-radius: 6px; padding: 30px; text-align: center; background: #fafafa; cursor: pointer;" onclick="document.getElementById('imageInputMain').click()">
+                                <input type="file" id="imageInputMain" accept="image/*" style="display: none;" onchange="loadImage(this, 'main')">
+                                <div style="font-size: 36px; margin-bottom: 8px;">📷</div>
+                                <p style="color: var(--text-secondary); font-size: 13px;">点击选择原始图片</p>
+                            </div>
+                            <img id="previewMain" style="max-width: 100%; margin-top: 12px; display: none;">
+                        </div>
+                    </div>
+                    <div class="io-panel">
+                        <div class="io-panel-header">
+                            <h3>🔖 水印图片</h3>
+                        </div>
+                        <div class="io-panel-body">
+                            <div style="border: 2px dashed var(--border-color); border-radius: 6px; padding: 30px; text-align: center; background: #fafafa; cursor: pointer;" onclick="document.getElementById('imageInputWatermark').click()">
+                                <input type="file" id="imageInputWatermark" accept="image/*" style="display: none;" onchange="loadWatermarkImage(this)">
+                                <div style="font-size: 36px; margin-bottom: 8px;">🎨</div>
+                                <p style="color: var(--text-secondary); font-size: 13px;">点击选择水印图片（建议PNG透明背景）</p>
+                            </div>
+                            <img id="previewWatermark" style="max-width: 100px; max-height: 100px; margin-top: 12px; display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="options-group">
+                    <div class="option-item">
+                        <label data-i18n="tools.imagewatermark.opacity">透明度：</label>
+                        <input type="range" id="imgOpacity" min="0.1" max="1" step="0.1" value="0.7" style="width: 100px;">
+                        <span id="imgOpacityValue">70%</span>
+                    </div>
+                    <div class="option-item">
+                        <label>缩放：</label>
+                        <input type="range" id="imgScale" min="0.1" max="1" step="0.1" value="0.3" style="width: 100px;">
+                        <span id="imgScaleValue">30%</span>
+                    </div>
+                    <div class="option-item">
+                        <label data-i18n="tools.imagewatermark.position">位置：</label>
+                        <select id="imgPosition">
+                            <option value="center" data-i18n="tools.imagewatermark.center">居中</option>
+                            <option value="top-left" data-i18n="tools.imagewatermark.topLeft">左上角</option>
+                            <option value="top-right" data-i18n="tools.imagewatermark.topRight">右上角</option>
+                            <option value="bottom-left" data-i18n="tools.imagewatermark.bottomLeft">左下角</option>
+                            <option value="bottom-right" data-i18n="tools.imagewatermark.bottomRight">右下角</option>
+                            <option value="tile">平铺</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="previewArea" style="margin-top: 24px; display: none;">
+                <h3>👁️ <span data-i18n="tools.imagewatermark.preview">预览效果</span></h3>
+                <div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: var(--border-radius);">
+                    <canvas id="previewCanvas" style="max-width: 100%; border: 1px solid var(--border-color); border-radius: 6px;"></canvas>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="applyWatermark()" data-i18n="tools.imagewatermark.apply">✨ 添加水印</button>
+                <button class="btn btn-success" onclick="downloadWatermarked()" id="downloadBtn" disabled data-i18n="tools.imagewatermark.download">💾 下载图片</button>
+                <button class="btn btn-secondary" onclick="resetAll()" data-i18n="common.reset">🔄 重置</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/imagewatermark.js"></script>
+</body>
+</html>

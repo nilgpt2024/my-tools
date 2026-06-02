@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站信息 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .webinfo-container { padding: 20px 0; }
+        .search-area {
+            display: flex;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        .search-area input {
+            flex: 1;
+            padding: 14px 20px;
+            font-size: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-area input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(64,158,255,0.1);
+        }
+
+        .search-btn {
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(102,126,234,0.3);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover:not(:disabled) { transform: translateY(-2px); }
+        .search-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .result-section { width: 100%; max-width: 720px; margin: 0 auto; }
+
+        .site-header-card {
+            background: linear-gradient(135deg, rgba(64,158,255,0.08), rgba(118,75,162,0.08));
+            border: 1px solid rgba(64,158,255,0.15);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .site-favicon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .site-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .site-url {
+            font-size: 14px;
+            color: var(--primary-color);
+            word-break: break-all;
+        }
+
+        .info-table {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 16px;
+            padding: 14px 20px;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        .info-row:last-child { border-bottom: none; }
+        .info-row:nth-child(even) { background: #fafafa; }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            word-break: break-all;
+            font-family: 'Consolas', monospace;
+            font-size: 13.5px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .status-badge.up { background: #e8f5e9; color: #2e7d32; }
+        .status-badge.down { background: #ffebee; color: #c62828; }
+
+        .loading-placeholder {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-icon { font-size: 56px; margin-bottom: 12px; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .search-area { flex-direction: column; }
+            .info-row { grid-template-columns: 120px 1fr; gap: 10px; padding: 12px 14px; }
+            .info-label { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <span>/</span>
+                <span data-i18n="tools.webinfo.name">网站信息</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">ℹ️</div>
+                    <div class="info-content">
+                        <h2 data-i18n="tools.webinfo.name">网站信息查询</h2>
+                        <p data-i18n="tools.webinfo.desc">输入任意网址，查询网站的标题、状态码、服务器信息等基本信息。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content webinfo-container">
+                <div class="search-area">
+                    <input type="text" id="urlInput" data-i18n="tools.webinfo.input" placeholder="输入网址，例如 https://www.example.com" value="https://www.baidu.com">
+                    <button class="search-btn" id="queryBtn" data-i18n="tools.webinfo.query">🔍 查询</button>
+                </div>
+
+                <div class="result-section" id="resultSection"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/webinfo.js"></script>
+</body>
+</html>

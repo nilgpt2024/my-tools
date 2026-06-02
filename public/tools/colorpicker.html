@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线颜色选择器 - 支持HEX、RGB、HSL等多种颜色格式转换，提供调色板和颜色拾取功能">
+    <title data-i18n-title="tools.colorpicker.name">颜色选择器 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .color-picker-container { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        @media (max-width: 768px) { .color-picker-container { grid-template-columns: 1fr; } }
+        .color-preview-large {
+            width: 100%; height: 200px; border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow); margin-bottom: 16px;
+            transition: background-color 0.3s;
+        }
+        .color-inputs-grid { display: grid; gap: 12px; }
+        .color-input-row {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px; background: #f8f9fa; border-radius: 6px;
+        }
+        .color-input-row label { min-width: 40px; font-weight: 600; font-size: 14px; }
+        .color-input-row input[type="text"] {
+            flex: 1; padding: 8px 12px; border: 1px solid var(--border-color);
+            border-radius: 6px; font-family: 'Consolas', monospace; font-size: 14px;
+            outline: none; transition: all 0.2s;
+        }
+        .color-input-row input[type="text"]:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(64,158,255,0.1); }
+        .color-input-row input[type="color"] { width: 50px; height: 38px; cursor: pointer; border: none; border-radius: 6px; }
+        .copy-btn-small { padding: 6px 12px; font-size: 12px; }
+        .hue-slider, .alpha-slider { width: 100%; height: 20px; border-radius: 10px; outline: none; -webkit-appearance: none; margin: 8px 0; }
+        .hue-slider { background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000); }
+        .alpha-slider { background: linear-gradient(to right, transparent, #000); }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: white; border: 2px solid var(--primary-color); border-radius: 50%; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .palette-section { margin-top: 24px; }
+        .palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(36px, 1fr)); gap: 8px; margin-top: 16px; }
+        .palette-item { width: 36px; height: 36px; border-radius: 6px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 2px solid transparent; }
+        .palette-item:hover { transform: scale(1.15); box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-color: var(--primary-color); }
+        .recent-colors { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+        .recent-color { width: 32px; height: 32px; border-radius: 6px; cursor: pointer; border: 2px solid var(--border-color); transition: transform 0.2s; }
+        .recent-color:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span>
+            <a href="../index.html#image" data-i18n="categories.image">图像处理</a><span>/</span>
+            <span data-i18n="tools.colorpicker.name">颜色选择器</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">🎨</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.colorpicker.name">颜色选择器</h2>
+                    <p data-i18n="tools.colorpicker.desc">支持 HEX、RGB、HSL 等多种格式互转，内置常用调色板，一键复制颜色值</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="color-picker-container">
+                <div>
+                    <h3 style="margin-bottom: 16px;">🎨 <span data-i18n="tools.colorpicker.pickColor">颜色预览</span></h3>
+                    <div class="color-preview-large" id="colorPreview" style="background-color: #409EFF;"></div>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <label style="font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px;" data-i18n="tools.colorpicker.pickColor">快速选取：</label>
+                        <input type="color" id="nativeColorPicker" value="#409EFF" style="width: 100%; height: 50px; cursor: pointer; border: none; border-radius: 8px;" onchange="updateFromNative(this.value)">
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px;" data-i18n="tools.colorpicker.hue">色相 (Hue)：</label>
+                        <input type="range" id="hueSlider" class="hue-slider" min="0" max="360" value="212" oninput="updateFromHSL()">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div>
+                            <label style="font-weight: 600; font-size: 13px; display: block; margin-bottom: 4px;" data-i18n="tools.colorpicker.saturation">饱和度 (S)：<span id="sValue">91%</span></label>
+                            <input type="range" id="satSlider" min="0" max="100" value="91" oninput="updateFromHSL()" style="width: 100%;">
+                        </div>
+                        <div>
+                            <label style="font-weight: 600; font-size: 13px; display: block; margin-bottom: 4px;" data-i18n="tools.colorpicker.lightness">亮度 (L)：<span id="lValue">63%</span></label>
+                            <input type="range" id="lightSlider" min="0" max="100" value="63" oninput="updateFromHSL()" style="width: 100%;">
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 16px;">
+                        <label style="font-weight: 600; font-size: 13px; display: block; margin-bottom: 4px;" data-i18n="tools.colorpicker.alpha">透明度 (A)：<span id="aValue">100%</span></label>
+                        <input type="range" id="alphaSlider" class="alpha-slider" min="0" max="100" value="100" oninput="updateAlpha()">
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 16px;">📝 <span data-i18n="tools.colorpicker.hex">颜色值</span></h3>
+                    <div class="color-inputs-grid">
+                        <div class="color-input-row">
+                            <label data-i18n="tools.colorpicker.hex">HEX</label>
+                            <input type="text" id="hexInput" value="#409EFF" oninput="updateFromHex()">
+                            <button class="btn btn-secondary copy-btn-small" onclick="copyColor('hex')" data-i18n="common.copy">复制</button>
+                        </div>
+                        <div class="color-input-row">
+                            <label data-i18n="tools.colorpicker.rgb">RGB</label>
+                            <input type="text" id="rgbInput" value="rgb(64, 158, 255)" oninput="updateFromRGB()">
+                            <button class="btn btn-secondary copy-btn-small" onclick="copyColor('rgb')" data-i18n="common.copy">复制</button>
+                        </div>
+                        <div class="color-input-row">
+                            <label data-i18n="tools.colorpicker.hsl">HSL</label>
+                            <input type="text" id="hslInput" value="hsl(212, 91%, 63%)" oninput="updateFromHSLInput()">
+                            <button class="btn btn-secondary copy-btn-small" onclick="copyColor('hsl')" data-i18n="common.copy">复制</button>
+                        </div>
+                        <div class="color-input-row">
+                            <label data-i18n="tools.colorpicker.rgba">RGBA</label>
+                            <input type="text" id="rgbaInput" value="rgba(64, 158, 255, 1)" readonly style="background: #eee;">
+                            <button class="btn btn-secondary copy-btn-small" onclick="copyColor('rgba')" data-i18n="common.copy">复制</button>
+                        </div>
+                    </div>
+
+                    <div class="recent-colors" id="recentColors">
+                        <span style="font-size: 13px; color: var(--text-light); width: 100%;" data-i18n="tools.colorpicker.recentColors">最近使用的颜色将显示在这里</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="palette-section">
+                <h3>🌈 <span data-i18n="tools.colorpicker.palettes">常用调色板</span></h3>
+                <div class="tabs" style="margin-bottom: 16px;">
+                    <button class="tab-btn active" onclick="showPalette('basic')" data-i18n="tools.colorpicker.basic">基础色</button>
+                    <button class="tab-btn" onclick="showPalette('material')" data-i18n="tools.colorpicker.material">Material</button>
+                    <button class="tab-btn" onclick="showPalette('pastel')" data-i18n="tools.colorpicker.pastel">马卡龙</button>
+                    <button class="tab-btn" onclick="showPalette('gradient')" data-i18n="tools.colorpicker.gradient">渐变色</button>
+                </div>
+                <div class="palette-grid" id="paletteGrid"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/colorpicker.js"></script>
+</body>
+</html>

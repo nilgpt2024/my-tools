@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线莫斯电码编解码工具 - 支持文本转莫斯电码和莫斯电码转文本，包含完整的字母数字标点对照表">
+    <meta name="keywords" content="莫斯电码,Morse Code,摩斯密码,电码翻译,编码,解码">
+    <title>莫斯电码 - 在线工具集</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="breadcrumb">
+            <a href="../index.html">首页</a>
+            <span>/</span>
+            <a href="../index.html#text">文本处理</a>
+            <span>/</span>
+            <span>莫斯电码</span>
+        </div>
+
+        <div class="tool-info-card">
+            <div class="info-row">
+                <div class="info-icon">📡</div>
+                <div class="info-content">
+                    <h2 data-i18n="tools.morse.name">莫斯电码编解码工具</h2>
+                    <p data-i18n="tools.morse.desc">支持文本与莫斯电码之间的相互转换，内置完整字符对照表，支持音频播放和灯光闪烁效果</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-content">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('encode')" data-i18n="tools.morse.encode">📤 编码 (文字→电码)</button>
+                <button class="tab-btn" onclick="switchTab('decode')" data-i18n="tools.morse.decode">📥 解码 (电码→文字)</button>
+                <button class="tab-btn" onclick="switchTab('reference')" data-i18n="tools.morse.reference">📖 对照表</button>
+            </div>
+
+            <div id="tab-encode" class="tab-content active">
+                <div class="io-container">
+                    <div class="io-panel">
+                        <div class="io-panel-header">
+                            <h3>📝 输入文字</h3>
+                            <div class="io-actions">
+                                <button onclick="clearEncodeInput()">清空</button>
+                                <button onclick="pasteText()">粘贴</button>
+                            </div>
+                        </div>
+                        <div class="io-panel-body">
+                            <textarea id="encodeInput" placeholder="在此输入要转换为莫斯电码的文字...&#10;&#10;例如：HELLO WORLD 或 你好世界"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="io-panel">
+                        <div class="io-panel-header">
+                            <h3>📡 莫斯电码</h3>
+                            <div class="io-actions">
+                                <button onclick="copyEncoded()">复制</button>
+                                <button onclick="playMorseAudio()" id="playBtn">▶ 播放</button>
+                            </div>
+                        </div>
+                        <div class="io-panel-body">
+                            <textarea id="encodeOutput" readonly placeholder="转换后的莫斯电码将显示在这里..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="options-group">
+                    <div class="option-item">
+                        <label>分隔符：</label>
+                        <select id="separatorSelect">
+                            <option value="/"> 斜杠 (/)</option>
+                            <option value=" "> 空格 ( )</option>
+                            <option value="|"> 竖线 (|)</option>
+                            <option value=""> 无分隔符</option>
+                        </select>
+                    </div>
+                    <div class="option-item">
+                        <label><input type="checkbox" id="uppercaseCheck" checked> 转大写(英文)</label>
+                    </div>
+                    <div class="option-item">
+                        <label><input type="checkbox" id="showChineseCheck" checked> 显示中文提示</label>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="doEncode()" data-i18n="tools.morse.encode">🔐 编码为莫斯电码</button>
+                    <button class="btn btn-secondary" onclick="clearEncodeAll()" data-i18n="common.clear">🗑️ 清空</button>
+                </div>
+
+                <div id="audioStatus" style="margin-top:16px;padding:12px;background:rgba(64,158,255,0.05);border-radius:8px;display:none;">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:24px;" id="audioIcon">🔊</span>
+                        <div style="flex:1;">
+                            <div style="font-size:13px;font-weight:600;color:var(--primary-color);" id="audioLabel">正在播放...</div>
+                            <div style="height:4px;background:#e4e7ed;border-radius:2px;margin-top:6px;overflow:hidden;">
+                                <div id="audioProgress" style="height:100%;background:linear-gradient(90deg,#409EFF,#667eea);width:0%;transition:width 0.1s;"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger" style="padding:6px 14px;font-size:12px;" onclick="stopAudio()">⏹ 停止</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-decode" class="tab-content">
+                <div class="io-container">
+                    <div class="io-panel">
+                        <div class="io-panel-header">
+                            <h3>📡 输入莫斯电码</h3>
+                            <div class="io-actions">
+                                <button onclick="clearDecodeInput()">清空</button>
+                                <button onclick="pasteDecodeText()">粘贴</button>
+                            </div>
+                        </div>
+                        <div class="io-panel-body">
+                            <textarea id="decodeInput" placeholder="在此输入莫斯电码进行解码...&#10;&#10;格式示例：&#10;.----. .-.. .-.. --- / .-- --- .-. .-.. -..&#10;&#10;或使用斜杠分隔：&#10;.... . .-.. .-.. --- / .-- --- .-. .-.. -.."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="io-panel">
+                        <div class="io-panel-header">
+                            <h3>📝 解码结果</h3>
+                            <div class="io-actions">
+                                <button onclick="copyDecoded()">复制</button>
+                            </div>
+                        </div>
+                        <div class="io-panel-body">
+                            <textarea id="decodeOutput" readonly placeholder="解码后的文本将显示在这里..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="options-group">
+                    <div class="option-item">
+                        <label>分隔符识别：</label>
+                        <select id="decodeSeparator">
+                            <option value="auto">自动检测</option>
+                            <option value="/"> 斜杠 (/)</option>
+                            <option value=" "> 空格</option>
+                            <option value="|"> 竖线 (|)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="doDecode()">🔓 解码为文字</button>
+                    <button class="btn btn-secondary" onclick="clearDecodeAll()">🗑️ 清空</button>
+                </div>
+            </div>
+
+            <div id="tab-reference" class="tab-content">
+                <div class="morse-ref-container">
+                    <div class="ref-section">
+                        <h4 class="ref-title">🔤 英文字母 A-Z</h4>
+                        <div class="morse-grid" id="alphaGrid"></div>
+                    </div>
+
+                    <div class="ref-section">
+                        <h4 class="ref-title">🔢 数字 0-9</h4>
+                        <div class="morse-grid" id="numGrid"></div>
+                    </div>
+
+                    <div class="ref-section">
+                        <h4 class="ref-title">✏️ 常用标点符号</h4>
+                        <div class="morse-grid" id="punctGrid"></div>
+                    </div>
+
+                    <div class="ref-section">
+                        <h4 class="ref-title">🇨🇳 中文拼音对照说明</h4>
+                        <div style="padding:16px;background:#fafafa;border-radius:8px;font-size:13px;color:var(--text-secondary);line-height:1.8;">
+                            莫斯电码本身不直接支持中文字符。中文转莫斯的实现方式：
+                            <ul style="margin-top:8px;padding-left:20px;">
+                                <li><strong>方式一：</strong>将中文转为拼音，再将拼音转为莫斯电码</li>
+                                <li><strong>方式二：</strong>使用中文电码（标准电报码）四位数字表示一个汉字</li>
+                                <li>本工具采用<strong>方式一</strong>（拼音方案）进行中文编码/解码</li>
+                            </ul>
+                        </div>
+                   inyinRefGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/morse.js"></script>
+</body>
+</html>
