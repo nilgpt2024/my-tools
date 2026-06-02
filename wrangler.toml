@@ -1,0 +1,7 @@
+name = "website"
+main = "workers-site/index.js"
+compatibility_date = "2024-09-23"
+account_id = "f05518581fcae90849b1089a56f54e06"
+
+[site]
+bucket = "./public"

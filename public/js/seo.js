@@ -13,6 +13,8 @@ const SEO = {
     this.injectMetaTags();
     this.injectStructuredData();
     this.addHreflangLinks();
+    this.addSecurityHeaders();
+    this.optimizeForCoreWebVitals();
   },
 
   injectMetaTags(pageConfig = {}) {
@@ -23,27 +25,36 @@ const SEO = {
       keywords,
       ogType = 'website',
       canonicalUrl,
-      noIndex = false
+      noIndex = false,
+      author,
+      publishedDate,
+      modifiedDate,
+      image
     } = pageConfig;
 
     const fullTitle = title ? `${title} - ${siteName}` : siteName;
     const fullDescription = description || '免费、实用的在线工具集合，提供开发运维、文本处理、图像处理等60+在线工具';
     const url = canonicalUrl || `${siteUrl}${window.location.pathname}`;
+    const finalImage = image || `${siteUrl}${ogImage}`;
 
     const metaTags = [
       { name: 'description', content: fullDescription },
       { name: 'keywords', content: keywords || '在线工具,JSON格式化,MD5加密,Base64,URL编码,开发工具,Online Tools' },
-      { name: 'author', content: siteName },
+      { name: 'author', content: author || siteName },
       { name: 'robots', content: noIndex ? 'noindex, nofollow' : 'index, follow' },
       { name: 'googlebot', content: noIndex ? 'noindex, nofollow' : 'index, follow' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { name: 'charset', content: 'UTF-8' },
+      { name: 'theme-color', content: '#409EFF' },
       
       { property: 'og:title', content: fullTitle },
       { property: 'og:description', content: fullDescription },
       { property: 'og:type', content: ogType },
       { property: 'og:url', content: url },
-      { property: 'og:image', content: `${siteUrl}${ogImage}` },
+      { property: 'og:image', content: finalImage },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: `${siteName} - ${fullDescription}` },
       { property: 'og:site_name', content: siteName },
       { property: 'og:locale', content: this.config.locale },
       { property: 'og:locale:alternate', content: this.config.alternateLocale },
@@ -51,22 +62,54 @@ const SEO = {
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: fullTitle },
       { name: 'twitter:description', content: fullDescription },
-      { name: 'twitter:image', content: `${siteUrl}${ogImage}` },
+      { name: 'twitter:image', content: finalImage },
       { name: 'twitter:site', content: twitterHandle }
     ];
+
+    if (publishedDate) {
+      metaTags.push({ property: 'article:published_time', content: publishedDate });
+    }
+
+    if (modifiedDate) {
+      metaTags.push({ property: 'article:modified_time', content: modifiedDate });
+    }
 
     metaTags.forEach(meta => {
       this.setMetaTag(meta);
     });
 
     this.setCanonicalUrl(url);
-    document.title = fullTitle;
+    
+    if (title || fullTitle) {
+      document.title = fullTitle;
+    }
   },
 
   setMetaTag({ name, property, content }) {
     if (!content) return;
 
     let meta;
+    if (name === 'charset') {
+      meta = document.querySelector('meta[charset]');
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('charset', content);
+        document.head.insertBefore(meta, document.head.firstChild);
+      }
+      return;
+    }
+
+    if (name === 'viewport') {
+      meta = document.querySelector('meta[name="viewport"]');
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = name;
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+      return;
+    }
+
     if (name) {
       meta = document.querySelector(`meta[name="${name}"]`);
       if (!meta) {
@@ -120,6 +163,59 @@ const SEO = {
     });
   },
 
+  addSecurityHeaders() {
+    const securityMeta = [
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+      { name: 'referrer-policy', content: 'strict-origin-when-cross-origin' }
+    ];
+
+    securityMeta.forEach(meta => {
+      let element;
+      if (meta['http-equiv']) {
+        element = document.querySelector(`meta[http-equiv="${meta['http-equiv']}"]`);
+        if (!element) {
+          element = document.createElement('meta');
+          element.setAttribute('http-equiv', meta['http-equiv']);
+          document.head.appendChild(element);
+        }
+      } else if (meta.name) {
+        element = document.querySelector(`meta[name="${meta.name}"]`);
+        if (!element) {
+          element = document.createElement('meta');
+          element.name = meta.name;
+          document.head.appendChild(element);
+        }
+      }
+      if (element && meta.content) {
+        element.setAttribute('content', meta.content);
+      }
+    });
+  },
+
+  optimizeForCoreWebVitals() {
+    const preloadHints = [
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+      { rel: 'dns-prefetch', href: '//www.google-analytics.com' }
+    ];
+
+    preloadHints.forEach(hint => {
+      if (!document.querySelector(`link[rel="${hint.rel}"][href="${hint.href}"]`)) {
+        const link = document.createElement('link');
+        Object.keys(hint).forEach(key => {
+          link.setAttribute(key, hint[key]);
+        });
+        document.head.insertBefore(link, document.head.firstChild);
+      }
+    });
+
+    if ('loading' in HTMLImageElement.prototype) {
+      document.querySelectorAll('img:not([loading])').forEach(img => {
+        img.loading = 'lazy';
+      });
+    }
+  },
+
   injectStructuredData(pageConfig = {}) {
     const { siteName, siteUrl, ogImage } = this.config;
     const { type = 'WebSite', ...customData } = pageConfig;
@@ -142,6 +238,11 @@ const SEO = {
             logo: {
               '@type': 'ImageObject',
               url: `${siteUrl}${ogImage}`
+            },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'customer support',
+              availableLanguage: ['Chinese', 'English']
             }
           },
           potentialAction: {
@@ -168,11 +269,18 @@ const SEO = {
           offers: {
             '@type': 'Offer',
             price: '0',
-            priceCurrency: 'USD'
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock'
           },
+          aggregateRating: pageConfig.aggregateRating || null,
           browserRequirements: 'Requires JavaScript. Requires HTML5.',
+          featureList: pageConfig.featureList || [],
           ...customData
         };
+        
+        if (!structuredData.aggregateRating) {
+          delete structuredData.aggregateRating;
+        }
         break;
 
       case 'BreadcrumbList':
@@ -180,6 +288,74 @@ const SEO = {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: pageConfig.breadcrumbs || []
+        };
+        break;
+
+      case 'FAQPage':
+        structuredData = {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: (pageConfig.faqs || []).map(faq => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer
+            }
+          })),
+          ...customData
+        };
+        break;
+
+      case 'HowTo':
+        structuredData = {
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: pageConfig.name || '',
+          description: pageConfig.description || '',
+          totalTime: pageConfig.totalTime || 'PT1M',
+          estimatedCost: {
+            '@type': 'MonetaryAmount',
+            currency: 'USD',
+            value: '0'
+          },
+          step: (pageConfig.steps || []).map((step, index) => ({
+            '@type': 'HowToStep',
+            position: index + 1,
+            name: step.name,
+            text: step.text,
+            image: step.image || undefined
+          })).filter(step => step.image !== undefined || true),
+          ...customData
+        };
+        break;
+
+      case 'Article':
+        structuredData = {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: pageConfig.title || '',
+          description: pageConfig.description || '',
+          image: pageConfig.image ? [pageConfig.image] : [],
+          author: {
+            '@type': 'Organization',
+            name: siteName
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: siteName,
+            logo: {
+              '@type': 'ImageObject',
+              url: `${siteUrl}${ogImage}`
+            }
+          },
+          datePublished: pageConfig.publishedDate || new Date().toISOString(),
+          dateModified: pageConfig.modifiedDate || new Date().toISOString(),
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `${siteUrl}${window.location.pathname}`
+          },
+          ...customData
         };
         break;
 
@@ -207,6 +383,20 @@ const SEO = {
     }));
   },
 
+  generateFAQSchema(faqs) {
+    return {
+      type: 'FAQPage',
+      faqs: faqs
+    };
+  },
+
+  generateHowToSchema(steps) {
+    return {
+      type: 'HowTo',
+      steps: steps
+    };
+  },
+
   trackPageView(toolName) {
     if (typeof gtag === 'function') {
       gtag('event', 'page_view', {
@@ -214,5 +404,40 @@ const SEO = {
         page_location: window.location.href
       });
     }
+  },
+
+  trackEvent(category, action, label, value) {
+    if (typeof gtag === 'function') {
+      gtag('event', action, {
+        event_category: category,
+        event_label: label,
+        value: value
+      });
+    }
+  },
+
+  updateLastModified() {
+    const lastModified = new Date().toISOString();
+    this.setMetaTag({
+      name: 'last-modified',
+      content: lastModified
+    });
+    return lastModified;
+  },
+
+  addOpenGraphAudio(audioUrl, secureUrl) {
+    this.setMetaTag({ property: 'og:audio', content: audioUrl });
+    if (secureUrl) {
+      this.setMetaTag({ property: 'og:audio:secure_url', content: secureUrl });
+    }
+    this.setMetaTag({ property: 'og:audio:type', content: 'audio/mpeg' });
+  },
+
+  addOpenGraphVideo(videoUrl, secureUrl) {
+    this.setMetaTag({ property: 'og:video', content: videoUrl });
+    if (secureUrl) {
+      this.setMetaTag({ property: 'og:video:secure_url', content: secureUrl });
+    }
+    this.setMetaTag({ property: 'og:video:type', content: 'video/mp4' });
   }
 };

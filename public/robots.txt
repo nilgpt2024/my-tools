@@ -1,13 +1,71 @@
 # robots.txt - 在线工具集网站
+# 更新时间: 2026-06-02
 # 允许所有搜索引擎抓取
 
+# 全局规则
 User-agent: *
 Allow: /
 Disallow: /js/lib/
 Disallow: /*.json$
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /.git/
+
+# 禁止抓取的文件类型
+User-agent: *
+Disallow: /*.log$
+Disallow: /*.bak$
+Disallow: /*.swp$
+Disallow: /*.DS_Store
 
 # 站点地图
 Sitemap: https://tools.suipce.com/sitemap.xml
 
-# 爬取延迟（可选，友好对待服务器）
+# 爬取延迟（友好对待服务器）
 Crawl-delay: 1
+
+# 特定搜索引擎规则
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 10
+Disallow: /tools/*?*  # 避免抓取带参数的URL
+
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 10
+
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 10
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# 广告爬虫（允许）
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# 不良爬虫禁止
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# 主机信息（可选）
+# Host: https://tools.suipce.com
