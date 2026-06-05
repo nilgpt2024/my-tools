@@ -8,89 +8,345 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/?lang=zh-CN" />
     <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/" />
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- 开发运维类工具 (18个) -->
-  <url><loc>https://tools.suipce.com/tools/randompassword.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/urlencode.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/uuid.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/timetran.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tools.suipce.com/tools/md5.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tools.suipce.com/tools/json.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tools.suipce.com/tools/reg.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/unicode.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/httpstatuscode.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/jwt.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/htmlentity.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/jsformat.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/htmlformat.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/cssformat.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/base64.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tools.suipce.com/tools/scaletran.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/hashcalculator.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/sqlformat.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/randompassword.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/randompassword.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/randompassword.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/randompassword.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/urlencode.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/urlencode.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/urlencode.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/urlencode.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/uuid.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/uuid.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/uuid.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/uuid.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/timetran.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/timetran.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/timetran.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/timetran.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tools.suipce.com/tools/md5.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/md5.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/md5.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/md5.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tools.suipce.com/tools/json.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/json.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/json.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/json.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tools.suipce.com/tools/reg.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/reg.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/reg.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/reg.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/unicode.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/unicode.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/unicode.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/unicode.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/httpstatuscode.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/httpstatuscode.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/httpstatuscode.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/httpstatuscode.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/jwt.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/jwt.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/jwt.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/jwt.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/htmlentity.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/htmlentity.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/htmlentity.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/htmlentity.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/jsformat.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/jsformat.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/jsformat.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/jsformat.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/htmlformat.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/htmlformat.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/htmlformat.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/htmlformat.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/cssformat.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/cssformat.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/cssformat.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/cssformat.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/base64.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/base64.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/base64.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/base64.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tools.suipce.com/tools/scaletran.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/scaletran.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/scaletran.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/scaletran.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/hashcalculator.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/hashcalculator.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/hashcalculator.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/hashcalculator.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/sqlformat.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/sqlformat.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/sqlformat.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/sqlformat.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- 文本处理类工具 (8个) -->
-  <url><loc>https://tools.suipce.com/tools/wordcount.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/wordfrequency.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/textremoveduplicate.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/textreplace.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/markdown.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/asciiwordpic.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/numbertochinese.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/morse.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/wordcount.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/wordcount.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/wordcount.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/wordcount.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/wordfrequency.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/wordfrequency.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/wordfrequency.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/wordfrequency.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/textremoveduplicate.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/textremoveduplicate.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/textremoveduplicate.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/textremoveduplicate.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/textreplace.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/textreplace.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/textreplace.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/textreplace.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/markdown.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/markdown.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/markdown.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/markdown.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/asciiwordpic.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/asciiwordpic.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/asciiwordpic.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/asciiwordpic.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/numbertochinese.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/numbertochinese.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/numbertochinese.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/numbertochinese.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/morse.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/morse.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/morse.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/morse.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- 图像处理类工具 (5个) -->
-  <url><loc>https://tools.suipce.com/tools/imgcut.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/imagewatermark.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/colorpicker.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tools.suipce.com/tools/imagecolorpicker.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/qrcode.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tools.suipce.com/tools/imgcut.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/imgcut.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/imgcut.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/imgcut.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/imagewatermark.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/imagewatermark.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/imagewatermark.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/imagewatermark.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/colorpicker.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/colorpicker.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/colorpicker.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/colorpicker.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/tools/imagecolorpicker.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/imagecolorpicker.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/imagecolorpicker.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/imagecolorpicker.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/qrcode.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/qrcode.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/qrcode.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/qrcode.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- 单位转换类工具 (9个) -->
-  <url><loc>https://tools.suipce.com/tools/length.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/area.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/weight.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/temperature.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/time.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/pressure.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://tools.suipce.com/tools/power.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://tools.suipce.com/tools/storageconverter.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/heat.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tools.suipce.com/tools/length.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/length.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/length.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/length.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/area.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/area.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/area.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/area.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/weight.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/weight.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/weight.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/weight.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/temperature.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/temperature.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/temperature.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/temperature.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/time.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/time.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/time.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/time.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/pressure.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/pressure.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/pressure.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/pressure.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tools.suipce.com/tools/power.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/power.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/power.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/power.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tools.suipce.com/tools/storageconverter.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/storageconverter.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/storageconverter.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/storageconverter.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/heat.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/heat.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/heat.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/heat.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
 
   <!-- 图表工具类 (5个) -->
-  <url><loc>https://tools.suipce.com/tools/bar.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/line.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/pie.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/scatter.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/wordcloud.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/bar.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/bar.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/bar.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/bar.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/line.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/line.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/line.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/line.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/pie.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/pie.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/pie.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/pie.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/scatter.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/scatter.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/scatter.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/scatter.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/wordcloud.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/wordcloud.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/wordcloud.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/wordcloud.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- 娱乐工具类 (15个) -->
-  <url><loc>https://tools.suipce.com/tools/coin.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/dice.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/random.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/lottery.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/rockpaperscissors.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://tools.suipce.com/tools/reactiontest.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/pomodoro.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/barrage.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://tools.suipce.com/tools/wheel.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/emoji.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/diff.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/calculator.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/colorpalette.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tools.suipce.com/tools/ip.html</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tools.suipce.com/tools/webinfo.html</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/coin.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/coin.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/coin.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/coin.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/dice.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/dice.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/dice.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/dice.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/random.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/random.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/random.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/random.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/lottery.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/lottery.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/lottery.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/lottery.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/rockpaperscissors.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/rockpaperscissors.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/rockpaperscissors.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/rockpaperscissors.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tools.suipce.com/tools/reactiontest.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/reactiontest.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/reactiontest.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/reactiontest.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/pomodoro.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/pomodoro.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/pomodoro.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/pomodoro.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/barrage.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/barrage.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/barrage.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/barrage.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tools.suipce.com/tools/wheel.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/wheel.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/wheel.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/wheel.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/emoji.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/emoji.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/emoji.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/emoji.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/diff.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/diff.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/diff.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/diff.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/calculator.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/calculator.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/calculator.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/calculator.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/colorpalette.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/colorpalette.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/colorpalette.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/colorpalette.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tools.suipce.com/tools/ip.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/ip.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/ip.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/ip.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/webinfo.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/webinfo.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/webinfo.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/webinfo.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- XML格式化工具 -->
-  <url><loc>https://tools.suipce.com/tools/xmlformat.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tools.suipce.com/tools/xmlformat.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/xmlformat.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/xmlformat.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/xmlformat.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- 法律与信息页面 (AdSense 合规必需) -->
-  <url><loc>https://tools.suipce.com/privacy-policy.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tools.suipce.com/terms-of-service.html</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tools.suipce.com/about.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tools.suipce.com/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/privacy-policy.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/privacy-policy.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/privacy-policy.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tools.suipce.com/terms-of-service.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/terms-of-service.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/terms-of-service.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/terms-of-service.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>yearly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tools.suipce.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/about.html?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tools.suipce.com/about.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/about.html" />
+    <lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 </urlset>

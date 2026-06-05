@@ -1,15 +1,19 @@
 # robots.txt - 在线工具集网站
-# 更新时间: 2026-06-02
+# 更新时间: 2026-06-05 (SEO优化版)
 # 允许所有搜索引擎抓取
 
 # 全局规则
 User-agent: *
 Allow: /
 Disallow: /js/lib/
-Disallow: /*.json$
 Disallow: /admin/
 Disallow: /tmp/
 Disallow: /.git/
+Disallow: /*?page=*
+Disallow: /*?q=*
+
+# 允许工具页面的lang参数（用于多语言SEO）
+Allow: /tools/*?lang=
 
 # 禁止抓取的文件类型
 User-agent: *
@@ -29,6 +33,12 @@ User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+User-agent: Googlebot-Video
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
@@ -36,7 +46,6 @@ Crawl-delay: 1
 User-agent: Baiduspider
 Allow: /
 Crawl-delay: 10
-Disallow: /tools/*?*  # 避免抓取带参数的URL
 
 User-agent: 360Spider
 Allow: /
@@ -67,5 +76,8 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-# 主机信息（可选）
-# Host: https://tools.suipce.com
+User-agent: SemrushBot
+Disallow:/
+
+User-agent: MAZBot
+Disallow: /
