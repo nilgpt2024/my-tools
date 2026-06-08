@@ -215,7 +215,7 @@ public/
     </main>
     
     <!-- 页脚 -->
-    <footer id="footer"></footer>
+    <footer id="footer" class="footer"></footer>
     
     <!-- 引入公共脚本 -->
     <script src="../js/common.js"></script>
