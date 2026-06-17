@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URL编码/解码 - 免费开发运维工具 | 在线工具集</title>
+  <title>URL编码解码 - 在线URL Encode Decode工具 | 在线工具集</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="URL编码/解码 - 在线URL编码和解码工具。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="URL编码/解码,URL Encoder/Decoder,在线工具,免费工具,开发运维,Online Tools,free tool">
+    <meta name="description" content="免费在线URL编码和解码工具，支持UTF-8编码，自动识别编码类型。适用于URL参数处理、API调试等开发场景，即开即用。">
+    <meta name="keywords" content="URL编码,URL解码,URL Encode,URL Decode,在线URL编码工具,UTF-8编码,URL参数编码,API调试,免费URL工具,Percent Encoding,Online Tools">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="URL编码/解码 - 在线开发运维工具 | 免费在线工具集">
-    <meta property="og:description" content="在线URL编码和解码工具。免费在线URL编码/解码工具，无需安装即开即用。">
+    <meta property="og:title" content="URL编码解码 - 在线URL Encode Decode工具 | 在线工具集">
+    <meta property="og:description" content="免费在线URL编码和解码工具，支持UTF-8编码，自动识别编码类型。适用于URL参数处理、API调试。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.suipce.com/tools/urlencode.html">
     <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
@@ -21,8 +21,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="URL编码/解码 - 免费开发运维工具">
-    <meta name="twitter:description" content="在线URL编码和解码工具 - 免费在线使用">
+    <meta name="twitter:title" content="URL编码解码 - 在线URL Encode Decode工具 | 在线工具集">
+    <meta name="twitter:description" content="免费在线URL编解码工具，支持UTF-8，适用于API调试和URL参数处理。">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
     
     <!-- Canonical URL -->
@@ -52,7 +52,7 @@
         <div class="info-row">
           <div class="info-icon">🔗</div>
           <div class="info-content">
-            <h2 data-i18n="tools.urlencode.name">URL编码/解码</h2>
+            <h1 data-i18n="tools.urlencode.name">URL编码/解码</h1>
             <p data-i18n="tools.urlencode.desc">在线URL编码和解码工具，支持encodeURIComponent和encodeURI两种模式</p>
           </div>
         </div>
@@ -105,10 +105,95 @@
     </div>
   </main>
 
+<!-- SEO Content Section -->
+<section class="tool-content-detail" style="margin-top: 32px;">
+  
+  <!-- 工具介绍 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">工具介绍</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">URL（统一资源定位符）只能包含ASCII字符集中的可打印字符——即英文字母、数字和部分特殊符号(-_.~)。当URL中需要包含中文、空格、特殊字符（如&、=、?、#）等非安全字符时，就必须对这些字符进行URL编码（也称Percent Encoding），将其替换为%加两位十六进制数的形式。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">这款在线URL编码解码工具专为开发者设计，支持application/x-www-form-urlencoded（表单编码）和RFC 3986 URI编码两种模式。它可以快速对URL参数中的中文、特殊字符进行编码，或将已编码的URL还原为可读形式。工具自动识别输入内容的编码类型，智能判断需要进行编码还是解码操作。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">特别重要的是，工具默认使用UTF-8字符编码，这是现代Web的标准编码格式，能正确处理中文、日文、阿拉伯文等各种Unicode字符的URL编码。同时也支持GBK等其他编码方案的兼容处理。所有操作在浏览器本地完成，URL内容不会外传。</p>
+  </div>
+
+  <!-- 功能特点 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">功能特点</h2>
+    <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+      <li>URL编码：将中文和特殊字符转换为%编码格式</li>
+      <li>URL解码：将%编码还原为原始字符</li>
+      <li>UTF-8编码支持，完美处理中文等多语言字符</li>
+      <li>支持application/x-www-form-urlencoded和URI编码两种模式</li>
+      <li>整体URL编码和分参数编码两种模式</li>
+      <li>自动检测编码状态，智能提示</li>
+      <li>一键复制编码/解码结果</li>
+      <li>完全免费，无需安装</li>
+    </ul>
+  </div>
+
+  <!-- 使用场景 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">使用场景</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #303133;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">API开发</strong>
+        <span style="font-size: 13px; color: #666;">构造带有中文参数的API请求URL</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #303133;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">前端开发</strong>
+        <span style="font-size: 13px; color: #666;">处理地址栏中的查询参数编码</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #303133;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">调试排查</strong>
+        <span style="font-size: 13px; color: #666;">分析和修复URL中的编码问题</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #303133;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">SEO优化</strong>
+        <span style="font-size: 13px; color: #666;">确保中文URL正确编码后被搜索引擎索引</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #303133;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">数据分析</strong>
+        <span style="font-size: 13px; color: #666;">解析和分析服务器日志中的编码URL</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #303133;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">链接分享</strong>
+        <span style="font-size: 13px; color: #666;">生成可以在任何环境下正常工作的链接</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 相关知识 / 技术说明 -->
+  <div class="detail-block">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">相关知识</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">URL编码的规则很简单：保留字符（A-Z a-z 0-9 - _ . ~）不需要编码，其他字符会被替换为%XX的形式，其中XX是该字符在指定字符集中的十六进制值。例如，空格通常被编码为%20（或+号在query string中），中文"你好"的UTF-8 URL编码为%E4%BD%A0%E5%A5%BD。需要注意的是，URL的不同部分（路径、查询参数、片段）对哪些字符需要编码有不同的规则。在现代Web开发中，建议始终使用encodeURIComponent()函数进行安全的URL编码操作。</p>
+  </div>
+
+</section>
+
+  <!-- SEO FAQ Section -->
+  <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+    <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">什么时候需要进行URL编码？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">当URL参数中包含中文、特殊字符（如&=?#）、空格等字符时，需要进行URL编码以确保URL正确传输和解析。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">URL编码和URI编码有区别吗？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">URL编码通常指application/x-www-form-urlencoded格式，空格编码为+号；URI编码遵循RFC 3986标准，空格编码为%20。本工具支持两种模式。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">支持哪种字符编码？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">默认使用UTF-8编码，这是目前Web标准推荐的字符编码格式，完美支持中文等多语言字符。</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer" id="footer"></footer>
 
   <script src="../js/common.js"></script>
   <script src="../js/i18n.js"></script>
   <script src="../js/tools/urlencode.js"></script>
+  <script src="../js/tool-seo.js"></script>
 </body>
 </html>

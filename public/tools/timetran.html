@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>时间戳转换 - 免费开发运维工具 | 在线工具集</title>
+  <title>时间戳转换 - Unix时间戳日期互转工具 | 在线工具集</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="时间戳转换 - 时间戳与日期格式互转。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="时间戳转换,Timestamp Converter,在线工具,免费工具,开发运维,Online Tools,free tool">
+    <meta name="description" content="免费在线时间戳转换工具，支持Unix时间戳与日期时间格式互转。支持毫秒级精度，获取当前时间戳，开发者必备时间工具。">
+    <meta name="keywords" content="时间戳转换,Unix时间戳,时间戳在线转换,日期转时间戳,Timestamp Converter,毫秒时间戳,当前时间戳,Unix时间,开发者工具,免费时间戳工具,Online Tools">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
     
@@ -21,8 +21,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="时间戳转换 - 免费开发运维工具">
-    <meta name="twitter:description" content="时间戳与日期格式互转 - 免费在线使用">
+    <meta name="twitter:title" content="时间戳转换 - Unix时间戳日期互转工具 | 在线工具集">
+    <meta name="twitter:description" content="免费在线时间戳转换工具，支持Unix时间戳与日期互转，毫秒级精度。">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
     
     <!-- Canonical URL -->
@@ -52,7 +52,7 @@
         <div class="info-row">
           <div class="info-icon">⏰</div>
           <div class="info-content">
-            <h2 data-i18n="tools.timetran.name">时间戳转换</h2>
+            <h1 data-i18n="tools.timetran.name">时间戳转换</h1>
             <p data-i18n="tools.timetran.desc">时间戳与日期格式互转，支持秒级和毫秒级时间戳，获取当前时间戳</p>
           </div>
         </div>
@@ -109,10 +109,95 @@
     </div>
   </main>
 
+<!-- SEO Content Section -->
+<section class="tool-content-detail" style="margin-top: 32px;">
+  
+  <!-- 工具介绍 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">工具介绍</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">Unix时间戳（Unix Timestamp）是计算机领域记录时间的经典方式——用一个整数表示从1970年1月1日00:00:00 UTC到当前时间经过的秒数（或毫秒数）。这种简洁的时间表示法被广泛应用于数据库记录、API接口、日志系统、缓存过期控制、Token有效期等无数技术场景中。但对人类来说，一串长长的数字并不直观，我们需要将其转换为可读的日期时间格式。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">这款时间戳转换工具就是连接"机器时间"和"人类时间"的桥梁。它支持Unix时间戳与日期时间格式的双向转换：既可以输入时间戳查看对应的日期时间，也可以选择日期获取对应的时间戳值。工具同时支持秒级（10位数字）和毫秒级（13位数字）时间戳的自动识别和切换。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">此外，工具还提供"获取当前时间戳"的一键功能，方便开发者在编码时快速获取当前的时间戳值。支持北京时间（UTC+8）本地化显示，让转换结果更加贴近实际使用场景。完全免费，无需安装任何软件。</p>
+  </div>
+
+  <!-- 功能特点 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">功能特点</h2>
+    <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+      <li>时间戳→日期时间：将Unix时间戳转为可读日期</li>
+      <li>日期时间→时间戳：将日期转为Unix时间戳</li>
+      <li>自动识别秒级(10位)和毫秒级(13位)时间戳</li>
+      <li>一键获取当前时间戳（秒级+毫秒级）</li>
+      <li>北京时间(UTC+8)本地化显示</li>
+      <li>支持自定义时区偏移</li>
+      <li>常用时间戳速查表（如明天此时、一周后等）</li>
+      <li>完全免费，即开即用</li>
+    </ul>
+  </div>
+
+  <!-- 使用场景 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">使用场景</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #EEBC38;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">后端开发</strong>
+        <span style="font-size: 13px; color: #666;">将数据库存储的时间戳转换为可读日期展示给用户</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #EEBC38;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">API调试</strong>
+        <span style="font-size: 13px; color: #666;">检查和构造带时间戳参数的API请求</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #EEBC38;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">日志分析</strong>
+        <span style="font-size: 13px; color: #666;">将服务器日志中的时间戳转换为可读时间</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #EEBC38;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">缓存策略</strong>
+        <span style="font-size: 13px; color: #666;">计算缓存过期的目标时间戳</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #EEBC38;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">前端开发</strong>
+        <span style="font-size: 13px; color: #666;">处理服务端返回的时间戳数据格式化展示</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #EEBC38;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">合同/取证</strong>
+        <span style="font-size: 13px; color: #666;">将时间戳转换为具体的日期时间作为证据</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 相关知识 / 技术说明 -->
+  <div class="detail-block">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">相关知识</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">Unix纪元（Unix Epoch）被定义为1970年1月1日00:00:00 UTC。大多数系统使用有符号的32位整数存储时间戳，这意味着最大可表示到2038年1月19日03:14:07 UTC（著名的2038年问题）。现代64位系统则将此上限推到了遥远的未来。在JavaScript中，Date对象内部使用毫秒级时间戳，可以通过Date.now()获取当前毫秒级时间戳，或Math.floor(Date.now()/1000)获取秒级时间戳。Python中则可以使用time.time()（秒级）或time.time()*1000（毫秒级）。</p>
+  </div>
+
+</section>
+
+  <!-- SEO FAQ Section -->
+  <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+    <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">什么是Unix时间戳？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Unix时间戳是从1970年1月1日00:00:00 UTC到当前时间的总秒数（或毫秒数）。广泛用于计算机系统中记录时间。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">支持秒级和毫秒级时间戳吗？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">同时支持！可以自动识别输入的是秒级还是毫秒级时间戳，也可以手动切换，并支持获取当前时间戳。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">时间戳转换的时区怎么处理？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">时间戳本身是无时区的（UTC时间）。转换为日期时会显示为本地时区的时间，确保结果符合您的实际使用场景。</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer" id="footer"></footer>
 
   <script src="../js/common.js"></script>
   <script src="../js/i18n.js"></script>
   <script src="../js/tools/timetran.js"></script>
+  <script src="../js/tool-seo.js"></script>
 </body>
 </html>

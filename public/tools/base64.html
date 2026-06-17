@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Base64编解码 - 免费开发运维工具 | 在线工具集</title>
+  <title>Base64编解码 - 在线Base64编码解码工具 | 在线工具集</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Base64编解码 - Base64编码与解码工具。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="Base64编解码,Base64 Encode/Decode,在线工具,免费工具,开发运维,Online Tools,free tool">
+    <meta name="description" content="免费在线Base64编码和解码工具，支持文本和图片Base64互转。一键编解码，支持中文，无需安装，数据本地处理保护隐私。">
+    <meta name="keywords" content="Base64编解码,Base64编码,Base64解码,Base64 Encode,Base64 Decode,在线Base64工具,Base64图片转换,中文Base64,免费Base64工具,数据编码,Online Tools">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Base64编解码 - 在线开发运维工具 | 免费在线工具集">
-    <meta property="og:description" content="Base64编码与解码工具。免费在线Base64编解码工具，无需安装即开即用。">
+    <meta property="og:title" content="Base64编解码 - 在线Base64编码解码工具 | 在线工具集">
+    <meta property="og:description" content="免费在线Base64编码和解码工具，支持文本和图片Base64互转。一键编解码，支持中文。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.suipce.com/tools/base64.html">
     <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
@@ -21,8 +21,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Base64编解码 - 免费开发运维工具">
-    <meta name="twitter:description" content="Base64编码与解码工具 - 免费在线使用">
+    <meta name="twitter:title" content="Base64编解码 - 在线Base64编码解码工具 | 在线工具集">
+    <meta name="twitter:description" content="免费在线Base64编解码工具，支持文本和图片互转，一键编解码。">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
     
     <!-- Canonical URL -->
@@ -52,7 +52,7 @@
         <div class="info-row">
           <div class="info-icon">🔄</div>
           <div class="info-content">
-            <h2 data-i18n="tools.base64.name">Base64编解码</h2>
+            <h1 data-i18n="tools.base64.name">Base64编解码</h1>
             <p data-i18n="tools.base64.desc">Base64编码与解码工具，支持文本和文件的Base64互转</p>
           </div>
         </div>
@@ -132,10 +132,95 @@
     </div>
   </main>
 
+<!-- SEO Content Section -->
+<section class="tool-content-detail" style="margin-top: 32px;">
+  
+  <!-- 工具介绍 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">工具介绍</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">Base64是一种最常见的二进制到文本的编码方式，它的核心思想是将二进制数据用64个可打印ASCII字符来表示。在Web开发中，Base64的应用无处不在：Data URL内嵌图片、HTTP Basic认证头、JWT Token传输、电子邮件附件编码、API凭证传递……理解和熟练使用Base64编解码是每个开发者的必备技能。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">这款在线Base64编解码工具提供了简洁高效的Base64编码和解码能力。支持文本模式和文件模式的Base64互转。对于文本，可以直接粘贴或输入内容进行编码解码；对于Base64字符串，也能快速还原为原始文本。工具自动检测UTF-8编码，完美支持中文等多语言字符的正确编解码，避免了常见的乱码问题。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">所有编解码操作均在浏览器本地完成，使用原生的atob()和btoa() API（或Polyfill处理UTF-8兼容性），确保处理的准确性和效率。您的数据不会上传到任何服务器，即使处理敏感信息也无需担心泄露风险。</p>
+  </div>
+
+  <!-- 功能特点 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">功能特点</h2>
+    <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+      <li>Base64编码：将文本/二进制数据转换为Base64字符串</li>
+      <li>Base64解码：将Base64字符串还原为原始内容</li>
+      <li>自动UTF-8编码支持，中文不乱码</li>
+      <li>支持大文本处理，无长度限制</li>
+      <li>实时转换，输入即刻看到结果</li>
+      <li>一键复制编码/解码结果</li>
+      <li>URL-safe Base64模式支持（将+/替换为-_）</li>
+      <li>完全本地运行，数据安全有保障</li>
+    </ul>
+  </div>
+
+  <!-- 使用场景 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">使用场景</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #5470C6;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Data URL生成</strong>
+        <span style="font-size: 13px; color: #666;">将图片转为Base64嵌入HTML/CSS中</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #5470C6;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">HTTP认证</strong>
+        <span style="font-size: 13px; color: #666;">生成Basic Auth请求头的凭证部分</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #5470C6;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">JWT解析</strong>
+        <span style="font-size: 13px; color: #666;">解码JWT Token的Payload部分查看内容</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #5470C6;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">邮件附件</strong>
+        <span style="font-size: 13px; color: #666;">理解电子邮件的Base64编码附件格式</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #5470C6;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">API调试</strong>
+        <span style="font-size: 13px; color: #666;">编码URL参数中的特殊字符</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #5470C6;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">二进制传输</strong>
+        <span style="font-size: 13px; color: #666;">在不支持二进制的协议中传输图片或文件数据</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 相关知识 / 技术说明 -->
+  <div class="detail-block">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">相关知识</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">Base64使用A-Z、a-z、0-9、+、/共64个字符加上=填充字符来表示数据。每3个字节（24位）的二进制数据会被编码为4个Base64字符，因此Base64编码会使数据体积增大约33%。URL-safe Base64是标准Base64的变体，将+和/分别替换为-和_，使其可以安全地在URL路径中使用而无需额外编码。需要注意的是，Base64只是编码而非加密——任何人都可以轻易解码Base64字符串，因此绝不能将其用于保护敏感数据。</p>
+  </div>
+
+</section>
+
+  <!-- SEO FAQ Section -->
+  <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+    <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Base64编码有什么用途？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Base64常用于在文本协议中传输二进制数据（如邮件附件）、Data URL嵌入图片、API凭证编码、Token传输等场景。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Base64是加密算法吗？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">不是。Base64只是编码方式，不是加密算法。Base64编码的内容可以被任何人解码，不适合用于安全敏感的数据保护。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">支持中文Base64编码吗？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">支持！本工具自动处理UTF-8编码的中文字符，确保中文内容正确进行Base64编解码。</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer" id="footer"></footer>
 
   <script src="../js/common.js"></script>
   <script src="../js/i18n.js"></script>
   <script src="../js/tools/base64.js"></script>
+  <script src="../js/tool-seo.js"></script>
 </body>
 </html>

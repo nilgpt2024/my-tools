@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UUID生成器 - 免费开发运维工具 | 在线工具集</title>
+  <title>UUID生成器 - 在线批量生成唯一标识符 | 在线工具集</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="UUID生成器 - 批量生成通用唯一识别码。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="UUID生成器,UUID Generator,在线工具,免费工具,开发运维,Online Tools,free tool">
+    <meta name="description" content="免费在线UUID/GUID生成器，支持批量生成V4版本通用唯一识别码。一键复制，支持自定义数量，适用于数据库主键、订单号等场景。">
+    <meta name="keywords" content="UUID生成器,UUID在线生成,GUID生成器,批量UUID,UUID V4,唯一标识符,UUID Generator,数据库主键,订单号生成,免费UUID工具,随机ID,Online Tools">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="UUID生成器 - 在线开发运维工具 | 免费在线工具集">
-    <meta property="og:description" content="批量生成通用唯一识别码。免费在线UUID生成器工具，无需安装即开即用。">
+    <meta property="og:title" content="UUID生成器 - 在线批量生成唯一标识符 | 在线工具集">
+    <meta property="og:description" content="免费在线UUID/GUID生成器，支持批量生成V4版本通用唯一识别码。一键复制，支持自定义数量。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.suipce.com/tools/uuid.html">
     <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
@@ -21,8 +21,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UUID生成器 - 免费开发运维工具">
-    <meta name="twitter:description" content="批量生成通用唯一识别码 - 免费在线使用">
+    <meta name="twitter:title" content="UUID生成器 - 在线批量生成唯一标识符 | 在线工具集">
+    <meta name="twitter:description" content="免费在线UUID/GUID生成器，支持批量生成V4版本唯一识别码，一键复制。">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
     
     <!-- Canonical URL -->
@@ -52,7 +52,7 @@
         <div class="info-row">
           <div class="info-icon">🆔</div>
           <div class="info-content">
-            <h2 data-i18n="tools.uuid.name">UUID生成器</h2>
+            <h1 data-i18n="tools.uuid.name">UUID生成器</h1>
             <p data-i18n="tools.uuid.desc">批量生成通用唯一识别码(UUID)，支持标准UUID v4格式，可自定义数量</p>
           </div>
         </div>
@@ -95,10 +95,95 @@
     </div>
   </main>
 
+<!-- SEO Content Section -->
+<section class="tool-content-detail" style="margin-top: 32px;">
+  
+  <!-- 工具介绍 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">工具介绍</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">UUID（Universally Unique Identifier，通用唯一识别符），也称为GUID（Globally Unique Identifier），是一种128位长的标识符，用于在分布式系统中唯一地标识信息。UUID的设计目标是：即使在多个独立的系统中同时生成标识符，也不产生冲突（碰撞概率极低）。这使得UUID成为数据库主键、订单号、Session ID、设备标识等场景的理想选择。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">这款在线UUID/GUID生成器专注于生成最广泛使用的UUID v4版本（基于随机数）。v4版本的UUID格式为xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx，其中x是随机十六进制数字，y是8、9、a或b之一。工具支持一次生成单个UUID或批量生成最多50个UUID，每个UUID都是独立随机生成的，彼此之间不存在任何关联。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">生成过程使用浏览器原生的crypto.randomUUID() API（或降级到Math.random()填充），保证随机性的质量。生成的UUID可以直接复制使用，也可以导出为文本文件保存。完全免费，不限次数。</p>
+  </div>
+
+  <!-- 功能特点 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">功能特点</h2>
+    <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+      <li>生成标准UUID v4（随机版本）格式</li>
+      <li>单个生成或批量生成（最多50个/次）</li>
+      <li>使用crypto API确保随机性质量</li>
+      <li>标准格式：8-4-4-4-12的36字符长度</li>
+      <li>一键复制单个UUID或批量复制全部</li>
+      <li>支持导出为.txt文件</li>
+      <li>完全本地运行，不依赖服务端</li>
+      <li>免费无限制使用</li>
+    </ul>
+  </div>
+
+  <!-- 使用场景 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">使用场景</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #91CC75;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">数据库主键</strong>
+        <span style="font-size: 13px; color: #666;">替代自增ID，避免分布式环境下的ID冲突</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #91CC75;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">订单号生成</strong>
+        <span style="font-size: 13px; color: #666;">为电商交易创建唯一的订单标识</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #91CC75;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Session管理</strong>
+        <span style="font-size: 13px; color: #666;">为用户会话分配唯一标识符</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #91CC75;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">文件命名</strong>
+        <span style="font-size: 13px; color: #666;">上传文件时生成唯一的文件名防止覆盖</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #91CC75;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">测试数据</strong>
+        <span style="font-size: 13px; color: #666;">为自动化测试生成模拟的唯一标识符</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #91CC75;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">追踪标识</strong>
+        <span style="font-size: 13px; color: #666;">在埋点和日志中标记唯一事件或用户</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 相关知识 / 技术说明 -->
+  <div class="detail-block">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">相关知识</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">UUID共有5个版本：v1基于时间戳和MAC地址（存在隐私问题）、v2（较少使用）、v3基于MD5命名空间哈希、v4基于随机数（最常用）、v5基于SHA-1命名空间哈希。UUID v4的理论碰撞概率约为2^122分之一，这意味着如果每秒生成10亿个UUID，大约需要85年才可能出现一次碰撞。ULID（Universally Lexicographically Sortable Identifier）是UUID的一种替代方案，它在保持唯一性的同时还支持按时间排序。</p>
+  </div>
+
+</section>
+
+  <!-- SEO FAQ Section -->
+  <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+    <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">UUID是什么？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">UUID（Universally Unique Identifier）是128位的全局唯一标识符，也称为GUID。几乎不可能重复，广泛用于数据库主键、订单号、Session ID等场景。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">生成的UUID版本是什么？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">本工具生成的是UUID v4版本，基于随机数生成，是目前最常用的UUID版本，具有足够的唯一性保障。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">批量生成的UUID会有重复吗？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">理论上UUID v4的碰撞概率极低（约2^122分之一），在实际应用中可以认为是绝对唯一的。</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer" id="footer"></footer>
 
   <script src="../js/common.js"></script>
   <script src="../js/i18n.js"></script>
   <script src="../js/tools/uuid.js"></script>
+  <script src="../js/tool-seo.js"></script>
 </body>
 </html>

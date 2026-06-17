@@ -337,7 +337,277 @@
   margin-bottom: 16px;
 }
 
-/* 响应式优化 */
+/* ===== SEO 内容区域样式（工具介绍/功能特点/使用场景/FAQ） ===== */
+
+.tool-content-detail {
+  margin-top: 32px;
+  padding: 0;
+}
+
+.detail-block {
+  margin-bottom: 28px;
+}
+
+.detail-block > h2 {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-color);
+  font-weight: 600;
+}
+
+.detail-block p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.9;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.detail-block ul {
+  padding-left: 22px;
+  font-size: 14px;
+  color: #444;
+  line-height: 2.1;
+}
+
+.detail-block ul li {
+  margin-bottom: 4px;
+}
+
+/* 使用场景卡片网格 */
+.detail-block .scenario-grid,
+.detail-block > div[style*="grid-template-columns"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.scenario-card {
+  padding: 14px 18px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 3px solid #67C23A;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scenario-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.scenario-card strong {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-primary);
+}
+
+.scenario-card span {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* FAQ 区域 */
+.tool-faq-section {
+  margin-top: 32px;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.tool-faq-section > h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.faq-item {
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  background: white;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+  transition: box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.faq-item strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+}
+
+/* ===== SEO 内容区域 - 移动端适配 ===== */
+
+@media (max-width: 968px) {
+  .tool-content-detail {
+    margin-top: 24px;
+  }
+
+  /* 使用场景卡片：平板变双列 */
+  .detail-block .scenario-grid,
+  .detail-block > div[style*="grid-template-columns"] {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .tool-content-detail {
+    margin-top: 20px !important;
+  }
+
+  .detail-block {
+    margin-bottom: 20px !important;
+  }
+
+  .detail-block > h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .detail-block p {
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .detail-block ul {
+    font-size: 13.5px;
+    line-height: 2;
+    padding-left: 18px;
+  }
+
+  /* 使用场景卡片：移动端单列 */
+  .detail-block .scenario-grid,
+  .detail-block > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .scenario-card {
+    padding: 12px 14px;
+  }
+
+  .scenario-card strong {
+    font-size: 13.5px;
+  }
+
+  .scenario-card span {
+    font-size: 12.5px;
+  }
+
+  /* FAQ 移动端 */
+  .tool-faq-section {
+    margin-top: 24px !important;
+    padding: 16px !important;
+    border-radius: 10px !important;
+  }
+
+  .tool-faq-section > h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .faq-item {
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    border-radius: 8px;
+  }
+
+  .faq-item strong {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .faq-item p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .tool-content-detail {
+    margin-top: 16px !important;
+  }
+
+  .detail-block {
+    margin-bottom: 16px !important;
+  }
+
+  .detail-block > h2 {
+    font-size: 15px !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .detail-block p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+
+  .detail-block ul {
+    font-size: 13px;
+    line-height: 1.9;
+    padding-left: 16px;
+  }
+
+  .scenario-card {
+    padding: 10px 12px !important;
+    border-radius: 8px !important;
+  }
+
+  .scenario-card strong {
+    font-size: 13px;
+  }
+
+  .scenario-card span {
+    font-size: 12px;
+  }
+
+  .tool-faq-section {
+    margin-top: 20px !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+  }
+
+  .tool-faq-section > h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .faq-item {
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    border-left-width: 3px;
+  }
+
+  .faq-item strong {
+    font-size: 13.5px;
+  }
+
+  .faq-item p {
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+}
 @media (max-width: 768px) {
   .tool-layout {
     padding: 20px 0;

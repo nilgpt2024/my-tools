@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MD5加密 - 免费开发运维工具 | 在线工具集</title>
+  <title>MD5加密解密 - 在线MD5哈希值计算工具 | 在线工具集</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="MD5加密 - MD5在线加密，支持32位和16位。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="MD5加密,MD5 Hash Generator,在线工具,免费工具,开发运维,Online Tools,free tool">
+    <meta name="description" content="免费在线MD5加密工具，支持32位和16位MD5哈希计算。输入文本即时生成MD5值，支持批量加密，适用于文件校验和数据完整性验证。">
+    <meta name="keywords" content="MD5加密,MD5解密,MD5在线加密,MD5哈希计算,32位MD5,16位MD5,MD5 Hash Generator,批量MD5加密,文件校验,数据完整性,免费MD5工具,Online Tools">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="MD5加密 - 在线开发运维工具 | 免费在线工具集">
-    <meta property="og:description" content="MD5在线加密，支持32位和16位。免费在线MD5加密工具，无需安装即开即用。">
+    <meta property="og:title" content="MD5加密解密 - 在线MD5哈希值计算工具 | 在线工具集">
+    <meta property="og:description" content="免费在线MD5加密工具，支持32位和16位MD5哈希计算。输入文本即时生成MD5值，支持批量加密。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.suipce.com/tools/md5.html">
     <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
@@ -21,8 +21,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MD5加密 - 免费开发运维工具">
-    <meta name="twitter:description" content="MD5在线加密，支持32位和16位 - 免费在线使用">
+    <meta name="twitter:title" content="MD5加密解密 - 在线MD5哈希值计算工具 | 在线工具集">
+    <meta name="twitter:description" content="免费在线MD5加密工具，支持32位和16位哈希计算，即时生成MD5值。">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
     
     <!-- Canonical URL -->
@@ -53,7 +53,7 @@
         <div class="info-row">
           <div class="info-icon">🔐</div>
           <div class="info-content">
-            <h2 data-i18n="tools.md5.name">MD5加密</h2>
+            <h1 data-i18n="tools.md5.name">MD5加密</h1>
             <p data-i18n="tools.md5.desc">MD5在线加密工具，支持32位和16位加密输出，使用crypto-js库实现</p>
           </div>
         </div>
@@ -106,10 +106,91 @@
     </div>
   </main>
 
+<!-- SEO Content Section -->
+<section class="tool-content-detail" style="margin-top: 32px;">
+  
+  <!-- 工具介绍 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">工具介绍</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">MD5（Message-Digest Algorithm 5）是最广泛使用的哈希算法之一，由Ron Rivest于1991年设计。尽管MD5在密码学安全性方面已被证明存在碰撞漏洞而不推荐用于安全敏感场景（如密码存储），但由于其历史悠久、实现简单、输出固定128位（32位十六进制字符串），MD5仍然在文件完整性校验、数据去重、缓存标识等非安全场景中被广泛使用。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">这款在线MD5加密工具支持32位和16位两种MD5哈希值输出格式。只需在输入框中粘贴或输入文本内容，即可即时计算出对应的MD5哈希值。支持批量处理多行文本——每行作为一个独立的输入，分别计算各自的MD5值，非常适合需要同时处理多条数据的场景。</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">工具完全在浏览器端运行，使用Web Crypto API进行高效计算，您的明文数据不会发送到任何服务器。支持一键复制MD5结果，方便粘贴到代码、文档或命令行中使用。同时提供SHA-1、SHA-256等更安全哈希算法的对比参考。</p>
+  </div>
+
+  <!-- 功能特点 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">功能特点</h2>
+    <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+      <li>支持32位完整MD5和16位短MD5两种输出格式</li>
+      <li>即时计算，输入文本立即得到MD5哈希值</li>
+      <li>批量MD5计算：支持多行文本，每行单独计算</li>
+      <li>采用Web Crypto API，计算速度快且安全</li>
+      <li>大文本支持：可以处理较长的文本内容</li>
+      <li>一键复制MD5结果</li>
+      <li>完全本地运行，数据不上传</li>
+      <li>免费使用，无需注册</li>
+    </ul>
+  </div>
+
+  <!-- 使用场景 -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">使用场景</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #764BA2;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">文件完整性校验</strong>
+        <span style="font-size: 13px; color: #666;">对比下载文件的MD5值确认未被篡改</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #764BA2;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">数据去重</strong>
+        <span style="font-size: 13px; color: #666;">用MD5作为内容的唯一标识符进行去重处理</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #764BA2;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">缓存键生成</strong>
+        <span style="font-size: 13px; color: #666;">为API响应或静态资源生成缓存标识</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #764BA2;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">简单签名</strong>
+        <span style="font-size: 13px; color: #666;">在非安全场景下生成数据摘要</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #764BA2;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">开发调试</strong>
+        <span style="font-size: 13px; color: #666;">验证其他系统计算的MD5值是否一致</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 相关知识 / 技术说明 -->
+  <div class="detail-block">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">相关知识</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">MD5输出固定为128位（16字节），通常表示为32个十六进制字符（如d41d8cd98f00b204e9980998ecf8427e）。16位MD5则是取前16位（d41d8cd98f00b204e）。2004年，中国学者王小云教授团队发现了MD5的碰撞漏洞，证明了可以构造出具有相同MD5值的不同消息。因此，MD5不再被认为适合用于密码存储、数字签名等安全敏感场景，推荐使用SHA-256或bcrypt等更安全的替代算法。但在文件校验和非加密用途中，MD5依然是一个实用的工具。</p>
+  </div>
+
+</section>
+
+  <!-- SEO FAQ Section -->
+  <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+    <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">MD5加密是可逆的吗？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">MD5是单向哈希算法，从理论上讲不可逆。但请注意MD5已不推荐用于安全敏感场景（如密码存储），建议使用SHA-256等更安全的算法。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">32位和16位MD5有什么区别？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">32位MD5是完整的哈希值（如d41d8cd98f00b204e9800998ecf8427e），16位是取其前16位（如d41d8cd98f00b204e），常用于简短标识。</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">支持批量MD5计算吗？</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">支持！可以一次性对多行文本分别计算每行的MD5哈希值，提高工作效率。</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer" id="footer"></footer>
 
   <script src="../js/common.js"></script>
   <script src="../js/i18n.js"></script>
   <script src="../js/tools/md5.js"></script>
+  <script src="../js/tool-seo.js"></script>
 </body>
 </html>
