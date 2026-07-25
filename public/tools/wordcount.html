@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文本统计 - 免费文本处理工具 | 在线工具集</title>
+    <title data-i18n-title="tools.wordcount.pageTitle">Free Online Word Counter — Instant Word & Character Count</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="文本统计 - 统计字数、字符数、行数等。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="文本统计,Word Counter,在线工具,免费工具,文本处理,Online Tools,free tool">
+    <meta name="description" content="Need to check your word count? Our free online word counter gives instant, accurate results for words, characters, sentences and paragraphs. No signup, 100% private, works on any device.">
+    <meta name="keywords" content="online word count, word counter, free word counter, character count, letter count, sentence count, paragraph count, word count online, word count tool, text statistics, online tools">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="文本统计 - 在线文本处理工具 | 免费在线工具集">
-    <meta property="og:description" content="统计字数、字符数、行数等。免费在线文本统计工具，无需安装即开即用。">
+    <meta property="og:title" content="Free Online Word Counter — Instant Word & Character Count">
+    <meta property="og:description" content="Need to check your word count? Get instant, accurate results for words, characters, sentences and paragraphs. No signup, 100% private.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.suipce.com/tools/wordcount.html">
     <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
-    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="在线工具集 | Online Tools Hub">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="文本统计 - 免费文本处理工具">
-    <meta name="twitter:description" content="统计字数、字符数、行数等 - 免费在线使用">
+    <meta name="twitter:title" content="Free Online Word Counter — Instant Word & Character Count">
+    <meta name="twitter:description" content="Need to check your word count? Get instant, accurate results for words, characters, sentences and paragraphs. No signup, 100% private.">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
     
     <!-- Canonical URL -->
@@ -34,25 +34,81 @@
     <link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/wordcount.html">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .seo-content {
+            margin-top: 48px;
+            padding: 32px;
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow, 0 2px 8px rgba(0,0,0,0.04));
+        }
+        .seo-content h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--text-primary, #111827);
+        }
+        .seo-content h3 {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary, #111827);
+        }
+        .seo-content p,
+        .seo-content li {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary, #4b5563);
+        }
+        .seo-content ul,
+        .seo-content ol {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        .seo-content li {
+            margin-bottom: 8px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h3 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--text-primary, #111827);
+        }
+        .faq-item p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .seo-content {
+                padding: 20px;
+                margin-top: 32px;
+            }
+            .seo-content h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar" id="navbar"></nav>
 
     <main class="container tool-layout">
         <div class="breadcrumb">
-            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+            <a href="../index.html" data-i18n="common.breadcrumbHome">Home</a>
             <span>/</span>
-            <a href="../index.html#text" data-i18n="categories.text">文本处理</a>
+            <a href="../index.html#text" data-i18n="categories.text">Text Processing</a>
             <span>/</span>
-            <span data-i18n="tools.wordcount.name">文本统计</span>
+            <span data-i18n="tools.wordcount.name">Word Counter</span>
         </div>
 
         <div class="tool-info-card">
             <div class="info-row">
                 <div class="info-icon">📊</div>
                 <div class="info-content">
-                    <h1 data-i18n="tools.wordcount.name">文本统计工具</h1>
-                    <p data-i18n="tools.wordcount.desc">快速统计文本的字数、字符数、行数、段落数、中文字数、英文单词数等信息，支持实时统计和一键复制结果</p>
+                    <h1 data-i18n="tools.wordcount.name">Word Counter</h1>
+                    <p data-i18n="tools.wordcount.desc">Count words, characters, sentences and paragraphs instantly. Real-time results, no signup, 100% private.</p>
                 </div>
             </div>
         </div>
@@ -61,71 +117,71 @@
             <div class="io-container">
                 <div class="io-panel">
                     <div class="io-panel-header">
-                        <h3 data-i18n="tools.wordcount.inputLabel">📝 输入文本</h3>
+                        <h3 data-i18n="tools.wordcount.inputLabel">📝 Input Text</h3>
                         <div class="io-actions">
-                            <button onclick="clearInput()" data-i18n="common.clear">清空</button>
-                            <button onclick="pasteText()" data-i18n="common.paste">粘贴</button>
+                            <button onclick="clearInput()" data-i18n="common.clear">Clear</button>
+                            <button onclick="pasteText()" data-i18n="common.paste">Paste</button>
                         </div>
                     </div>
                     <div class="io-panel-body">
-                        <textarea id="inputText" data-i18n-placeholder="tools.wordcount.inputPlaceholder" placeholder="在此输入或粘贴需要统计的文本内容...&#10;&#10;支持中文、英文、数字、标点符号等多种字符类型的统计"></textarea>
+                        <textarea id="inputText" data-i18n-placeholder="tools.wordcount.inputPlaceholder" placeholder="Type or paste text here to count...&#10;&#10;Supports Chinese, English, numbers, punctuation and more"></textarea>
                     </div>
                 </div>
 
                 <div class="io-panel">
                     <div class="io-panel-header">
-                        <h3>📈 <span data-i18n="tools.wordcount.statistics">统计结果</span></h3>
+                        <h3>📈 <span data-i18n="tools.wordcount.statistics">Statistics</span></h3>
                         <div class="io-actions">
-                            <button onclick="copyResult()" data-i18n="common.copy">复制结果</button>
-                            <button onclick="downloadResult()" data-i18n="common.download">导出</button>
+                            <button onclick="copyResult()" data-i18n="common.copy">Copy Result</button>
+                            <button onclick="downloadResult()" data-i18n="common.download">Download</button>
                         </div>
                     </div>
                     <div class="io-panel-body" id="resultPanel">
                         <div id="statsGrid" class="stats-grid">
                             <div class="stat-card" data-stat="charCount">
                                 <div class="stat-value" id="charCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.characters">总字符数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.characters">Total Characters</div>
                             </div>
                             <div class="stat-card" data-stat="charNoSpace">
                                 <div class="stat-value" id="charNoSpace">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.characters">字符数(不含空格)</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.charactersNoSpace">Characters (no spaces)</div>
                             </div>
                             <div class="stat-card" data-stat="wordCount">
                                 <div class="stat-value" id="wordCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.words">总字数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.words">Total Words</div>
                             </div>
                             <div class="stat-card" data-stat="chineseCount">
                                 <div class="stat-value" id="chineseCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.chineseChars">中文字数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.chineseChars">Chinese Characters</div>
                             </div>
                             <div class="stat-card" data-stat="englishWordCount">
                                 <div class="stat-value" id="englishWordCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.englishWords">英文单词数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.englishWords">English Words</div>
                             </div>
                             <div class="stat-card" data-stat="numberCount">
                                 <div class="stat-value" id="numberCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.numbers">数字个数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.numbers">Numbers</div>
                             </div>
                             <div class="stat-card" data-stat="lineCount">
                                 <div class="stat-value" id="lineCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.lines">行数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.lines">Lines</div>
                             </div>
                             <div class="stat-card" data-stat="paragraphCount">
                                 <div class="stat-value" id="paragraphCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.paragraphs">段落数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.paragraphs">Paragraphs</div>
                             </div>
                             <div class="stat-card" data-stat="punctuationCount">
                                 <div class="stat-value" id="punctuationCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.punctuation">标点符号数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.punctuation">Punctuation</div>
                             </div>
                             <div class="stat-card" data-stat="sentenceCount">
                                 <div class="stat-value" id="sentenceCount">0</div>
-                                <div class="stat-label" data-i18n="tools.wordcount.sentences">句子数</div>
+                                <div class="stat-label" data-i18n="tools.wordcount.sentences">Sentences</div>
                             </div>
                         </div>
 
                         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-                            <h4 style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;" data-i18n="tools.wordcount.detailInfo">📋 详细信息</h4>
+                            <h4 style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;" data-i18n="tools.wordcount.detailInfo">📋 Details</h4>
                             <div id="detailInfo" class="detail-info"></div>
                         </div>
                     </div>
@@ -134,26 +190,103 @@
 
             <div class="options-group">
                 <div class="option-item">
-                    <label><input type="checkbox" id="realtimeCheck" checked> <span data-i18n="tools.wordcount.realtime">实时统计</span></label>
+                    <label><input type="checkbox" id="realtimeCheck" checked> <span data-i18n="tools.wordcount.realtime">Real-time Counting</span></label>
                 </div>
                 <div class="option-item">
-                    <label><input type="checkbox" id="includeSpaceCheck" checked> <span data-i18n="tools.wordcount.includeSpace">空白字符计入统计</span></label>
+                    <label><input type="checkbox" id="includeSpaceCheck" checked> <span data-i18n="tools.wordcount.includeSpace">Include spaces in count</span></label>
                 </div>
                 <div class="option-item">
-                    <label data-i18n="tools.wordcount.readingTime">阅读时间预估：</label>
+                    <label data-i18n="tools.wordcount.readingTime">Reading Speed:</label>
                     <select id="readSpeedSelect">
-                        <option value="300" data-i18n="tools.wordcount.slow">慢速 (300字/分)</option>
-                        <option value="500" selected data-i18n="tools.wordcount.normal">正常 (500字/分)</option>
-                        <option value="800" data-i18n="tools.wordcount.fast">快速 (800字/分)</option>
+                        <option value="300" data-i18n="tools.wordcount.slow">Slow (300 wpm)</option>
+                        <option value="500" selected data-i18n="tools.wordcount.normal">Normal (500 wpm)</option>
+                        <option value="800" data-i18n="tools.wordcount.fast">Fast (800 wpm)</option>
                     </select>
                 </div>
             </div>
 
             <div class="action-buttons">
-                <button class="btn btn-primary" onclick="analyzeText()" data-i18n="common.submit">🔍 分析统计</button>
-                <button class="btn btn-secondary" onclick="clearAll()" data-i18n="common.clear">🗑️ 清空全部</button>
+                <button class="btn btn-primary" onclick="analyzeText()" data-i18n="common.submit">🔍 Analyze</button>
+                <button class="btn btn-secondary" onclick="clearAll()" data-i18n="common.clear">🗑️ Clear All</button>
             </div>
         </div>
+
+        <section class="seo-content" aria-label="About online word count">
+            <div class="seo-content-inner">
+                <h2>Free Online Word Count Tool for Writers, Students & Marketers</h2>
+                <p>
+                    Looking for a fast and reliable <strong>online word count</strong> solution? Our free word counter helps you instantly check the length of any text. Just paste your content into the box above and get accurate counts for <strong>words, characters, sentences, paragraphs</strong> and more — all in real time, with no signup required.
+                </p>
+
+                <h3>What Can You Count With This Online Word Counter?</h3>
+                <ul>
+                    <li><strong>Word count</strong> — total number of words in your text.</li>
+                    <li><strong>Character count</strong> — with or without spaces.</li>
+                    <li><strong>Sentence count</strong> — quickly see how many sentences you have written.</li>
+                    <li><strong>Paragraph count</strong> — ideal for structuring essays and articles.</li>
+                    <li><strong>Chinese characters & English words</strong> — mixed-language support.</li>
+                    <li><strong>Reading time estimate</strong> — plan speeches, presentations and blog posts.</li>
+                </ul>
+
+                <h3>Who Is This Online Word Count Tool For?</h3>
+                <p>
+                    Whether you are writing a school essay, a blog post, a tweet, a meta description, or a novel chapter, hitting the right word limit matters. Our tool is perfect for students checking assignment lengths, content creators optimizing SEO copy, marketers writing ad headlines, and developers preparing documentation.
+                </p>
+
+                <h3>Why Choose Our Word Counter?</h3>
+                <ul>
+                    <li><strong>100% free</strong> — no hidden fees, no registration.</li>
+                    <li><strong>Private & secure</strong> — your text never leaves your browser.</li>
+                    <li><strong>Real-time results</strong> — see counts update as you type.</li>
+                    <li><strong>Works everywhere</strong> — desktop, tablet and mobile friendly.</li>
+                    <li><strong>Multilingual</strong> — supports English, Chinese and mixed text.</li>
+                </ul>
+
+                <h3>How to Use the Online Word Count Tool</h3>
+                <ol>
+                    <li>Copy and paste your text into the input area above.</li>
+                    <li>Watch the statistics update automatically in real time.</li>
+                    <li>Adjust options such as reading speed or space inclusion if needed.</li>
+                    <li>Copy or download your results with one click.</li>
+                </ol>
+
+                <p>
+                    Try the best <strong>online word count</strong> experience now and make every word count!
+                </p>
+
+                <h3>How to Check Word Count Online</h3>
+                <p>
+                    The easiest way to <strong>check word count</strong> online is to paste your text into our free word counter. The tool scans your content instantly and displays a full breakdown of words, characters, sentences and paragraphs. You can also toggle options such as including spaces or changing reading speed to match your needs.
+                </p>
+
+                <h3>Online Word Count vs Character Count: What Is the Difference?</h3>
+                <p>
+                    <strong>Word count</strong> measures the number of words, while <strong>character count</strong> measures every letter, number, symbol and space. Many platforms set limits by characters (for example Twitter/X posts or meta descriptions), while essays and articles are usually limited by words. Our tool shows both metrics side by side so you can meet any requirement.
+                </p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>How do I check word count online?</h3>
+                    <p>Simply paste your text into the input box at the top of this page. The word count, character count, sentence count and paragraph count update automatically in real time.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is this online word counter free?</h3>
+                    <p>Yes, our word counter is completely free. There is no signup, no usage limit and no hidden cost.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use the word counter on my phone?</h3>
+                    <p>Yes, the tool is fully responsive and works on desktop, tablet and mobile browsers.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is my text uploaded to your server?</h3>
+                    <p>No. All counting happens locally in your browser. Your text is never sent to any server, so your content remains private.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does the tool support Chinese and English at the same time?</h3>
+                    <p>Yes, it supports mixed Chinese and English text, as well as numbers, punctuation and other symbols.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer" id="footer"></footer>

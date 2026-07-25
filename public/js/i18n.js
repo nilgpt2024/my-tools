@@ -667,12 +667,14 @@ const I18N = {
         // 文本处理类工具
         wordcount: {
           name: '文本统计',
-          desc: '统计字数、字符数、行数等',
+          pageTitle: '免费在线字数统计 - 统计字数、字符数、行数 | 在线工具集',
+          desc: '快速统计字数、字符数、行数、段落数、句子数等信息，实时显示结果，数据本地处理保护隐私',
           input: '输入或粘贴文本',
           inputLabel: '📝 输入文本',
           inputPlaceholder: '在此输入或粘贴需要统计的文本内容...\n\n支持中文、英文、数字、标点符号等多种字符类型的统计',
           statistics: '统计结果',
           characters: '总字符数',
+          charactersNoSpace: '字符数(不含空格)',
           words: '总字数',
           lines: '行数',
           paragraphs: '段落数',
@@ -2103,12 +2105,14 @@ const I18N = {
         },
         wordcount: {
           name: 'Word Counter',
-          desc: 'Count words, characters, lines etc.',
+          pageTitle: 'Free Online Word Counter — Instant Word & Character Count',
+          desc: 'Check your word count instantly. Count words, characters, sentences and paragraphs with real-time results. No signup, 100% private.',
           input: 'Enter or paste text',
           inputLabel: '📝 Input Text',
           inputPlaceholder: 'Type or paste text here to count...\n\nSupports Chinese, English, numbers, punctuation and more',
           statistics: 'Statistics',
           characters: 'Total Characters',
+          charactersNoSpace: 'Characters (no spaces)',
           words: 'Total Words',
           lines: 'Lines',
           paragraphs: 'Paragraphs',
@@ -2897,13 +2901,20 @@ const I18N = {
   },
 
   init() {
-    const savedLang = localStorage.getItem('lang');
-    if (savedLang && this.translations[savedLang]) {
-      this.currentLang = savedLang;
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+
+    if (urlLang && this.translations[urlLang]) {
+      this.currentLang = urlLang;
     } else {
-      const browserLang = navigator.language || 'zh-CN';
-      if (browserLang.startsWith('en')) {
-        this.currentLang = 'en';
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang && this.translations[savedLang]) {
+        this.currentLang = savedLang;
+      } else {
+        const browserLang = navigator.language || 'zh-CN';
+        if (browserLang.startsWith('en')) {
+          this.currentLang = 'en';
+        }
       }
     }
     document.documentElement.lang = this.currentLang;

@@ -28,43 +28,91 @@ const ToolSEO = {
 
   init(toolConfig) {
     if (!toolConfig) return;
-    
+
     const { name, description, keywords, category, icon } = toolConfig;
-    
+    const currentLang = (typeof I18N !== 'undefined' && I18N.currentLang) ? I18N.currentLang : 'zh-CN';
+    const toolKey = this.getToolKey(toolConfig);
+    const isEnglish = currentLang === 'en';
+
+    const displayName = isEnglish && toolKey ? (I18N.t(`tools.${toolKey}.name`) || name) : name;
+    const displayCategory = isEnglish ? (this.translateCategory(category) || category) : category;
+    const displayDescription = isEnglish && toolKey
+      ? (I18N.t(`tools.${toolKey}.desc`) || description || this.generateDescription(name, category))
+      : (description || this.generateDescription(name, category));
+
     const categoryInfo = this.defaultCategoryMap[category] || {};
-    
+
     const seoConfig = {
-      title: name,
-      description: description || this.generateDescription(name, category),
-      keywords: this.generateKeywords(name, category, keywords),
+      title: displayName,
+      description: displayDescription,
+      keywords: this.generateKeywords(displayName, displayCategory, keywords, isEnglish),
       type: 'WebApplication',
       canonicalUrl: window.location.href,
       image: icon ? `https://tools.suipce.com${icon}` : undefined
     };
-    
+
     if (typeof SEO !== 'undefined') {
       SEO.injectMetaTags(seoConfig);
-      
-      const featureList = this.generateFeatureList(name, category);
-      
+
+      const featureList = this.generateFeatureList(displayName, displayCategory, isEnglish);
+
       SEO.injectStructuredData({
         type: 'WebApplication',
-        name: name,
-        description: description || seoConfig.description,
+        name: displayName,
+        description: displayDescription,
         featureList: featureList,
-        breadcrumbs: this.generateBreadcrumbs(category, name)
+        breadcrumbs: this.generateBreadcrumbs(displayCategory, displayName, isEnglish)
       });
 
-      this.addToolSpecificSchema(category, name, description);
+      this.addToolSpecificSchema(displayCategory, displayName, displayDescription, isEnglish);
     }
     
-    this.addBreadcrumbSchema(category, name);
+    this.addBreadcrumbSchema(displayCategory, displayName, isEnglish);
     
-    document.title = `${name} - 在线${category}工具 | 免费在线工具集`;
+    this.setPageTitle(toolConfig, name, category);
     
-    this.addStructuredDataForTool(name, category, description);
+    this.addStructuredDataForTool(displayName, displayCategory, displayDescription, isEnglish);
     
-    this.optimizePageForSEO(name, category);
+    this.optimizePageForSEO(displayName, displayCategory, isEnglish);
+  },
+
+  setPageTitle(toolConfig, name, category) {
+    const currentLang = (typeof I18N !== 'undefined' && I18N.currentLang) ? I18N.currentLang : 'zh-CN';
+    const toolKey = this.getToolKey(toolConfig);
+    const i18nTitle = toolKey ? I18N.t(`tools.${toolKey}.pageTitle`) : null;
+
+    if (i18nTitle) {
+      document.title = i18nTitle;
+    } else if (currentLang === 'en') {
+      const enName = toolKey ? I18N.t(`tools.${toolKey}.name`) : name;
+      const enCategory = this.translateCategory(category);
+      document.title = `${enName || name} - Free Online ${enCategory || category} Tool | Online Tools`;
+    } else {
+      document.title = `${name} - 在线${category}工具 | 免费在线工具集`;
+    }
+  },
+
+  getToolKey(toolConfig) {
+    if (!toolConfig || !toolConfig.url) return null;
+    const url = toolConfig.url;
+    const match = url.match(/\/([^/]+)\.html?$/);
+    return match ? match[1] : null;
+  },
+
+  translateCategory(category) {
+    if (typeof I18N !== 'undefined' && I18N.t) {
+      const categoryMap = {
+        '开发运维': 'categories.dev',
+        '文本处理': 'categories.text',
+        '图像处理': 'categories.image',
+        '单位转换': 'categories.unit',
+        '图表工具': 'categories.chart',
+        '娱乐工具': 'categories.fun'
+      };
+      const key = categoryMap[category];
+      if (key) return I18N.t(key);
+    }
+    return category;
   },
 
   generateDescription(toolName, category) {
@@ -80,22 +128,34 @@ const ToolSEO = {
     return descriptions[category] || `${toolName} - 在线${category}工具，免费使用`;
   },
 
-  generateKeywords(toolName, category, customKeywords) {
-    const baseKeywords = [toolName, category, '在线工具', '免费工具', 'Online Tools', 'free tool'];
+  generateKeywords(toolName, category, customKeywords, isEnglish = false) {
+    const baseKeywords = isEnglish
+      ? [toolName, category, 'online tools', 'free tool', 'Online Tools', 'free online tool']
+      : [toolName, category, '在线工具', '免费工具', 'Online Tools', 'free tool'];
     const categoryInfo = this.defaultCategoryMap[category] || {};
     const categoryKeywords = categoryInfo.keywords ? categoryInfo.keywords.split(',') : [];
-    
+
     let allKeywords = [...new Set([...baseKeywords, ...categoryKeywords])];
-    
+
     if (customKeywords) {
       const customList = customKeywords.split(',').map(k => k.trim());
       allKeywords = [...new Set([...allKeywords, ...customList])];
     }
-    
+
     return allKeywords.join(',');
   },
 
-  generateFeatureList(toolName, category) {
+  generateFeatureList(toolName, category, isEnglish = false) {
+    const categoryMap = {
+      'Developer Tools': '开发运维',
+      'Text Processing': '文本处理',
+      'Image Tools': '图像处理',
+      'Unit Converter': '单位转换',
+      'Chart Tools': '图表工具',
+      'Entertainment': '娱乐工具'
+    };
+    const cnCategory = categoryMap[category] || category;
+
     const features = {
       '开发运维': [
         '无需安装软件，浏览器直接使用',
@@ -141,15 +201,63 @@ const ToolSEO = {
       ]
     };
 
-    return features[category] || ['免费使用', '无需安装', '即时可用'];
+    const cnFeatures = features[cnCategory] || ['免费使用', '无需安装', '即时可用'];
+    if (!isEnglish) return cnFeatures;
+
+    const enFeatures = {
+      '开发运维': [
+        'Use directly in browser, no installation needed',
+        'Supports batch data processing',
+        'Real-time preview of results',
+        'Copy and download support',
+        'Cross-platform compatible'
+      ],
+      '文本处理': [
+        'Fast text analysis and conversion',
+        'Supports large file processing',
+        'Multiple output formats',
+        'Preserves original formatting',
+        'Instant result display'
+      ],
+      '图像处理': [
+        'Browser-side processing for privacy',
+        'Supports common image formats',
+        'High-quality output',
+        'Simple and intuitive interface',
+        'Instant preview effects'
+      ],
+      '单位转换': [
+        'Precise to multiple decimal places',
+        'Supports international standard units',
+        'Real-time conversion calculation',
+        'History record saving',
+        'Works offline'
+      ],
+      '图表工具': [
+        'Rich chart types',
+        'Customizable style options',
+        'Easy data import',
+        'High-definition image export',
+        'Interactive charts'
+      ],
+      '娱乐工具': [
+        'Completely free to use',
+        'No registration or login required',
+        'Responsive design',
+        'Smooth animation effects',
+        'Mobile-friendly'
+      ]
+    };
+    return enFeatures[cnCategory] || cnFeatures;
   },
 
-  generateBreadcrumbs(category, toolName) {
+  generateBreadcrumbs(category, toolName, isEnglish = false) {
+    const homeName = isEnglish ? 'Home' : '首页';
     return [
       {
         '@type': 'ListItem',
         position: 1,
-        name: '首页',
+        name: homeName,
         item: 'https://tools.suipce.com/'
       },
       {
@@ -167,8 +275,8 @@ const ToolSEO = {
     ];
   },
 
-  addBreadcrumbSchema(category, toolName) {
-    const breadcrumbs = this.generateBreadcrumbs(category, toolName);
+  addBreadcrumbSchema(category, toolName, isEnglish = false) {
+    const breadcrumbs = this.generateBreadcrumbs(category, toolName, isEnglish);
     
     let script = document.getElementById('breadcrumb-schema');
     if (!script) {
@@ -185,9 +293,9 @@ const ToolSEO = {
     }, null, 2);
   },
 
-  addToolSpecificSchema(category, toolName, description) {
-    const faqs = this.generateFAQs(toolName, category);
-    
+  addToolSpecificSchema(category, toolName, description, isEnglish = false) {
+    const faqs = this.generateFAQs(toolName, category, isEnglish);
+
     if (faqs && faqs.length > 0 && typeof SEO !== 'undefined') {
       const faqScript = document.createElement('script');
       faqScript.id = 'faq-schema';
@@ -207,17 +315,21 @@ const ToolSEO = {
       document.head.appendChild(faqScript);
     }
 
-    const howToSteps = this.generateHowToSteps(toolName, category);
-    
+    const howToSteps = this.generateHowToSteps(toolName, category, isEnglish);
+
     if (howToSteps && howToSteps.length > 0 && typeof SEO !== 'undefined') {
+      const howToTitle = isEnglish ? `How to use ${toolName}` : `如何使用${toolName}`;
+      const howToDesc = isEnglish
+        ? `Step-by-step guide on how to use the ${toolName} online tool`
+        : `详细说明如何使用${toolName}在线工具`;
       const howToScript = document.createElement('script');
       howToScript.id = 'howto-schema';
       howToScript.type = 'application/ld+json';
       howToScript.textContent = JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'HowTo',
-        name: `如何使用${toolName}`,
-        description: `详细说明如何使用${toolName}在线工具`,
+        name: howToTitle,
+        description: howToDesc,
         totalTime: 'PT1M',
         step: howToSteps.map((step, index) => ({
           '@type': 'HowToStep',
@@ -230,7 +342,58 @@ const ToolSEO = {
     }
   },
 
-  generateFAQs(toolName, category) {
+  generateFAQs(toolName, category, isEnglish = false) {
+    const isWordcount = toolName === 'Word Counter' || toolName === '文本统计';
+
+    if (isWordcount && isEnglish) {
+      return [
+        {
+          question: 'How do I check word count online?',
+          answer: 'Paste your text into the input box on the page. The word count, character count, sentence count and paragraph count update automatically in real time.'
+        },
+        {
+          question: 'Is this online word counter free?',
+          answer: 'Yes, our word counter is completely free. There is no signup, no usage limit and no hidden cost.'
+        },
+        {
+          question: 'Can I use the word counter on my phone?',
+          answer: 'Yes, the tool is fully responsive and works on desktop, tablet and mobile browsers.'
+        },
+        {
+          question: 'Is my text uploaded to your server?',
+          answer: 'No. All counting happens locally in your browser. Your text is never sent to any server, so your content remains private.'
+        },
+        {
+          question: 'Does the tool support Chinese and English at the same time?',
+          answer: 'Yes, it supports mixed Chinese and English text, as well as numbers, punctuation and other symbols.'
+        }
+      ];
+    }
+
+    if (isEnglish) {
+      return [
+        {
+          question: `What is ${toolName}?`,
+          answer: `${toolName} is a free online ${category} tool that runs directly in your browser. It helps you complete ${category} tasks quickly and improve your productivity.`
+        },
+        {
+          question: `Is ${toolName} free?`,
+          answer: `Yes, ${toolName} is completely free to use. No registration or payment is required. You can access and use all features anytime, anywhere.`
+        },
+        {
+          question: `What formats does ${toolName} support?`,
+          answer: `${toolName} supports a wide range of common file and data formats. The exact supported formats depend on the tool type, but most tools support mainstream standard formats for maximum compatibility.`
+        },
+        {
+          question: `Is ${toolName} safe to use?`,
+          answer: `Very safe. ${toolName} runs locally in your browser. All data processing happens on the client side and nothing is uploaded to our servers. Your data and privacy are fully protected.`
+        },
+        {
+          question: `Can I use ${toolName} on mobile?`,
+          answer: `Yes! ${toolName} uses responsive design and works perfectly on desktop computers, tablets and smartphones. You get a great experience no matter what device you use.`
+        }
+      ];
+    }
     return [
       {
         question: `${toolName}是什么？`,
@@ -255,7 +418,59 @@ const ToolSEO = {
     ];
   },
 
-  generateHowToSteps(toolName, category) {
+  generateHowToSteps(toolName, category, isEnglish = false) {
+    const isWordcount = toolName === 'Word Counter' || toolName === '文本统计';
+
+    if (isWordcount && isEnglish) {
+      return [
+        {
+          name: 'Open the word counter',
+          text: 'Visit the Free Online Word Counter page.'
+        },
+        {
+          name: 'Paste your text',
+          text: 'Copy and paste the text you want to count into the input area.'
+        },
+        {
+          name: 'Adjust options',
+          text: 'Choose whether to include spaces and select your preferred reading speed if needed.'
+        },
+        {
+          name: 'View the statistics',
+          text: 'The word count, character count, sentence count and paragraph count appear instantly.'
+        },
+        {
+          name: 'Copy or download results',
+          text: 'Use the copy or download buttons to save your results.'
+        }
+      ];
+    }
+
+    if (isEnglish) {
+      const inputType = category === 'Developer Tools' ? 'code' : category === 'Text Processing' ? 'text' : 'data';
+      return [
+        {
+          name: 'Open the tool page',
+          text: `Visit the ${toolName} tool page and it will load automatically.`
+        },
+        {
+          name: 'Enter your data',
+          text: `Paste or type the ${inputType} you want to process into the input area.`
+        },
+        {
+          name: 'Adjust options (optional)',
+          text: `Adjust the tool settings and parameters as needed to get the best results.`
+        },
+        {
+          name: 'Run the operation',
+          text: `Click the appropriate button to start processing. The result will appear instantly.`
+        },
+        {
+          name: 'Copy or download the result',
+          text: `You can copy the result directly or download it as a file to your device.`
+        }
+      ];
+    }
     return [
       {
         name: '打开工具页面',
@@ -280,14 +495,17 @@ const ToolSEO = {
     ];
   },
 
-  addStructuredDataForTool(toolName, category, description) {
+  addStructuredDataForTool(toolName, category, description, isEnglish = false) {
+    const finalDescription = description || (isEnglish
+      ? `${toolName} is a free online ${category} tool. No installation needed, ready to use in browser.`
+      : this.generateDescription(toolName, category));
     const reviewSchema = {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
       name: toolName,
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'Any',
-      description: description || this.generateDescription(toolName, category),
+      description: finalDescription,
       offers: {
         '@type': 'Offer',
         price: '0',
@@ -309,14 +527,23 @@ const ToolSEO = {
     document.head.appendChild(softwareScript);
   },
 
-  optimizePageForSEO(toolName, category) {
-    this.addInternalLinks(toolName, category);
+  optimizePageForSEO(toolName, category, isEnglish = false) {
+    this.addInternalLinks(toolName, category, isEnglish);
     this.optimizeHeadingStructure(toolName);
     this.addSemanticHTML();
   },
 
-  addInternalLinks(toolName, category) {
-    const relatedTools = this.findRelatedTools(category, toolName);
+  addInternalLinks(toolName, category, isEnglish = false) {
+    const categoryMap = {
+      'Developer Tools': '开发运维',
+      'Text Processing': '文本处理',
+      'Image Tools': '图像处理',
+      'Unit Converter': '单位转换',
+      'Chart Tools': '图表工具',
+      'Entertainment': '娱乐工具'
+    };
+    const cnCategory = isEnglish ? (categoryMap[category] || category) : category;
+    const relatedTools = this.findRelatedTools(cnCategory, toolName);
     
     if (relatedTools.length > 0) {
       let relatedSection = document.querySelector('.related-tools');
