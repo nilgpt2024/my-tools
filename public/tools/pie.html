@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>饼图 - 免费图表工具 | 在线工具集</title>
+    <title data-i18n-title="tools.pie.pageTitle">Pie Chart Maker — Free Online Pie, Donut & Rose Charts</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="饼图 - 在线饼图生成器。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="饼图,Pie Chart Generator,在线工具,免费工具,图表工具,Online Tools,free tool">
+    <meta name="description" content="Free online pie chart maker. Create pie, donut and Nightingale rose charts with live preview. Enter data, customize styles and download as image. No signup needed.">
+    <meta name="keywords" content="pie chart, pie chart maker, online pie chart, pie chart generator, donut chart, rose chart, create pie chart online, free pie chart tool">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph -->
-    <meta property="og:title" content="饼图 - 在线图表工具 | 免费在线工具集">
-    <meta property="og:description" content="在线饼图生成器。免费在线饼图工具，无需安装即开即用。">
+    <meta property="og:title" content="Pie Chart Maker — Free Online Pie, Donut & Rose Charts">
+    <meta property="og:description" content="Free online pie chart maker. Create pie, donut and Nightingale rose charts with live preview. Enter data, customize styles and download as image.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.suipce.com/tools/pie.html">
     <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
-    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="在线工具集 | Online Tools Hub">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="饼图 - 免费图表工具">
-    <meta name="twitter:description" content="在线饼图生成器 - 免费在线使用">
+    <meta name="twitter:title" content="Pie Chart Maker — Free Online Pie, Donut & Rose Charts">
+    <meta name="twitter:description" content="Free online pie chart maker. Create pie, donut and Nightingale rose charts with live preview. Enter data, customize styles and download as image.">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://tools.suipce.com/tools/pie.html">
-    
+
     <!-- Hreflang -->
     <link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/pie.html?lang=zh-CN">
     <link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/pie.html?lang=en">
@@ -40,70 +40,148 @@
 
     <main class="container tool-layout">
         <div class="breadcrumb">
-            <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a><span>/</span><a href="../index.html#chart" data-i18n="categories.chart">图表工具</a><span>/</span><span data-i18n="tools.pie.name">饼图</span>
+            <a href="../index.html" data-i18n="common.breadcrumbHome">Home</a><span>/</span><a href="../index.html#chart" data-i18n="categories.chart">Chart Tools</a><span>/</span><span data-i18n="tools.pie.name">Pie Chart Maker</span>
         </div>
 
         <div class="tool-info-card">
-            <div class="info-row"><div class="info-icon">🥧</div><div class="info-content"><h1 data-i18n="tools.pie.name">饼图生成器</h1><p data-i18n="tools.pie.desc">基于 ECharts 的在线饼图生成器，支持普通饼图、环形图、南丁格尔玫瑰图等样式</p></div></div>
+            <div class="info-row"><div class="info-icon">🥧</div><div class="info-content"><h1 data-i18n="tools.pie.name">Pie Chart Maker</h1><p data-i18n="tools.pie.desc">Free online pie chart maker. Create pie, donut and Nightingale rose charts with live preview. Download as image, no signup needed.</p></div></div>
         </div>
 
         <div class="tool-content">
             <div class="io-container">
                 <div class="io-panel">
-                    <div class="io-panel-header"><h3>📝 <span data-i18n="tools.pie.name">数据输入</span></h3></div>
+                    <div class="io-panel-header"><h3>📝 <span>Data Input</span></h3></div>
                     <div class="io-panel-body">
-                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.pie.name">图表标题：</label>
-                        <input type="text" id="chartTitle" class="form-control" value="市场份额分布" oninput="updateChart()" style="margin-bottom: 12px;">
-                        
-                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="tools.pie.name">数据（每行一项，格式：名称:数值）：</label>
-                        <textarea id="pieData" class="form-control" rows="10" oninput="updateChart()" placeholder="产品A:120&#10;产品B:200&#10;产品C:150&#10;...">直接访问:335
-邮件营销:310
-联盟广告:234
-视频广告:135
-搜索引擎:1548</textarea>
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;">Chart Title:</label>
+                        <input type="text" id="chartTitle" class="form-control" value="Market Share" oninput="updateChart()" style="margin-bottom: 12px;">
+
+                        <label style="font-size: 13px; font-weight: 600; margin-bottom: 8px; display: block;">Data (one item per line, format: Name:Value):</label>
+                        <textarea id="pieData" class="form-control" rows="10" oninput="updateChart()" placeholder="Product A:120&#10;Product B:200&#10;Product C:150&#10;...">Direct:335
+Email:310
+Affiliate:234
+Video Ads:135
+Search Engine:1548</textarea>
                     </div>
                 </div>
 
                 <div class="io-panel">
-                    <div class="io-panel-header"><h3>🎨 <span data-i18n="tools.bar.options">样式设置</span></h3></div>
+                    <div class="io-panel-header"><h3>🎨 <span data-i18n="tools.bar.options">Style Options</span></h3></div>
                     <div class="io-panel-body">
                         <div style="margin-bottom: 12px;">
-                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;" data-i18n="tools.pie.name">饼图类型：</label>
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;" data-i18n="tools.pie.name">Chart Type:</label>
                             <select id="pieType" class="form-control" onchange="updateChart()">
-                                <option value="normal" data-i18n="tools.pie.normal">普通饼图</option>
-                                <option value="doughnut" selected data-i18n="tools.pie.donut">环形图</option>
-                                <option value="rose" data-i18n="tools.pie.rose">南丁格尔玫瑰图</option>
+                                <option value="normal" data-i18n="tools.pie.normal">Normal Pie</option>
+                                <option value="doughnut" selected data-i18n="tools.pie.donut">Donut Chart</option>
+                                <option value="rose" data-i18n="tools.pie.rose">Nightingale Rose</option>
                             </select>
                         </div>
                         <div style="margin-bottom: 12px;">
-                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;" data-i18n="tools.pie.radius">半径大小：</label>
+                            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 4px;" data-i18n="tools.pie.radius">Radius Size:</label>
                             <input type="range" id="radiusSize" min="30" max="80" value="60" oninput="updateChart()" style="width: 100%;">
                         </div>
                         <div style="margin-bottom: 12px;">
-                            <label style="font-size: 13px;"><input type="checkbox" id="showLabel" checked onchange="updateChart()"> <span data-i18n="tools.pie.labelPosition">显示标签</span></label>
+                            <label style="font-size: 13px;"><input type="checkbox" id="showLabel" checked onchange="updateChart()"> <span data-i18n="tools.pie.labelPosition">Show Labels</span></label>
                         </div>
                         <div style="margin-bottom: 12px;">
-                            <label style="font-size: 13px;"><input type="checkbox" id="showPercent" checked onchange="updateChart()"> <span data-i18n="tools.pie.showPercent">显示百分比</span></label>
+                            <label style="font-size: 13px;"><input type="checkbox" id="showPercent" checked onchange="updateChart()"> <span data-i18n="tools.pie.showPercent">Show Percentage</span></label>
                         </div>
                         <div style="margin-bottom: 12px;">
-                            <label style="font-size: 13px;"><input type="checkbox" id="roseType" onchange="updateChart()"> 半径模式（仅玫瑰图）</label>
+                            <label style="font-size: 13px;"><input type="checkbox" id="roseType" onchange="updateChart()"> Radius mode (rose chart only)</label>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div style="margin-top: 24px;">
-                <h3 style="margin-bottom: 16px;">🥧 <span data-i18n="tools.pie.generate">图表预览</span></h3>
+                <h3 style="margin-bottom: 16px;">🥧 <span data-i18n="tools.pie.generate">Chart Preview</span></h3>
                 <div id="chartContainer" style="width: 100%; height: 450px; background: white; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); padding: 16px;"></div>
             </div>
 
             <div class="action-buttons" style="justify-content: center; margin-top: 24px;">
-                <button class="btn btn-primary" onclick="downloadChart()">💾 <span data-i18n="common.download">下载图片</span></button>
-                <button class="btn btn-secondary" onclick="loadSampleData('browser')">🌐 浏览器份额</button>
-                <button class="btn btn-secondary" onclick="loadSampleData('os')">💻 操作系统</button>
+                <button class="btn btn-primary" onclick="downloadChart()">💾 <span data-i18n="common.download">Download Image</span></button>
+                <button class="btn btn-secondary" onclick="loadSampleData('browser')">🌐 Browser Share</button>
+                <button class="btn btn-secondary" onclick="loadSampleData('os')">💻 Operating Systems</button>
             </div>
         </div>
     </main>
+
+<!-- SEO Content Section -->
+<section class="tool-content-detail" style="margin-top: 32px;">
+
+  <!-- Tool Introduction -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Free Online Pie Chart Maker</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">A <strong>pie chart</strong> is one of the easiest ways to show how a whole is divided into parts. It is ideal for displaying percentages, market share, survey results, budget breakdowns and any data where you want to compare proportions at a glance.</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">Our <strong>online pie chart maker</strong> lets you turn simple text data into beautiful charts in seconds. Just enter your labels and values, choose a chart type and the preview updates instantly. You can create a classic pie chart, a modern donut chart or a Nightingale rose chart for extra visual impact.</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">Once your chart looks right, download it as a PNG image to use in presentations, reports, blog posts or social media. All rendering happens in your browser, so your data never leaves your device.</p>
+  </div>
+
+  <!-- Features -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Why Use This Pie Chart Tool?</h2>
+    <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+      <li>Three chart types: pie, donut and Nightingale rose</li>
+      <li>Live preview as you edit data</li>
+      <li>Customizable chart title, radius, labels and percentages</li>
+      <li>Simple text input — one item per line in <code>Name:Value</code> format</li>
+      <li>One-click download as image</li>
+      <li>Sample data for quick testing</li>
+      <li>100% private — data stays in your browser</li>
+      <li>Free, no signup required</li>
+    </ul>
+  </div>
+
+  <!-- Use Cases -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Common Use Cases</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #E6A23C;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Market Share</strong>
+        <span style="font-size: 13px; color: #666;">Show how different products or companies compare.</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #E6A23C;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Budget Breakdown</strong>
+        <span style="font-size: 13px; color: #666;">Visualize where money is spent across categories.</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #E6A23C;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Survey Results</strong>
+        <span style="font-size: 13px; color: #666;">Display response percentages in an easy-to-read chart.</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #E6A23C;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Sales Reports</strong>
+        <span style="font-size: 13px; color: #666;">Highlight top revenue sources and regional performance.</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+  <!-- SEO FAQ Section -->
+  <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+    <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Is this pie chart maker free?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. You can create and download pie charts without paying or creating an account.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">What chart types are supported?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">You can create a standard pie chart, a donut chart or a Nightingale rose chart.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">How do I enter data?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Type one item per line in the format <code>Name:Value</code>, for example <code>Product A:120</code>. The chart updates automatically.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Can I download the chart?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. Click the Download Image button to save your chart as a PNG file.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Is my data private?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. The chart is rendered entirely in your browser. Your data is never uploaded to our servers.</p>
+      </div>
+    </div>
+  </section>
 
     <footer class="footer" id="footer"></footer>
 

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="tools.klotski.pageTitle">Klotski Sliding Puzzle — Play Free Online Block Puzzle</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online Klotski sliding puzzle game. Play the classic number block puzzle in your browser. 3x3 and 4x4 modes, no download, no signup needed.">
+    <meta name="keywords" content="klotski, sliding puzzle, number puzzle, block puzzle, online klotski, free puzzle game, 15 puzzle, 8 puzzle">
+    <meta name="author" content="在线工具集 | Online Tools Hub">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Klotski Sliding Puzzle — Play Free Online Block Puzzle">
+    <meta property="og:description" content="Free online Klotski sliding puzzle game. Play the classic number block puzzle in your browser, no download needed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.suipce.com/tools/klotski.html">
+    <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="在线工具集 | Online Tools Hub">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Klotski Sliding Puzzle — Play Free Online Block Puzzle">
+    <meta name="twitter:description" content="Free online Klotski sliding puzzle game. Play the classic number block puzzle in your browser, no download needed.">
+    <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tools.suipce.com/tools/klotski.html">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/klotski.html?lang=zh-CN">
+    <link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/klotski.html?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://tools.suipce.com/tools/klotski.html">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <style>
+        .klotski-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: #f5f7fa;
+            padding: 6px;
+            border-radius: 12px;
+        }
+
+        .mode-btn {
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .mode-btn.active {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            text-align: center;
+            min-width: 80px;
+            padding: 10px 16px;
+            background: #fafafa;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .klotski-board {
+            display: grid;
+            gap: 8px;
+            padding: 10px;
+            background: #eef1f6;
+            border-radius: 16px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .klotski-tile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.15s ease, background 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            color: var(--text-primary);
+        }
+
+        .klotski-tile:hover {
+            background: linear-gradient(145deg, #f5faff, #e6eef7);
+        }
+
+        .klotski-tile.empty {
+            background: transparent;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        .klotski-tile.movable {
+            background: linear-gradient(145deg, #e8f4ff, #d6e9ff);
+        }
+
+        .klotski-tile.won {
+            background: linear-gradient(145deg, #e6f7e6, #d0f0d0);
+            color: #2a8a2a;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .game-message {
+            min-height: 28px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .klotski-board {
+                gap: 6px;
+                padding: 8px;
+            }
+            .klotski-tile {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="tool-layout">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html" data-i18n="common.breadcrumbHome">Home</a>
+                <span>/</span>
+                <a href="../index.html#fun" data-i18n="categories.fun">Fun Tools</a>
+                <span>/</span>
+                <span data-i18n="tools.klotski.name">Klotski Puzzle</span>
+            </div>
+
+            <div class="tool-info-card">
+                <div class="info-row">
+                    <div class="info-icon">🧩</div>
+                    <div class="info-content">
+                        <h1 data-i18n="tools.klotski.name">Klotski Puzzle</h1>
+                        <p data-i18n="tools.klotski.desc">Free online Klotski sliding puzzle game. Play the classic number block puzzle in your browser with 3x3 and 4x4 modes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-content">
+                <div class="klotski-container">
+                    <div class="mode-selector">
+                        <button class="mode-btn" id="mode3" data-i18n="tools.klotski.mode3x3">3x3 Mode</button>
+                        <button class="mode-btn active" id="mode4" data-i18n="tools.klotski.mode4x4">4x4 Mode</button>
+                    </div>
+
+                    <div class="stats-bar">
+                        <div class="stat-box">
+                            <div class="stat-value" id="moveCount">0</div>
+                            <div class="stat-label" data-i18n="tools.klotski.moves">Moves</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value" id="timeDisplay">00:00</div>
+                            <div class="stat-label" data-i18n="tools.klotski.time">Time</div>
+                        </div>
+                    </div>
+
+                    <div class="game-message" id="gameMessage"></div>
+
+                    <div class="klotski-board" id="klotskiBoard"></div>
+
+                    <div class="control-buttons">
+                        <button class="btn btn-primary" id="newGameBtn" data-i18n="tools.klotski.newGame">New Game</button>
+                        <button class="btn btn-secondary" id="resetBtn" data-i18n="tools.klotski.reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SEO Content Section -->
+    <section class="tool-content-detail" style="margin-top: 32px;">
+        <div class="detail-block" style="margin-bottom: 24px;">
+            <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Free Online Klotski Sliding Puzzle</h2>
+            <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;"><strong>Klotski</strong> is a classic sliding block puzzle. The goal is simple: move the numbered tiles around the board until they are in the correct order, with the empty space in the bottom-right corner.</p>
+            <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">Our free online version runs directly in your browser. Choose between a quick <strong>3x3</strong> puzzle or the classic <strong>4x4</strong> "15 puzzle" challenge. Every game is solvable because the starting position is created by shuffling the solved board with valid moves.</p>
+            <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">Track your moves and time, beat your personal best and enjoy a smooth experience on desktop or mobile. No signup, no ads and no data is sent to any server.</p>
+        </div>
+
+        <div class="detail-block" style="margin-bottom: 24px;">
+            <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">How to Play</h2>
+            <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+                <li>Select 3x3 or 4x4 mode to start.</li>
+                <li>Click any tile that is next to the empty space to slide it into the gap.</li>
+                <li>Rearrange the tiles so the numbers are in order from 1 to N.</li>
+                <li>The empty space should end in the bottom-right corner.</li>
+                <li>Try to solve the puzzle in as few moves and as little time as possible.</li>
+            </ul>
+        </div>
+
+        <div class="detail-block" style="margin-bottom: 24px;">
+            <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Why Play Here?</h2>
+            <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+                <li>Free and instant — no download or installation</li>
+                <li>Two difficulty levels: 3x3 and 4x4</li>
+                <li>Every shuffle is guaranteed solvable</li>
+                <li>Move counter and timer to challenge yourself</li>
+                <li>Works on desktop, tablet and mobile browsers</li>
+                <li>Clean, distraction-free design</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SEO FAQ Section -->
+    <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+        <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+                <strong style="display: block; margin-bottom: 4px; font-size: 15px;">What is Klotski?</strong>
+                <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Klotski is a traditional sliding block puzzle. The aim is to move tiles into the correct order by sliding them into an empty space.</p>
+            </div>
+            <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+                <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Is this Klotski game free?</strong>
+                <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. The game is completely free to play in your browser with no signup required.</p>
+            </div>
+            <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+                <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Is every puzzle solvable?</strong>
+                <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. We create each starting position by making random valid moves from the solved state, so every puzzle is guaranteed to have a solution.</p>
+            </div>
+            <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+                <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Can I play on my phone?</strong>
+                <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. The game is fully responsive and works on mobile phones, tablets and desktop computers.</p>
+            </div>
+            <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+                <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Does the game save my best score?</strong>
+                <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Your best time for the current session is saved in your browser's local storage. It is not sent to any server.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tools/klotski.js"></script>
+    <script src="../js/tool-seo.js"></script>
+</body>
+</html>

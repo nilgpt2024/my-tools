@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>掷骰子 - 免费娱乐工具 | 在线工具集</title>
+    <title data-i18n-title="tools.dice.pageTitle">Online Dice Roller — Roll Virtual Dice Free</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="掷骰子 - 虚拟骰子投掷。免费在线工具，无需安装，浏览器直接使用，数据本地处理保护隐私。">
-    <meta name="keywords" content="掷骰子,Dice Roller,在线工具,免费工具,娱乐工具,Online Tools,free tool">
+    <meta name="description" content="Free online dice roller. Roll 1-6 virtual dice with 3D animation and roll history. Perfect for board games, RPGs and quick decisions. No signup, 100% private.">
+    <meta name="keywords" content="online dice, dice roller, online dice roller, virtual dice, roll dice online, free dice roller, dice roll, online dice roll, dnd dice">
     <meta name="author" content="在线工具集 | Online Tools Hub">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph -->
-    <meta property="og:title" content="掷骰子 - 在线娱乐工具 | 免费在线工具集">
-    <meta property="og:description" content="虚拟骰子投掷。免费在线掷骰子工具，无需安装即开即用。">
+    <meta property="og:title" content="Online Dice Roller — Roll Virtual Dice Free">
+    <meta property="og:description" content="Free online dice roller. Roll 1-6 virtual dice with 3D animation and roll history. Perfect for board games, RPGs and quick decisions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tools.suipce.com/tools/dice.html">
     <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
-    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="在线工具集 | Online Tools Hub">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="掷骰子 - 免费娱乐工具">
-    <meta name="twitter:description" content="虚拟骰子投掷 - 免费在线使用">
+    <meta name="twitter:title" content="Online Dice Roller — Roll Virtual Dice Free">
+    <meta name="twitter:description" content="Free online dice roller. Roll 1-6 virtual dice with 3D animation and roll history. Perfect for board games, RPGs and quick decisions.">
     <meta name="twitter:image" content="https://tools.suipce.com/assets/images/logo.png">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://tools.suipce.com/tools/dice.html">
-    
+
     <!-- Hreflang -->
     <link rel="alternate" hreflang="zh-CN" href="https://tools.suipce.com/tools/dice.html?lang=zh-CN">
     <link rel="alternate" hreflang="en" href="https://tools.suipce.com/tools/dice.html?lang=en">
@@ -253,17 +253,19 @@
     <main class="tool-layout">
         <div class="container">
             <div class="breadcrumb">
-                <a href="../index.html" data-i18n="common.breadcrumbHome">首页</a>
+                <a href="../index.html" data-i18n="common.breadcrumbHome">Home</a>
                 <span>/</span>
-                <span data-i18n="tools.dice.name">掷骰子</span>
+                <a href="../index.html#fun" data-i18n="categories.fun">Fun Tools</a>
+                <span>/</span>
+                <span data-i18n="tools.dice.name">Dice Roller</span>
             </div>
 
             <div class="tool-info-card">
                 <div class="info-row">
                     <div class="info-icon">🎲</div>
                     <div class="info-content">
-                        <h1 data-i18n="tools.dice.name">虚拟骰子</h1>
-                        <p data-i18n="tools.dice.desc">支持多颗骰子同时投掷，带有逼真的3D翻转动画和投掷历史记录。</p>
+                        <h1 data-i18n="tools.dice.name">Dice Roller</h1>
+                        <p data-i18n="tools.dice.desc">Free online dice roller. Roll 1-6 virtual dice with 3D animation and roll history. Perfect for board games, RPGs and quick decisions.</p>
                     </div>
                 </div>
             </div>
@@ -279,24 +281,97 @@
 
                     <div class="controls">
                         <div class="dice-count-selector">
-                            <label data-i18n="tools.dice.diceCount">骰子数量:</label>
+                            <label data-i18n="tools.dice.diceCount">Dice Count:</label>
                             <button class="dice-count-btn" id="decreaseBtn">−</button>
                             <span class="dice-count-display" id="diceCountDisplay">1</span>
                             <button class="dice-count-btn" id="increaseBtn">+</button>
                         </div>
-                        <button class="roll-btn" id="rollBtn" data-i18n="tools.dice.roll">🎲 掷骰子</button>
+                        <button class="roll-btn" id="rollBtn" data-i18n="tools.dice.roll">🎲 Roll Dice</button>
                     </div>
 
                     <div class="history-section">
-                        <div class="history-title">📜 <span data-i18n="tools.dice.history">投掷历史</span></div>
+                        <div class="history-title">📜 <span data-i18n="tools.dice.history">Roll History</span></div>
                         <div class="history-list" id="historyList">
-                            <span style="color: var(--text-light); font-style: italic;">暂无记录</span>
+                            <span style="color: var(--text-light); font-style: italic;">No rolls yet</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+<!-- SEO Content Section -->
+<section class="tool-content-detail" style="margin-top: 32px;">
+
+  <!-- Tool Introduction -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Free Online Dice Roller</h2>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">Need to roll dice but do not have any at hand? Our <strong>online dice roller</strong> lets you roll up to six virtual dice with a single click. Each die shows a random result using a fair random number generator, and the realistic 3D flip animation makes every roll feel natural.</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 10px;">This <strong>virtual dice</strong> tool is great for board games, tabletop RPGs, classroom activities, probability experiments or just making quick random decisions. You can adjust the number of dice, roll them together and review your roll history to track results over time.</p>
+    <p style="font-size: 14px; color: #444; line-height: 1.8; margin-bottom: 0;">Everything runs locally in your browser. There is no signup, no ads and no data sent to a server. Just open the page and start rolling.</p>
+  </div>
+
+  <!-- Features -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Why Use Our Online Dice?</h2>
+    <ul style="padding-left: 20px; font-size: 14px; color: #444; line-height: 2;">
+      <li>Roll 1 to 6 dice at the same time</li>
+      <li>Realistic 3D dice flip animation</li>
+      <li>Instant total and individual results</li>
+      <li>Roll history to track recent results</li>
+      <li>Fair random number generation</li>
+      <li>Works on desktop, tablet and mobile</li>
+      <li>Free, no registration, no installation</li>
+    </ul>
+  </div>
+
+  <!-- Use Cases -->
+  <div class="detail-block" style="margin-bottom: 24px;">
+    <h2 style="font-size: 18px; color: var(--text-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-color, #409EFF);">Popular Use Cases</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;">
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #67C23A;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Board Games</strong>
+        <span style="font-size: 13px; color: #666;">Replace lost dice for Monopoly, Yahtzee and other games.</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #67C23A;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Tabletop RPGs</strong>
+        <span style="font-size: 13px; color: #666;">Roll D6 dice for D&amp;D, Pathfinder and other RPG systems.</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #67C23A;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Classroom Math</strong>
+        <span style="font-size: 13px; color: #666;">Teach probability and statistics with repeated rolls.</span>
+      </div>
+      <div style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #67C23A;">
+        <strong style="font-size: 14px; display: block; margin-bottom: 4px;">Quick Decisions</strong>
+        <span style="font-size: 13px; color: #666;">Let the dice choose between options or pick a random winner.</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+  <!-- SEO FAQ Section -->
+  <section class="tool-faq-section" style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
+    <h2 style="font-size: 20px; margin-bottom: 16px; color: var(--text-primary);">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Is this dice roller fair?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. We use your browser’s cryptographically secure random number generator to produce unbiased dice results.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">How many dice can I roll at once?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">You can roll up to six virtual dice at the same time. Use the plus and minus buttons to change the dice count.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Can I see my previous rolls?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Yes. The roll history section shows your recent results so you can track outcomes during a game or experiment.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 8px; border-left: 4px solid var(--primary-color, #409EFF);">
+        <strong style="display: block; margin-bottom: 4px; font-size: 15px;">Do I need to install an app?</strong>
+        <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">No. The dice roller works directly in your web browser on any device. No download or registration is required.</p>
+      </div>
+    </div>
+  </section>
 
     <footer id="footer" class="footer"></footer>
 

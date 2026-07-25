@@ -344,6 +344,11 @@ const ToolSEO = {
 
   generateFAQs(toolName, category, isEnglish = false) {
     const isWordcount = toolName === 'Word Counter' || toolName === '文本统计';
+    const isRandompassword = toolName === 'Random Password Generator' || toolName === '随机密码生成器';
+    const isMarkdown = toolName === 'Markdown Editor' || toolName === 'Markdown编辑器';
+    const isDice = toolName === 'Dice Roller' || toolName === '掷骰子';
+    const isPie = toolName === 'Pie Chart Maker' || toolName === '饼图';
+    const isKlotski = toolName === 'Klotski Puzzle' || toolName === '数字华容道';
 
     if (isWordcount && isEnglish) {
       return [
@@ -366,6 +371,131 @@ const ToolSEO = {
         {
           question: 'Does the tool support Chinese and English at the same time?',
           answer: 'Yes, it supports mixed Chinese and English text, as well as numbers, punctuation and other symbols.'
+        }
+      ];
+    }
+
+    if (isRandompassword && isEnglish) {
+      return [
+        {
+          question: 'Is this random password generator safe?',
+          answer: 'Yes. It uses your browser’s cryptographically secure random number generator (crypto.getRandomValues) to produce highly unpredictable passwords.'
+        },
+        {
+          question: 'How long should my password be?',
+          answer: 'We recommend at least 16 characters with uppercase, lowercase, numbers and symbols. This provides strong protection against brute-force attacks.'
+        },
+        {
+          question: 'Can I generate multiple passwords at once?',
+          answer: 'Yes. You can generate between 1 and 50 passwords in a single click, which is useful when setting up multiple accounts.'
+        },
+        {
+          question: 'Are my generated passwords stored anywhere?',
+          answer: 'No. All password generation happens locally in your browser. Nothing is sent to our servers, and the data disappears when you close the page.'
+        },
+        {
+          question: 'What characters can I include in the password?',
+          answer: 'You can include uppercase letters, lowercase letters, numbers and special symbols. Toggle each option to match your requirements.'
+        }
+      ];
+    }
+
+    if (isMarkdown && isEnglish) {
+      return [
+        {
+          question: 'Is this Markdown editor free?',
+          answer: 'Yes. Our online Markdown editor is completely free to use with no registration or payment required.'
+        },
+        {
+          question: 'Do I need to install anything?',
+          answer: 'No. It runs directly in your web browser. Just open the page and start writing.'
+        },
+        {
+          question: 'Is my Markdown content private?',
+          answer: 'Yes. All editing happens locally in your browser. Your text is never uploaded to our servers.'
+        },
+        {
+          question: 'Can I export Markdown to HTML?',
+          answer: 'Yes. You can download your Markdown as a .md file, download the rendered HTML, or copy either format to your clipboard.'
+        },
+        {
+          question: 'Which Markdown syntax is supported?',
+          answer: 'The editor supports standard Markdown including headings, bold, italic, lists, links, images, code blocks, tables, quotes, horizontal rules and task lists.'
+        }
+      ];
+    }
+
+    if (isDice && isEnglish) {
+      return [
+        {
+          question: 'Is this online dice roller free?',
+          answer: 'Yes. You can roll virtual dice as many times as you want without signing up or paying.'
+        },
+        {
+          question: 'How many dice can I roll at once?',
+          answer: 'You can roll between 1 and 6 virtual dice in a single roll. Choose the number that fits your game or decision.'
+        },
+        {
+          question: 'Can I see my previous rolls?',
+          answer: 'Yes. The tool keeps a roll history so you can review past results and totals.'
+        },
+        {
+          question: 'Does the dice roller work on mobile?',
+          answer: 'Yes. The responsive design works smoothly on desktop, tablet and mobile browsers.'
+        },
+        {
+          question: 'Is my data private when using the dice roller?',
+          answer: 'Yes. All rolls are generated locally in your browser. No data is sent to our servers.'
+        }
+      ];
+    }
+
+    if (isPie && isEnglish) {
+      return [
+        {
+          question: 'Is this pie chart maker free?',
+          answer: 'Yes. You can create, customize and download pie charts without paying or creating an account.'
+        },
+        {
+          question: 'What chart types can I create?',
+          answer: 'You can create a standard pie chart, a donut chart or a Nightingale rose chart.'
+        },
+        {
+          question: 'How do I enter data?',
+          answer: 'Type one item per line in the format Name:Value, for example Product A:120. The chart updates automatically as you type.'
+        },
+        {
+          question: 'Can I download the chart as an image?',
+          answer: 'Yes. Click the Download Image button to save your chart as a PNG file.'
+        },
+        {
+          question: 'Is my chart data private?',
+          answer: 'Yes. The chart is rendered entirely in your browser. Your data never leaves your device.'
+        }
+      ];
+    }
+
+    if (isKlotski && isEnglish) {
+      return [
+        {
+          question: 'What is Klotski?',
+          answer: 'Klotski is a classic sliding block puzzle. The goal is to move numbered tiles into the correct order by sliding them into the empty space.'
+        },
+        {
+          question: 'Is this Klotski game free?',
+          answer: 'Yes. You can play the Klotski sliding puzzle online for free without creating an account.'
+        },
+        {
+          question: 'Is every puzzle solvable?',
+          answer: 'Yes. Every starting position is created by shuffling the solved board with valid moves, so a solution always exists.'
+        },
+        {
+          question: 'Can I play on mobile?',
+          answer: 'Yes. The game is fully responsive and works on phones, tablets and desktop browsers.'
+        },
+        {
+          question: 'What modes are available?',
+          answer: 'You can choose between a quick 3x3 puzzle and the classic 4x4 "15 puzzle" challenge.'
         }
       ];
     }
@@ -420,6 +550,11 @@ const ToolSEO = {
 
   generateHowToSteps(toolName, category, isEnglish = false) {
     const isWordcount = toolName === 'Word Counter' || toolName === '文本统计';
+    const isRandompassword = toolName === 'Random Password Generator' || toolName === '随机密码生成器';
+    const isMarkdown = toolName === 'Markdown Editor' || toolName === 'Markdown编辑器';
+    const isDice = toolName === 'Dice Roller' || toolName === '掷骰子';
+    const isPie = toolName === 'Pie Chart Maker' || toolName === '饼图';
+    const isKlotski = toolName === 'Klotski Puzzle' || toolName === '数字华容道';
 
     if (isWordcount && isEnglish) {
       return [
@@ -442,6 +577,131 @@ const ToolSEO = {
         {
           name: 'Copy or download results',
           text: 'Use the copy or download buttons to save your results.'
+        }
+      ];
+    }
+
+    if (isRandompassword && isEnglish) {
+      return [
+        {
+          name: 'Open the password generator',
+          text: 'Visit the Random Password Generator page.'
+        },
+        {
+          name: 'Set the password length',
+          text: 'Choose a password length between 4 and 128 characters. We recommend at least 16 for strong security.'
+        },
+        {
+          name: 'Choose character types',
+          text: 'Toggle uppercase, lowercase, numbers and symbols to match your needs.'
+        },
+        {
+          name: 'Generate the password',
+          text: 'Click the Generate Password button to create a secure random password.'
+        },
+        {
+          name: 'Copy or use the password',
+          text: 'Copy the generated password to your clipboard and paste it where needed.'
+        }
+      ];
+    }
+
+    if (isMarkdown && isEnglish) {
+      return [
+        {
+          name: 'Open the Markdown editor',
+          text: 'Visit the Online Markdown Editor page.'
+        },
+        {
+          name: 'Write or paste Markdown',
+          text: 'Type your Markdown content in the editor panel on the left.'
+        },
+        {
+          name: 'Use toolbar shortcuts',
+          text: 'Click toolbar buttons to insert headings, lists, links, images, code and tables quickly.'
+        },
+        {
+          name: 'Preview live output',
+          text: 'Watch the right panel update instantly with the rendered HTML preview.'
+        },
+        {
+          name: 'Export or copy',
+          text: 'Download your file as Markdown or HTML, or copy either format to the clipboard.'
+        }
+      ];
+    }
+
+    if (isDice && isEnglish) {
+      return [
+        {
+          name: 'Open the dice roller',
+          text: 'Visit the Online Dice Roller page.'
+        },
+        {
+          name: 'Choose the number of dice',
+          text: 'Select how many virtual dice you want to roll, from 1 to 6.'
+        },
+        {
+          name: 'Click Roll Dice',
+          text: 'Press the Roll Dice button to roll the dice with 3D animation.'
+        },
+        {
+          name: 'View the result and total',
+          text: 'The result of each die and the total sum appear on screen.'
+        },
+        {
+          name: 'Check your roll history',
+          text: 'Scroll down to see a history of previous rolls.'
+        }
+      ];
+    }
+
+    if (isPie && isEnglish) {
+      return [
+        {
+          name: 'Open the pie chart maker',
+          text: 'Visit the Pie Chart Maker page.'
+        },
+        {
+          name: 'Enter a chart title',
+          text: 'Type a title for your chart in the Chart Title field (optional).'
+        },
+        {
+          name: 'Input your data',
+          text: 'Enter one data item per line in Name:Value format, for example Product A:120.'
+        },
+        {
+          name: 'Customize the chart',
+          text: 'Choose pie, donut or rose chart and adjust radius, labels and percentages.'
+        },
+        {
+          name: 'Download the chart',
+          text: 'Click Download Image to save your chart as a PNG file.'
+        }
+      ];
+    }
+
+    if (isKlotski && isEnglish) {
+      return [
+        {
+          name: 'Open the Klotski puzzle',
+          text: 'Visit the Klotski Sliding Puzzle page.'
+        },
+        {
+          name: 'Choose a mode',
+          text: 'Select the 3x3 mode for a quick game or the 4x4 mode for the classic 15 puzzle.'
+        },
+        {
+          name: 'Start a new game',
+          text: 'Click New Game to shuffle the tiles into a solvable starting position.'
+        },
+        {
+          name: 'Slide the tiles',
+          text: 'Click any tile next to the empty space to move it into the gap.'
+        },
+        {
+          name: 'Solve the puzzle',
+          text: 'Arrange the numbers in order from 1 to N with the empty space in the bottom-right corner.'
         }
       ];
     }

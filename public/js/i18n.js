@@ -61,7 +61,8 @@ const I18N = {
         learnMore: '了解更多',
         privacyPolicy: '隐私政策',
         termsOfService: '服务条款',
-        aboutUs: '关于我们'
+        aboutUs: '关于我们',
+        charCount: '{count} 字符'
       },
 
       nav: {
@@ -373,7 +374,8 @@ const I18N = {
       tools: {
         randompassword: {
           name: '随机密码生成器',
-          desc: '生成安全的随机密码，支持自定义长度和字符类型',
+          pageTitle: '随机密码生成器 - 在线生成安全强密码 | 免费在线工具',
+          desc: '免费在线随机密码生成器，自定义长度与字符类型，一键生成安全强密码。数据本地处理，隐私安全',
           length: '密码长度',
           includeUppercase: '包含大写字母',
           includeLowercase: '包含小写字母',
@@ -758,7 +760,8 @@ const I18N = {
         },
         markdown: {
           name: 'Markdown编辑器',
-          desc: '在线Markdown编辑与预览',
+          pageTitle: 'Markdown编辑器 - 免费在线编辑与实时预览 | 在线工具',
+          desc: '免费在线 Markdown 编辑器，支持实时预览、导出 HTML 与 Markdown。无需安装，浏览器直接使用',
           editor: '编辑器',
           preview: '预览',
           splitView: '分屏视图',
@@ -1074,7 +1077,8 @@ const I18N = {
         },
         pie: {
           name: '饼图',
-          desc: '在线饼图生成器',
+          pageTitle: '饼图生成器 - 在线饼图/环形图/玫瑰图 | 免费工具',
+          desc: '免费在线饼图生成器，支持普通饼图、环形图、南丁格尔玫瑰图，实时预览与下载',
           normal: '普通饼图',
           donut: '环形图',
           rose: '南丁格尔玫瑰图',
@@ -1085,7 +1089,14 @@ const I18N = {
           inside: '内部',
           showPercent: '显示百分比',
           highlight: '高亮效果',
-          generate: '生成饼图'
+          generate: '生成饼图',
+          defaultTitle: '饼图',
+          emptyData: '请输入有效数据',
+          seriesName: '数据',
+          sampleBrowserTitle: '2024 浏览器市场份额',
+          sampleBrowserData: 'Chrome:65.5%\nSafari:18.7%\nEdge:5.2%\nFirefox:3.0%\nOpera:2.9%\n其他:4.7%',
+          sampleOsTitle: '2024 桌面操作系统份额',
+          sampleOsData: 'Windows:72.1%\nmacOS:15.4%\nLinux:4.0%\nChromeOS:3.2%\n其他:5.3%'
         },
         scatter: {
           name: '散点图',
@@ -1139,7 +1150,8 @@ const I18N = {
         },
         dice: {
           name: '掷骰子',
-          desc: '虚拟骰子投掷',
+          pageTitle: '在线掷骰子 - 虚拟骰子投掷工具 | 免费在线',
+          desc: '免费在线掷骰子工具，支持1-6颗虚拟骰子同时投掷，3D翻转动画与历史记录',
           roll: '投掷',
           rolling: '投掷中...',
           result: '骰子点数',
@@ -1150,7 +1162,23 @@ const I18N = {
           total: '总和',
           history: '历史记录',
           clearHistory: '清除记录',
-          sound: '音效'
+          sound: '音效',
+          noHistory: '暂无记录',
+          diceAlt: '骰子 {n}'
+        },
+        klotski: {
+          name: '数字华容道',
+          pageTitle: '数字华容道 - 在线滑块拼图游戏 | 免费',
+          desc: '免费在线数字华容道游戏，经典滑块拼图，支持3x3和4x4模式，无需下载',
+          mode3x3: '3x3 模式',
+          mode4x4: '4x4 模式',
+          moves: '步数',
+          time: '时间',
+          newGame: '新游戏',
+          reset: '重置',
+          won: '恭喜通关！',
+          howToPlay: '玩法说明',
+          rules: '点击与空格相邻的数字块，将其滑入空格。把所有数字按顺序排列即可获胜。'
         },
         random: {
           name: '随机选择',
@@ -1528,7 +1556,8 @@ const I18N = {
         learnMore: 'Learn More',
         privacyPolicy: 'Privacy Policy',
         termsOfService: 'Terms of Service',
-        aboutUs: 'About Us'
+        aboutUs: 'About Us',
+        charCount: '{count} chars'
       },
 
       nav: {
@@ -1813,7 +1842,8 @@ const I18N = {
       tools: {
         randompassword: {
           name: 'Random Password Generator',
-          desc: 'Generate secure random passwords with custom length and character types',
+          pageTitle: 'Random Password Generator — Free & Secure Online',
+          desc: 'Generate strong, secure random passwords instantly. Custom length, uppercase, lowercase, numbers and symbols. 100% private, works in browser.',
           length: 'Password Length',
           includeUppercase: 'Include Uppercase',
           includeLowercase: 'Include Lowercase',
@@ -2196,7 +2226,8 @@ const I18N = {
         },
         markdown: {
           name: 'Markdown Editor',
-          desc: 'Online Markdown editor and preview',
+          pageTitle: 'Markdown Editor Online — Free Live Preview',
+          desc: 'Free online Markdown editor with live preview. Write, edit and export Markdown to HTML instantly. No signup, works in your browser.',
           editor: 'Editor',
           preview: 'Preview',
           splitView: 'Split View',
@@ -2505,8 +2536,9 @@ const I18N = {
           generate: 'Generate Line Chart'
         },
         pie: {
-          name: 'Pie Chart',
-          desc: 'Online pie chart generator',
+          name: 'Pie Chart Maker',
+          pageTitle: 'Pie Chart Maker — Free Online Pie, Donut & Rose Charts',
+          desc: 'Free online pie chart maker. Create pie, donut and Nightingale rose charts with live preview. Download as image, no signup needed.',
           normal: 'Normal Pie',
           donut: 'Donut Chart',
           rose: 'Nightingale Rose',
@@ -2517,7 +2549,14 @@ const I18N = {
           inside: 'Inside',
           showPercent: 'Show Percentage',
           highlight: 'Highlight Effect',
-          generate: 'Generate Pie Chart'
+          generate: 'Generate Pie Chart',
+          defaultTitle: 'Pie Chart',
+          emptyData: 'Please enter valid data',
+          seriesName: 'Data',
+          sampleBrowserTitle: '2024 Browser Market Share',
+          sampleBrowserData: 'Chrome:65.5%\nSafari:18.7%\nEdge:5.2%\nFirefox:3.0%\nOpera:2.9%\nOthers:4.7%',
+          sampleOsTitle: '2024 Desktop OS Share',
+          sampleOsData: 'Windows:72.1%\nmacOS:15.4%\nLinux:4.0%\nChromeOS:3.2%\nOthers:5.3%'
         },
         scatter: {
           name: 'Scatter Plot',
@@ -2568,8 +2607,9 @@ const I18N = {
           animation: '3D Flip Animation'
         },
         dice: {
-          name: 'Dice Roll',
-          desc: 'Virtual dice roller',
+          name: 'Dice Roller',
+          pageTitle: 'Online Dice Roller — Roll Virtual Dice Free',
+          desc: 'Free online dice roller. Roll 1-6 virtual dice with 3D animation and roll history. No signup, works in your browser.',
           roll: 'Roll Dice',
           rolling: 'Rolling...',
           result: 'Dice Result',
@@ -2580,7 +2620,23 @@ const I18N = {
           total: 'Total',
           history: 'History',
           clearHistory: 'Clear History',
-          sound: 'Sound Effect'
+          sound: 'Sound Effect',
+          noHistory: 'No rolls yet',
+          diceAlt: 'Dice {n}'
+        },
+        klotski: {
+          name: 'Klotski Puzzle',
+          pageTitle: 'Klotski Sliding Puzzle — Play Free Online Block Puzzle',
+          desc: 'Free online Klotski sliding puzzle game. Play the classic number block puzzle in your browser. 3x3 and 4x4 modes, no download needed.',
+          mode3x3: '3x3 Mode',
+          mode4x4: '4x4 Mode',
+          moves: 'Moves',
+          time: 'Time',
+          newGame: 'New Game',
+          reset: 'Reset',
+          won: 'You solved it!',
+          howToPlay: 'How to Play',
+          rules: 'Click a tile next to the empty space to slide it into the gap. Arrange all numbers in order to win.'
         },
         random: {
           name: 'Random Picker',

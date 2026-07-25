@@ -36,7 +36,7 @@
             wrapper.className = 'dice-wrapper';
             wrapper.innerHTML = `
                 <div class="dice" data-index="${i}">
-                    <img src="${DICE_IMAGES[0]}" alt="骰子${i+1}">
+                    <img src="${DICE_IMAGES[0]}" alt="${(typeof I18N !== 'undefined' && I18N.t('tools.dice.diceAlt') || 'Dice {n}').replace('{n}', i + 1)}">
                 </div>
             `;
             diceArea.appendChild(wrapper);
@@ -114,7 +114,8 @@
 
     function renderHistory() {
         if (history.length === 0) {
-            historyList.innerHTML = '<span style="color: var(--text-light); font-style: italic;">暂无记录</span>';
+            const emptyText = (typeof I18N !== 'undefined' && I18N.t('tools.dice.noHistory')) || 'No rolls yet';
+            historyList.innerHTML = `<span style="color: var(--text-light); font-style: italic;">${emptyText}</span>`;
             return;
         }
         historyList.innerHTML = history.map((item, i) =>

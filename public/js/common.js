@@ -88,6 +88,7 @@ const ToolsConfig = {
       tools: [
         { name: '抛硬币', url: 'tools/coin.html', icon: '🪙', desc: '随机抛硬币模拟' },
         { name: '掷骰子', url: 'tools/dice.html', icon: '🎲', desc: '虚拟骰子投掷' },
+        { name: '数字华容道', url: 'tools/klotski.html', icon: '🧩', desc: '经典滑块拼图游戏，支持3x3和4x4模式' },
         { name: '随机选择', url: 'tools/random.html', icon: '🎯', desc: '从列表中随机选择' },
         { name: '抽奖转盘', url: 'tools/lottery.html', icon: '🎡', desc: '创建抽奖转盘' },
         { name: '石头剪刀布', url: 'tools/rockpaperscissors.html', icon: '✊', desc: '经典猜拳游戏' },

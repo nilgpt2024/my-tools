@@ -25,7 +25,7 @@ function parsePieData(text) {
 function updateChart() {
     if (!chart) return;
 
-    const title = document.getElementById('chartTitle').value || '饼图';
+    const title = document.getElementById('chartTitle').value || (typeof I18N !== 'undefined' && I18N.t('tools.pie.defaultTitle')) || 'Pie Chart';
     const pieType = document.getElementById('pieType').value;
     const radiusPercent = parseInt(document.getElementById('radiusSize').value);
     const showLabel = document.getElementById('showLabel').checked;
@@ -35,7 +35,8 @@ function updateChart() {
 
     if (rawData.length === 0) {
         chart.clear();
-        chart.setOption({ title: { text: '请输入有效数据', left: 'center', top: 'center', textStyle: { color: '#999' } } });
+        const emptyText = (typeof I18N !== 'undefined' && I18N.t('tools.pie.emptyData')) || 'Please enter valid data';
+        chart.setOption({ title: { text: emptyText, left: 'center', top: 'center', textStyle: { color: '#999' } } });
         return;
     }
 
@@ -54,7 +55,7 @@ function updateChart() {
         legend: { orient: 'vertical', left: 'left', top: 'middle' },
         color: defaultColors,
         series: [{
-            name: '数据',
+            name: (typeof I18N !== 'undefined' && I18N.t('tools.pie.seriesName')) || 'Data',
             type: 'pie',
             radius: pieType === 'doughnut' ? [innerRadius, radius] : radius,
             center: pieType === 'rose' || pieType === 'doughnut' ? ['55%', '50%'] : ['50%', '50%'],
@@ -84,20 +85,20 @@ function downloadChart() {
 
 function loadSampleData(type) {
     if (type === 'browser') {
-        document.getElementById('chartTitle').value = '2024 浏览器市场份额';
-        document.getElementById('pieData').value = `Chrome:65.5%
+        document.getElementById('chartTitle').value = (typeof I18N !== 'undefined' && I18N.t('tools.pie.sampleBrowserTitle')) || '2024 Browser Market Share';
+        document.getElementById('pieData').value = (typeof I18N !== 'undefined' && I18N.t('tools.pie.sampleBrowserData')) || `Chrome:65.5%
 Safari:18.7%
 Edge:5.2%
 Firefox:3.0%
 Opera:2.9%
-其他:4.7%`;
+Others:4.7%`;
     } else if (type === 'os') {
-        document.getElementById('chartTitle').value = '2024 桌面操作系统份额';
-        document.getElementById('pieData').value = `Windows:72.1%
+        document.getElementById('chartTitle').value = (typeof I18N !== 'undefined' && I18N.t('tools.pie.sampleOsTitle')) || '2024 Desktop OS Share';
+        document.getElementById('pieData').value = (typeof I18N !== 'undefined' && I18N.t('tools.pie.sampleOsData')) || `Windows:72.1%
 macOS:15.4%
 Linux:4.0%
 ChromeOS:3.2%
-其他:5.3%`;
+Others:5.3%`;
     }
     updateChart();
 }

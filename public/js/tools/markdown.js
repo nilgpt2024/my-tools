@@ -337,7 +337,8 @@ function convertTable(html) {
 
 function updateCharCount() {
     const count = document.getElementById('markdownInput').value.length;
-    document.getElementById('charCount').textContent = `${count.toLocaleString()} 字符`;
+    const label = (typeof I18N !== 'undefined' && I18N.t('common.charCount')) || '{count} chars';
+    document.getElementById('charCount').textContent = label.replace('{count}', count.toLocaleString());
 }
 
 function clearAll() {
