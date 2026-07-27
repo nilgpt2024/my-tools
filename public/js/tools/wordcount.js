@@ -29,7 +29,7 @@ function analyzeText() {
         return;
     }
 
-    const stats = calculateStats(text, includeSpeed);
+    const stats = calculateStats(text);
     displayStats(stats, readSpeed);
 }
 
