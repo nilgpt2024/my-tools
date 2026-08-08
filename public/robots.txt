@@ -1,5 +1,4 @@
 # robots.txt - 在线工具集网站
-# 更新时间: 2026-06-05 (SEO优化版)
 # 允许所有搜索引擎抓取
 
 # 全局规则
@@ -9,55 +8,25 @@ Disallow: /js/lib/
 Disallow: /admin/
 Disallow: /tmp/
 Disallow: /.git/
-Disallow: /*?page=*
-Disallow: /*?q=*
 
 # 允许工具页面的lang参数（用于多语言SEO）
 Allow: /tools/*?lang=
 
-# 禁止抓取的文件类型
-User-agent: *
-Disallow: /*.log$
-Disallow: /*.bak$
-Disallow: /*.swp$
-Disallow: /*.DS_Store
-
 # 站点地图
 Sitemap: https://tools.suipce.com/sitemap.xml
-
-# 爬取延迟（友好对待服务器）
-Crawl-delay: 1
 
 # 特定搜索引擎规则
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /assets/images/
 
-User-agent: Googlebot-Video
-Allow: /
-
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Baiduspider
 Allow: /
-Crawl-delay: 10
-
-User-agent: 360Spider
-Allow: /
-Crawl-delay: 10
-
-User-agent: Sogou web spider
-Allow: /
-Crawl-delay: 10
-
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 1
 
 # 广告爬虫（允许）
 User-agent: Mediapartners-Google
@@ -65,19 +34,3 @@ Allow: /
 
 User-agent: AdsBot-Google
 Allow: /
-
-# 不良爬虫禁止
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow:/
-
-User-agent: MAZBot
-Disallow: /

@@ -30,7 +30,7 @@ const ToolSEO = {
     if (!toolConfig) return;
 
     const { name, description, keywords, category, icon } = toolConfig;
-    const currentLang = (typeof I18N !== 'undefined' && I18N.currentLang) ? I18N.currentLang : 'zh-CN';
+    const currentLang = (typeof I18N !== 'undefined' && I18N.currentLang) ? I18N.currentLang : 'en';
     const toolKey = this.getToolKey(toolConfig);
     const isEnglish = currentLang === 'en';
 
@@ -77,7 +77,7 @@ const ToolSEO = {
   },
 
   setPageTitle(toolConfig, name, category) {
-    const currentLang = (typeof I18N !== 'undefined' && I18N.currentLang) ? I18N.currentLang : 'zh-CN';
+    const currentLang = (typeof I18N !== 'undefined' && I18N.currentLang) ? I18N.currentLang : 'en';
     const toolKey = this.getToolKey(toolConfig);
     const i18nTitle = toolKey ? I18N.t(`tools.${toolKey}.pageTitle`) : null;
 
@@ -86,9 +86,9 @@ const ToolSEO = {
     } else if (currentLang === 'en') {
       const enName = toolKey ? I18N.t(`tools.${toolKey}.name`) : name;
       const enCategory = this.translateCategory(category);
-      document.title = `${enName || name} - Free Online ${enCategory || category} Tool | Online Tools`;
+      document.title = `${enName || name} - Free Online ${enCategory || category} Tool | Online Tools Hub`;
     } else {
-      document.title = `${name} - 在线${category}工具 | 免费在线工具集`;
+      document.title = `${name} - 免费在线${category}工具 | 在线工具集`;
     }
   },
 
@@ -117,21 +117,21 @@ const ToolSEO = {
 
   generateDescription(toolName, category) {
     const descriptions = {
-      '开发运维': `${toolName} - 免费${category}在线工具，无需安装，即开即用。支持批量处理，提高开发效率。`,
-      '文本处理': `${toolName} - 在线${category}工具，快速处理文本内容。免费使用，支持多种格式。`,
-      '图像处理': `${toolName} - 在线图像${category.substring(0, 2)}工具，简单易用。支持多种图片格式。`,
-      '单位转换': `${toolName} - 精准的在线${category}工具，支持常用单位互转。实时计算，准确可靠。`,
-      '图表工具': `${toolName} - 可视化数据${category.substring(0, 2)}工具，创建专业图表。支持导出多种格式。`,
-      '娱乐工具': `${toolName} - 有趣的在线${category}工具，休闲娱乐必备。完全免费，随时可用。`
+      '开发运维': `${toolName} - Free online ${category} tool. No installation needed, use directly in browser. Supports batch processing to boost developer productivity.`,
+      '文本处理': `${toolName} - Free online ${category} tool for quick text analysis and conversion. Supports multiple formats, instant results.`,
+      '图像处理': `${toolName} - Free online ${category} tool. Simple and intuitive interface. Supports common image formats with high-quality output.`,
+      '单位转换': `${toolName} - Precise online ${category} tool. Supports common unit conversions with real-time calculation. Accurate and reliable.`,
+      '图表工具': `${toolName} - Data visualization ${category} tool. Create professional charts with customizable styles. Export to multiple formats.`,
+      '娱乐工具': `${toolName} - Fun online ${category} tool for entertainment. Completely free, available anytime, no registration required.`
     };
     
-    return descriptions[category] || `${toolName} - 在线${category}工具，免费使用`;
+    return descriptions[category] || `${toolName} - Free online ${category} tool, use directly in browser`;
   },
 
   generateKeywords(toolName, category, customKeywords, isEnglish = false) {
     const baseKeywords = isEnglish
-      ? [toolName, category, 'online tools', 'free tool', 'Online Tools', 'free online tool']
-      : [toolName, category, '在线工具', '免费工具', 'Online Tools', 'free tool'];
+      ? [toolName, `${toolName} online`, `${toolName} free`, `${toolName} tool`, category, 'online tools', 'free online tool', 'free tool']
+      : [toolName, `${toolName}在线`, `${toolName}免费`, category, '在线工具', '免费工具'];
     const categoryInfo = this.defaultCategoryMap[category] || {};
     const categoryKeywords = categoryInfo.keywords ? categoryInfo.keywords.split(',') : [];
 

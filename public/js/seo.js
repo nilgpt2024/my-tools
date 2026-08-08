@@ -1,9 +1,9 @@
 const SEO = {
   defaultConfig: {
-    siteName: '在线工具集 | Online Tools Hub',
+    siteName: 'Online Tools Hub | 在线工具集',
     siteUrl: 'https://tools.suipce.com',
-    locale: 'zh-CN',
-    alternateLocale: 'en',
+    locale: 'en',
+    alternateLocale: 'zh-CN',
     ogImage: '/assets/images/logo.png',
     twitterHandle: '@yourhandle'
   },
