@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Playground Online — Free HTML CSS JS Editor</title>
+    <meta name="description" content="Free online code playground! Write HTML, CSS & JavaScript with live preview. Like CodePen & JSFiddle. No signup, works in browser.">
+    <meta name="keywords" content="code playground,online code editor,html css js editor,codepen alternative,jsfiddle alternative,live code editor">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.suipce.com/tools/codeplayground.html">
+    <meta property="og:title" content="Code Playground Online — Free HTML CSS JS Editor">
+    <meta property="og:description" content="Free online code playground! Write HTML, CSS & JavaScript with live preview. Like CodePen & JSFiddle. No signup, works in browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.suipce.com/tools/codeplayground.html">
+    <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Online Tools Hub">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a code playground?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A code playground is an online editor where you can write HTML, CSS, and JavaScript code and see the results instantly in a live preview. It's perfect for testing code snippets, learning web development, and sharing code examples."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this code playground free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! This code playground is 100% free. No signup required. All code runs directly in your browser - nothing is sent to any server."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .playground-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+            height: 60vh;
+            min-height: 400px;
+        }
+        .editor-panel {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .editor-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: var(--bg-secondary, #f3f4f6);
+            border-bottom: 1px solid var(--border-color, #e5e7eb);
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .editor-header span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .editor-textarea {
+            flex: 1;
+            width: 100%;
+            border: none;
+            padding: 12px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: none;
+            background: var(--bg-primary, #fff);
+            color: var(--text-primary, #111827);
+        }
+        .editor-textarea:focus {
+            outline: none;
+        }
+        .preview-panel {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .preview-frame {
+            flex: 1;
+            border: none;
+            background: #fff;
+        }
+        .action-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .html-editor { grid-column: 1; grid-row: 1; }
+        .css-editor { grid-column: 1; grid-row: 2; }
+        .js-editor { grid-column: 2; grid-row: 1; }
+        .preview-panel { grid-column: 2; grid-row: 2; }
+        
+        @media (max-width: 768px) {
+            .playground-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 200px);
+                height: auto;
+            }
+            .html-editor, .css-editor, .js-editor, .preview-panel {
+                grid-column: 1;
+                grid-row: auto;
+            }
+        }
+        
+        .seo-content {
+            margin-top: 32px;
+            padding: 24px;
+            background: var(--bg-secondary, #f9fafb);
+            border-radius: 12px;
+        }
+        .seo-content h2 { font-size: 20px; margin-bottom: 12px; }
+        .seo-content h3 { font-size: 16px; margin: 16px 0 8px; }
+        .seo-content p, .seo-content li { line-height: 1.8; font-size: 15px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="tool-header">
+            <h1>Code Playground</h1>
+            <p class="tool-desc">Write HTML, CSS & JavaScript with live preview</p>
+        </div>
+
+        <div class="action-bar">
+            <button class="btn btn-primary" onclick="runCode()">▶️ Run</button>
+            <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+            <button class="btn btn-secondary" onclick="exportCode()">📥 Export HTML</button>
+        </div>
+
+        <div class="playground-container">
+            <div class="editor-panel html-editor">
+                <div class="editor-header">
+                    <span>📝 HTML</span>
+                </div>
+                <textarea id="htmlEditor" class="editor-textarea" placeholder="Write your HTML here...">&lt;div class="container"&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;Start editing to see live preview.&lt;/p&gt;
+  &lt;button id="clickMe"&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;</textarea>
+            </div>
+            
+            <div class="editor-panel css-editor">
+                <div class="editor-header">
+                    <span>🎨 CSS</span>
+                </div>
+                <textarea id="cssEditor" class="editor-textarea" placeholder="Write your CSS here...">body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #333;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #45a049;
+}</textarea>
+            </div>
+            
+            <div class="editor-panel js-editor">
+                <div class="editor-header">
+                    <span>⚡ JavaScript</span>
+                </div>
+                <textarea id="jsEditor" class="editor-textarea" placeholder="Write your JavaScript here...">document.getElementById('clickMe').addEventListener('click', function() {
+  alert('Hello from Code Playground!');
+  this.textContent = 'Clicked!';
+  this.style.background = '#2196F3';
+});</textarea>
+            </div>
+            
+            <div class="preview-panel">
+                <div class="editor-header">
+                    <span>👁️ Preview</span>
+                </div>
+                <iframe id="preview" class="preview-frame"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <section class="container seo-content" aria-label="About Code Playground">
+        <h2>Free Online Code Playground — Write HTML, CSS & JavaScript</h2>
+        <p>
+            Our <strong>free code playground</strong> lets you write and test HTML, CSS, and JavaScript code directly in your browser. See live results instantly as you type. Perfect for learning, prototyping, and sharing code snippets.
+        </p>
+        
+        <h3>What Can You Do With This Code Playground?</h3>
+        <ul>
+            <li><strong>Write HTML</strong> — structure your web page content</li>
+            <li><strong>Add CSS</strong> — style your page with colors, layouts, and animations</li>
+            <li><strong>Write JavaScript</strong> — add interactivity and dynamic behavior</li>
+            <li><strong>See live preview</strong> — results update as you code</li>
+            <li><strong>Export code</strong> — download as a single HTML file</li>
+        </ul>
+        
+        <h3>Who Is This Tool For?</h3>
+        <p>
+            Whether you're a beginner learning web development, a developer testing code snippets, or a teacher creating examples, this code playground is the perfect tool. No installation required — just open and start coding.
+        </p>
+        
+        <h3>Features</h3>
+        <ul>
+            <li><strong>100% free</strong> — no signup, no limits</li>
+            <li><strong>Private</strong> — all code stays in your browser</li>
+            <li><strong>Fast</strong> — instant preview updates</li>
+            <li><strong>Mobile friendly</strong> — works on any device</li>
+        </ul>
+    </section>
+
+    <section class="container seo-content" style="margin-top: 16px;">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div style="margin-bottom: 16px;">
+                <strong>What is a code playground?</strong>
+                <p style="margin: 4px 0 0;">A code playground is an online editor where you can write HTML, CSS, and JavaScript code and see the results instantly in a live preview.</p>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <strong>Is this code playground free?</strong>
+                <p style="margin: 4px 0 0;">Yes! It's 100% free. No signup required. All code runs directly in your browser.</p>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <strong>Can I export my code?</strong>
+                <p style="margin: 4px 0 0;">Yes! Click the Export button to download your code as a single HTML file that you can open anywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tool-seo.js"></script>
+    <script>
+        function runCode() {
+            const html = document.getElementById('htmlEditor').value;
+            const css = document.getElementById('cssEditor').value;
+            const js = document.getElementById('jsEditor').value;
+            const preview = document.getElementById('preview');
+            
+            const content = `
+<!DOCTYPE html>
+<html>
+<head>
+    <style>${css}</style>
+</head>
+<body>
+    ${html}
+    <script>${js}<\/script>
+</body>
+</html>`;
+            
+            preview.srcdoc = content;
+        }
+        
+        function clearAll() {
+            document.getElementById('htmlEditor').value = '';
+            document.getElementById('cssEditor').value = '';
+            document.getElementById('jsEditor').value = '';
+            document.getElementById('preview').srcdoc = '';
+        }
+        
+        function exportCode() {
+            const html = document.getElementById('htmlEditor').value;
+            const css = document.getElementById('cssEditor').value;
+            const js = document.getElementById('jsEditor').value;
+            
+            const fullCode = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Code</title>
+    <style>
+${css}
+    </style>
+</head>
+<body>
+${html}
+    <script>
+${js}
+    <\/script>
+</body>
+</html>`;
+            
+            const blob = new Blob([fullCode], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'code.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // Auto-run on load
+        window.onload = function() {
+            runCode();
+            
+            // Auto-run on typing (with debounce)
+            let timeout;
+            ['htmlEditor', 'cssEditor', 'jsEditor'].forEach(id => {
+                document.getElementById(id).addEventListener('input', function() {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(runCode, 500);
+                });
+            });
+        };
+    </script>
+</body>
+</html>

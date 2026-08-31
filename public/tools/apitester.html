@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tester Online — Free REST API Testing Tool</title>
+    <meta name="description" content="Free online API tester! Test REST API endpoints with GET, POST, PUT, DELETE. View headers, status codes & response body. No signup, works in browser.">
+    <meta name="keywords" content="api tester,rest api tester,api testing tool,http request tool,postman alternative free,api debugger online">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.suipce.com/tools/apitester.html">
+    <meta property="og:title" content="API Tester Online — Free REST API Testing Tool">
+    <meta property="og:description" content="Free online API tester! Test REST API endpoints with GET, POST, PUT, DELETE. View headers, status codes & response body. No signup, works in browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.suipce.com/tools/apitester.html">
+    <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Online Tools Hub">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an API tester?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An API tester is a tool that lets you send HTTP requests to API endpoints and view the responses. It's used for debugging, testing, and exploring REST APIs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this API tester free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! This API tester is 100% free. No signup required. All requests are made directly from your browser."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .api-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .request-bar {
+            display: flex;
+            gap: 8px;
+        }
+        .method-select {
+            padding: 10px 12px;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            background: var(--bg-secondary, #f3f4f6);
+            min-width: 100px;
+        }
+        .url-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: monospace;
+        }
+        .send-btn {
+            padding: 10px 24px;
+            background: var(--primary-color, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .send-btn:hover {
+            background: var(--primary-hover, #2563eb);
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border-color, #e5e7eb);
+        }
+        .tab {
+            padding: 10px 16px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            font-size: 14px;
+        }
+        .tab.active {
+            border-bottom-color: var(--primary-color, #3b82f6);
+            color: var(--primary-color, #3b82f6);
+            font-weight: 600;
+        }
+        .tab-content {
+            display: none;
+            padding: 16px;
+            background: var(--bg-secondary, #f9fafb);
+            border-radius: 8px;
+            min-height: 200px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-content textarea {
+            width: 100%;
+            min-height: 150px;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 13px;
+            resize: vertical;
+        }
+        .response-section {
+            margin-top: 16px;
+        }
+        .response-header {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .status-2xx { background: #d1fae5; color: #065f46; }
+        .status-3xx { background: #dbeafe; color: #1e40af; }
+        .status-4xx { background: #fee2e2; color: #991b1b; }
+        .status-5xx { background: #fee2e2; color: #991b1b; }
+        .response-body {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .response-headers {
+            background: var(--bg-secondary, #f9fafb);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        .response-headers dt {
+            font-weight: 600;
+            color: var(--primary-color, #3b82f6);
+        }
+        .response-headers dd {
+            margin: 0 0 8px 0;
+            color: var(--text-secondary, #6b7280);
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary, #6b7280);
+        }
+        .seo-content {
+            margin-top: 32px;
+            padding: 24px;
+            background: var(--bg-secondary, #f9fafb);
+            border-radius: 12px;
+        }
+        .seo-content h2 { font-size: 20px; margin-bottom: 12px; }
+        .seo-content h3 { font-size: 16px; margin: 16px 0 8px; }
+        .seo-content p, .seo-content li { line-height: 1.8; font-size: 15px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+
+    <main class="container tool-layout">
+        <div class="tool-header">
+            <h1>API Tester</h1>
+            <p class="tool-desc">Test REST API endpoints with GET, POST, PUT, DELETE</p>
+        </div>
+
+        <div class="api-container">
+            <div class="request-bar">
+                <select id="method" class="method-select">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="PATCH">PATCH</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+                <input type="text" id="url" class="url-input" placeholder="https://api.example.com/data" value="https://jsonplaceholder.typicode.com/posts/1">
+                <button class="send-btn" onclick="sendRequest()">Send</button>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('headers')">Headers</div>
+                <div class="tab" onclick="switchTab('body')">Body</div>
+                <div class="tab" onclick="switchTab('params')">Params</div>
+            </div>
+
+            <div id="headers-tab" class="tab-content active">
+                <textarea id="headers" placeholder='{"Content-Type": "application/json"}'>{
+  "Content-Type": "application/json"
+}</textarea>
+            </div>
+            <div id="body-tab" class="tab-content">
+                <textarea id="body" placeholder='{"key": "value"}'></textarea>
+            </div>
+            <div id="params-tab" class="tab-content">
+                <textarea id="params" placeholder='{"key": "value"}'></textarea>
+            </div>
+
+            <div class="response-section">
+                <h3>Response</h3>
+                <div class="response-header" id="responseHeader" style="display: none;">
+                    <span class="status-badge" id="statusBadge"></span>
+                    <span id="responseTime"></span>
+                    <span id="responseSize"></span>
+                </div>
+                <div class="tabs">
+                    <div class="tab active" onclick="switchResponseTab('body')">Body</div>
+                    <div class="tab" onclick="switchResponseTab('responseHeaders')">Headers</div>
+                </div>
+                <div id="body-response" class="tab-content active">
+                    <div class="response-body" id="responseBody">
+                        <div class="loading">Click "Send" to make a request</div>
+                    </div>
+                </div>
+                <div id="responseHeaders-response" class="tab-content">
+                    <div class="response-headers" id="responseHeadersContent">
+                        No response yet
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="container seo-content" aria-label="About API Tester">
+        <h2>Free Online API Tester — Test REST API Endpoints</h2>
+        <p>
+            Our <strong>free API tester</strong> lets you test REST API endpoints directly in your browser. Send GET, POST, PUT, DELETE requests and view responses with status codes, headers, and body content. Perfect for debugging and testing APIs.
+        </p>
+        
+        <h3>What Can You Do With This API Tester?</h3>
+        <ul>
+            <li><strong>Send HTTP requests</strong> — GET, POST, PUT, PATCH, DELETE</li>
+            <li><strong>View responses</strong> — status codes, headers, and body</li>
+            <li><strong>Add headers</strong> — set custom request headers</li>
+            <li><strong>Add body</strong> — send JSON or text data</li>
+            <li><strong>No installation</strong> — works directly in your browser</li>
+        </ul>
+        
+        <h3>Who Is This Tool For?</h3>
+        <p>
+            Whether you're a backend developer testing APIs, a frontend developer working with REST endpoints, or a student learning about HTTP, this API tester is the perfect tool. It's like a lightweight Postman that runs in your browser.
+        </p>
+    </section>
+
+    <footer class="footer" id="footer"></footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/tool-seo.js"></script>
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+        
+        function switchResponseTab(tabName) {
+            document.querySelectorAll('.response-section .tabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.response-section .tab-content').forEach(t => t.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-response').classList.add('active');
+        }
+        
+        async function sendRequest() {
+            const method = document.getElementById('method').value;
+            let url = document.getElementById('url').value;
+            const headersText = document.getElementById('headers').value;
+            const bodyText = document.getElementById('body').value;
+            const paramsText = document.getElementById('params').value;
+            
+            // Add query params
+            if (paramsText) {
+                try {
+                    const params = JSON.parse(paramsText);
+                    const queryString = Object.entries(params)
+                        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+                        .join('&');
+                    url += (url.includes('?') ? '&' : '?') + queryString;
+                } catch (e) {
+                    alert('Invalid JSON in params');
+                    return;
+                }
+            }
+            
+            // Parse headers
+            let headers = {};
+            try {
+                headers = JSON.parse(headersText || '{}');
+            } catch (e) {
+                alert('Invalid JSON in headers');
+                return;
+            }
+            
+            const options = { method, headers };
+            
+            // Add body for non-GET requests
+            if (method !== 'GET' && bodyText) {
+                options.body = bodyText;
+            }
+            
+            const startTime = Date.now();
+            
+            try {
+                const response = await fetch(url, options);
+                const endTime = Date.now();
+                const duration = endTime - startTime;
+                
+                // Get response body
+                const text = await response.text();
+                
+                // Display response
+                document.getElementById('responseHeader').style.display = 'flex';
+                document.getElementById('statusBadge').textContent = `${response.status} ${response.statusText}`;
+                document.getElementById('statusBadge').className = `status-badge status-${Math.floor(response.status / 100)}xx`;
+                document.getElementById('responseTime').textContent = `${duration}ms`;
+                document.getElementById('responseSize').textContent = `${(new TextEncoder().encode(text).length / 1024).toFixed(2)} KB`;
+                
+                // Try to format JSON
+                try {
+                    const json = JSON.parse(text);
+                    document.getElementById('responseBody').textContent = JSON.stringify(json, null, 2);
+                } catch {
+                    document.getElementById('responseBody').textContent = text;
+                }
+                
+                // Display response headers
+                const headersHtml = [];
+                response.headers.forEach((value, key) => {
+                    headersHtml.push(`<dt>${key}</dt><dd>${value}</dd>`);
+                });
+                document.getElementById('responseHeadersContent').innerHTML = headersHtml.join('');
+                
+            } catch (error) {
+                document.getElementById('responseBody').textContent = `Error: ${error.message}`;
+                document.getElementById('statusBadge').textContent = 'Error';
+                document.getElementById('statusBadge').className = 'status-badge status-4xx';
+            }
+        }
+    </script>
+</body>
+</html>

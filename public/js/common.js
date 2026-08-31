@@ -23,7 +23,10 @@ const ToolsConfig = {
         { name: '进制转换', url: 'tools/scaletran.html', icon: '🔢', desc: '二进制、八进制、十进制、十六进制转换' },
         { name: 'Hash计算', url: 'tools/hashcalculator.html', icon: '#️⃣', desc: '多种Hash算法计算' },
         { name: 'SQL格式化', url: 'tools/sqlformat.html', icon: '🗄️', desc: 'SQL语句格式化与美化' },
-        { name: 'XML格式化', url: 'tools/xmlformat.html', icon: '📄', desc: 'XML代码格式化与美化' }
+        { name: 'XML格式化', url: 'tools/xmlformat.html', icon: '📄', desc: 'XML代码格式化与美化' },
+        { name: '代码编辑器', url: 'tools/codeplayground.html', icon: '💻', desc: '在线HTML/CSS/JS代码编辑器' },
+        { name: 'API测试', url: 'tools/apitester.html', icon: '🔌', desc: 'REST API在线测试工具' },
+        { name: '图片压缩', url: 'tools/imagecompress.html', icon: '🖼️', desc: '在线图片压缩工具' }
       ]
     },
     {
