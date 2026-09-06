@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Shadow Generator — Create Shadows Online Free</title>
+    <meta name="description" content="Free online CSS box shadow generator! Create beautiful shadow effects with live preview. Customize blur, spread, and color. Copy CSS instantly.">
+    <meta name="keywords" content="css box shadow generator,box shadow css,css shadow effect,shadow generator,css drop shadow">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.suipce.com/tools/boxshadow.html">
+    <meta property="og:title" content="CSS Box Shadow Generator — Create Shadows Online Free">
+    <meta property="og:description" content="Free online CSS box shadow generator! Create beautiful shadow effects with live preview. Customize blur, spread, and color.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.suipce.com/tools/boxshadow.html">
+    <meta property="og:image" content="https://tools.suipce.com/assets/images/logo.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Online Tools Hub">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/tool.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is a CSS box shadow?", "acceptedAnswer": { "@type": "Answer", "text": "A CSS box shadow adds a shadow effect to any HTML element. You can customize the offset, blur, spread, and color." } },
+        { "@type": "Question", "name": "Is this generator free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! 100% free with no signup required." } }
+      ]
+    }
+    </script>
+    <style>
+        .shadow-container { max-width: 800px; margin: 0 auto; padding: 24px; }
+        .shadow-preview { width: 300px; height: 200px; background: white; border-radius: 12px; margin: 40px auto; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; }
+        .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; padding: 20px; background: #f9fafb; border-radius: 12px; }
+        .control-group label { display: block; font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+        .control-group input, .control-group select { width: 100%; padding: 8px; border: 1px solid #e5e7eb; border-radius: 6px; }
+        .code-box { background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 14px; margin-top: 16px; white-space: pre-wrap; }
+        .action-bar { display: flex; gap: 12px; margin-top: 16px; }
+        .btn { padding: 12px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-secondary { background: #f3f4f6; color: #111827; }
+        .seo-content { margin-top: 32px; padding: 24px; background: #f9fafb; border-radius: 12px; }
+        .seo-content h2 { font-size: 22px; margin-bottom: 12px; }
+        .seo-content p, .seo-content li { line-height: 1.8; font-size: 15px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar"></nav>
+    <main class="container tool-layout">
+        <div class="tool-header">
+            <h1>CSS Box Shadow Generator</h1>
+            <p class="tool-desc">Create beautiful shadow effects with live preview</p>
+        </div>
+        <div class="shadow-container">
+            <div class="shadow-preview" id="shadowPreview">Shadow Preview</div>
+            <div class="controls">
+                <div class="control-group">
+                    <label>Horizontal:</label>
+                    <input type="range" id="hOffset" min="-50" max="50" value="5">
+                </div>
+                <div class="control-group">
+                    <label>Vertical:</label>
+                    <input type="range" id="vOffset" min="-50" max="50" value="5">
+                </div>
+                <div class="control-group">
+                    <label>Blur:</label>
+                    <input type="range" id="blur" min="0" max="100" value="15">
+                </div>
+                <div class="control-group">
+                    <label>Spread:</label>
+                    <input type="range" id="spread" min="-50" max="50" value="0">
+                </div>
+                <div class="control-group">
+                    <label>Color:</label>
+                    <input type="color" id="shadowColor" value="rgba(0,0,0,0.2)">
+                </div>
+            </div>
+            <div class="code-box" id="cssCode">box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.2);</div>
+            <div class="action-bar">
+                <button class="btn btn-primary" onclick="copyCode()">📋 Copy CSS</button>
+                <button class="btn btn-secondary" onclick="resetShadow()">🔄 Reset</button>
+            </div>
+        </div>
+    </main>
+    <section class="container seo-content">
+        <h2>Free CSS Box Shadow Generator — Create Beautiful Shadows</h2>
+        <p>Our free CSS box shadow generator lets you create beautiful shadow effects with a live preview. Customize offset, blur, spread, and color, then copy the CSS code instantly.</p>
+        <h3>Features</h3>
+        <ul>
+            <li><strong>Live preview</strong> — See the shadow effect in real-time</li>
+            <li><strong>Full customization</strong> — Adjust all shadow parameters</li>
+            <li><strong>Copy instantly</strong> — One click to copy CSS code</li>
+            <li><strong>100% free</strong> — No signup, works in browser</li>
+        </ul>
+    </section>
+    <footer class="footer" id="footer"></footer>
+    <script src="js/common.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/tool-seo.js"></script>
+    <script>
+        function updateShadow() {
+            const h = document.getElementById('hOffset').value;
+            const v = document.getElementById('vOffset').value;
+            const b = document.getElementById('blur').value;
+            const s = document.getElementById('spread').value;
+            const c = document.getElementById('shadowColor').value;
+            const preview = document.getElementById('shadowPreview');
+            const codeBox = document.getElementById('cssCode');
+            const shadow = `${h}px ${v}px ${b}px ${s}px ${c}`;
+            preview.style.boxShadow = shadow;
+            codeBox.textContent = `box-shadow: ${shadow};`;
+        }
+        function copyCode() {
+            navigator.clipboard.writeText(document.getElementById('cssCode').textContent);
+            alert('CSS copied to clipboard!');
+        }
+        function resetShadow() {
+            document.getElementById('hOffset').value = 5;
+            document.getElementById('vOffset').value = 5;
+            document.getElementById('blur').value = 15;
+            document.getElementById('spread').value = 0;
+            document.getElementById('shadowColor').value = 'rgba(0,0,0,0.2)';
+            updateShadow();
+        }
+        ['hOffset','vOffset','blur','spread','shadowColor'].forEach(id => {
+            document.getElementById(id).addEventListener('input', updateShadow);
+        });
+        updateShadow();
+    </script>
+</body>
+</html>

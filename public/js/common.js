@@ -26,7 +26,10 @@ const ToolsConfig = {
         { name: 'XML格式化', url: 'tools/xmlformat.html', icon: '📄', desc: 'XML代码格式化与美化' },
         { name: '代码编辑器', url: 'tools/codeplayground.html', icon: '💻', desc: '在线HTML/CSS/JS代码编辑器' },
         { name: 'API测试', url: 'tools/apitester.html', icon: '🔌', desc: 'REST API在线测试工具' },
-        { name: '图片压缩', url: 'tools/imagecompress.html', icon: '🖼️', desc: '在线图片压缩工具' }
+        { name: '图片压缩', url: 'tools/imagecompress.html', icon: '🖼️', desc: '在线图片压缩工具' },
+        { name: 'CSS渐变', url: 'tools/gradients.html', icon: '🎨', desc: 'CSS渐变生成器，支持线性与径向渐变' },
+        { name: 'CSS阴影', url: 'tools/boxshadow.html', icon: '🌑', desc: 'CSS阴影生成器，预览阴影效果' },
+        { name: '博客', url: 'blog.html', icon: '📝', desc: 'Web开发教程与文章' }
       ]
     },
     {
