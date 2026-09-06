@@ -29,7 +29,8 @@ const ToolsConfig = {
         { name: '图片压缩', url: 'tools/imagecompress.html', icon: '🖼️', desc: '在线图片压缩工具' },
         { name: 'CSS渐变', url: 'tools/gradients.html', icon: '🎨', desc: 'CSS渐变生成器，支持线性与径向渐变' },
         { name: 'CSS阴影', url: 'tools/boxshadow.html', icon: '🌑', desc: 'CSS阴影生成器，预览阴影效果' },
-        { name: '博客', url: 'blog.html', icon: '📝', desc: 'Web开发教程与文章' }
+        { name: '博客', url: 'blog.html', icon: '📝', desc: 'Web开发教程与文章' },
+        { name: 'Best Tools', url: 'best-tools.html', icon: '⭐', desc: 'Best free online tools ranking' }
       ]
     },
     {
