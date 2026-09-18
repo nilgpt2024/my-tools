@@ -18,6 +18,9 @@ const SEO = {
   },
 
   injectMetaTags(pageConfig = {}) {
+    if (!pageConfig || Object.keys(pageConfig).length === 0) {
+      return; // no explicit config: keep static meta tags
+    }
     const { siteName, siteUrl, ogImage, twitterHandle } = this.config;
     const {
       title,
@@ -142,6 +145,9 @@ const SEO = {
   },
 
   addHreflangLinks() {
+    if (document.querySelector('link[hreflang]')) {
+      return; // static hreflang links already present
+    }
     const { siteUrl } = this.config;
     const basePath = window.location.pathname;
 
@@ -217,6 +223,9 @@ const SEO = {
   },
 
   injectStructuredData(pageConfig = {}) {
+    if (!pageConfig || Object.keys(pageConfig).length === 0) {
+      return; // no explicit config: keep static structured data
+    }
     const { siteName, siteUrl, ogImage } = this.config;
     const { type = 'WebSite', ...customData } = pageConfig;
 

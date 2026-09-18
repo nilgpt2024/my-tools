@@ -5,30 +5,30 @@ const ToolsConfig = {
       title: '开发运维',
       icon: '💻',
       tools: [
-        { name: '随机密码生成', url: 'tools/randompassword.html', icon: '🔑', desc: '生成安全的随机密码，支持自定义长度和字符类型' },
-        { name: 'URL编码/解码', url: 'tools/urlencode.html', icon: '🔗', desc: '在线URL编码和解码工具' },
-        { name: 'UUID生成器', url: 'tools/uuid.html', icon: '🆔', desc: '批量生成通用唯一识别码' },
-        { name: '时间戳转换', url: 'tools/timetran.html', icon: '⏰', desc: '时间戳与日期格式互转' },
-        { name: 'MD5加密', url: 'tools/md5.html', icon: '🔐', desc: 'MD5在线加密，支持32位和16位' },
-        { name: 'JSON格式化', url: 'tools/json.html', icon: '📋', desc: 'JSON格式化、压缩、验证' },
-        { name: '正则测试', url: 'tools/reg.html', icon: '🔍', desc: '正则表达式在线测试工具' },
-        { name: 'Unicode转换', url: 'tools/unicode.html', icon: '🌐', desc: 'Unicode与中文相互转换' },
-        { name: 'HTTP状态码', url: 'tools/httpstatuscode.html', icon: '🌐', desc: 'HTTP状态码查询与说明' },
-        { name: 'JWT解析', url: 'tools/jwt.html', icon: '🎫', desc: 'JSON Web Token解析与验证' },
-        { name: 'HTML实体转义', url: 'tools/htmlentity.html', icon: '📝', desc: 'HTML实体编码与解码' },
-        { name: 'JS格式化', url: 'tools/jsformat.html', icon: '📜', desc: 'JavaScript代码格式化与压缩' },
-        { name: 'HTML格式化', url: 'tools/htmlformat.html', icon: '🌐', desc: 'HTML代码格式化与美化' },
-        { name: 'CSS格式化', url: 'tools/cssformat.html', icon: '🎨', desc: 'CSS代码格式化与压缩' },
-        { name: 'Base64编解码', url: 'tools/base64.html', icon: '🔄', desc: 'Base64编码与解码工具' },
-        { name: '进制转换', url: 'tools/scaletran.html', icon: '🔢', desc: '二进制、八进制、十进制、十六进制转换' },
-        { name: 'Hash计算', url: 'tools/hashcalculator.html', icon: '#️⃣', desc: '多种Hash算法计算' },
-        { name: 'SQL格式化', url: 'tools/sqlformat.html', icon: '🗄️', desc: 'SQL语句格式化与美化' },
-        { name: 'XML格式化', url: 'tools/xmlformat.html', icon: '📄', desc: 'XML代码格式化与美化' },
-        { name: '代码编辑器', url: 'tools/codeplayground.html', icon: '💻', desc: '在线HTML/CSS/JS代码编辑器' },
-        { name: 'API测试', url: 'tools/apitester.html', icon: '🔌', desc: 'REST API在线测试工具' },
-        { name: '图片压缩', url: 'tools/imagecompress.html', icon: '🖼️', desc: '在线图片压缩工具' },
-        { name: 'CSS渐变', url: 'tools/gradients.html', icon: '🎨', desc: 'CSS渐变生成器，支持线性与径向渐变' },
-        { name: 'CSS阴影', url: 'tools/boxshadow.html', icon: '🌑', desc: 'CSS阴影生成器，预览阴影效果' },
+        { name: '随机密码生成', url: 'tools/randompassword', icon: '🔑', desc: '生成安全的随机密码，支持自定义长度和字符类型' },
+        { name: 'URL编码/解码', url: 'tools/urlencode', icon: '🔗', desc: '在线URL编码和解码工具' },
+        { name: 'UUID生成器', url: 'tools/uuid', icon: '🆔', desc: '批量生成通用唯一识别码' },
+        { name: '时间戳转换', url: 'tools/timetran', icon: '⏰', desc: '时间戳与日期格式互转' },
+        { name: 'MD5加密', url: 'tools/md5', icon: '🔐', desc: 'MD5在线加密，支持32位和16位' },
+        { name: 'JSON格式化', url: 'tools/json', icon: '📋', desc: 'JSON格式化、压缩、验证' },
+        { name: '正则测试', url: 'tools/reg', icon: '🔍', desc: '正则表达式在线测试工具' },
+        { name: 'Unicode转换', url: 'tools/unicode', icon: '🌐', desc: 'Unicode与中文相互转换' },
+        { name: 'HTTP状态码', url: 'tools/httpstatuscode', icon: '🌐', desc: 'HTTP状态码查询与说明' },
+        { name: 'JWT解析', url: 'tools/jwt', icon: '🎫', desc: 'JSON Web Token解析与验证' },
+        { name: 'HTML实体转义', url: 'tools/htmlentity', icon: '📝', desc: 'HTML实体编码与解码' },
+        { name: 'JS格式化', url: 'tools/jsformat', icon: '📜', desc: 'JavaScript代码格式化与压缩' },
+        { name: 'HTML格式化', url: 'tools/htmlformat', icon: '🌐', desc: 'HTML代码格式化与美化' },
+        { name: 'CSS格式化', url: 'tools/cssformat', icon: '🎨', desc: 'CSS代码格式化与压缩' },
+        { name: 'Base64编解码', url: 'tools/base64', icon: '🔄', desc: 'Base64编码与解码工具' },
+        { name: '进制转换', url: 'tools/scaletran', icon: '🔢', desc: '二进制、八进制、十进制、十六进制转换' },
+        { name: 'Hash计算', url: 'tools/hashcalculator', icon: '#️⃣', desc: '多种Hash算法计算' },
+        { name: 'SQL格式化', url: 'tools/sqlformat', icon: '🗄️', desc: 'SQL语句格式化与美化' },
+        { name: 'XML格式化', url: 'tools/xmlformat', icon: '📄', desc: 'XML代码格式化与美化' },
+        { name: '代码编辑器', url: 'tools/codeplayground', icon: '💻', desc: '在线HTML/CSS/JS代码编辑器' },
+        { name: 'API测试', url: 'tools/apitester', icon: '🔌', desc: 'REST API在线测试工具' },
+        { name: '图片压缩', url: 'tools/imagecompress', icon: '🖼️', desc: '在线图片压缩工具' },
+        { name: 'CSS渐变', url: 'tools/gradients', icon: '🎨', desc: 'CSS渐变生成器，支持线性与径向渐变' },
+        { name: 'CSS阴影', url: 'tools/boxshadow', icon: '🌑', desc: 'CSS阴影生成器，预览阴影效果' },
         { name: '博客', url: 'blog.html', icon: '📝', desc: 'Web开发教程与文章' },
         { name: 'Best Tools', url: 'best-tools.html', icon: '⭐', desc: 'Best free online tools ranking' }
       ]
@@ -38,14 +38,14 @@ const ToolsConfig = {
       title: '文本处理',
       icon: '✍️',
       tools: [
-        { name: '文本统计', url: 'tools/wordcount.html', icon: '📊', desc: '统计字数、字符数、行数等' },
-        { name: '词频统计', url: 'tools/wordfrequency.html', icon: '📈', desc: '分析文本中词语出现频率' },
-        { name: '文本去重', url: 'tools/textremoveduplicate.html', icon: '🗑️', desc: '去除重复的文本行' },
-        { name: '文本替换', url: 'tools/textreplace.html', icon: '🔄', desc: '批量文本查找替换' },
-        { name: 'Markdown编辑器', url: 'tools/markdown.html', icon: '📝', desc: '在线Markdown编辑与预览' },
-        { name: 'ASCII艺术字', url: 'tools/asciiwordpic.html', icon: '🎨', desc: '文字转ASCII艺术字' },
-        { name: '数字转中文', url: 'tools/numbertochinese.html', icon: '🔢', desc: '阿拉伯数字转中文大写' },
-        { name: '莫斯电码', url: 'tools/morse.html', icon: '📡', desc: '莫斯电码编码与解码' }
+        { name: '文本统计', url: 'tools/wordcount', icon: '📊', desc: '统计字数、字符数、行数等' },
+        { name: '词频统计', url: 'tools/wordfrequency', icon: '📈', desc: '分析文本中词语出现频率' },
+        { name: '文本去重', url: 'tools/textremoveduplicate', icon: '🗑️', desc: '去除重复的文本行' },
+        { name: '文本替换', url: 'tools/textreplace', icon: '🔄', desc: '批量文本查找替换' },
+        { name: 'Markdown编辑器', url: 'tools/markdown', icon: '📝', desc: '在线Markdown编辑与预览' },
+        { name: 'ASCII艺术字', url: 'tools/asciiwordpic', icon: '🎨', desc: '文字转ASCII艺术字' },
+        { name: '数字转中文', url: 'tools/numbertochinese', icon: '🔢', desc: '阿拉伯数字转中文大写' },
+        { name: '莫斯电码', url: 'tools/morse', icon: '📡', desc: '莫斯电码编码与解码' }
       ]
     },
     {
@@ -53,11 +53,11 @@ const ToolsConfig = {
       title: '图像处理',
       icon: '🖼️',
       tools: [
-        { name: '图片裁剪', url: 'tools/imgcut.html', icon: '✂️', desc: '在线图片裁剪工具' },
-        { name: '图片水印', url: 'tools/imagewatermark.html', icon: '💧', desc: '为图片添加文字或图片水印' },
-        { name: '颜色选择器', url: 'tools/colorpicker.html', icon: '🎨', desc: '颜色选择与转换工具' },
-        { name: '图片取色器', url: 'tools/imagecolorpicker.html', icon: '🖌️', desc: '从图片中提取颜色' },
-        { name: '二维码生成', url: 'tools/qrcode.html', icon: '📱', desc: '在线二维码生成器' }
+        { name: '图片裁剪', url: 'tools/imgcut', icon: '✂️', desc: '在线图片裁剪工具' },
+        { name: '图片水印', url: 'tools/imagewatermark', icon: '💧', desc: '为图片添加文字或图片水印' },
+        { name: '颜色选择器', url: 'tools/colorpicker', icon: '🎨', desc: '颜色选择与转换工具' },
+        { name: '图片取色器', url: 'tools/imagecolorpicker', icon: '🖌️', desc: '从图片中提取颜色' },
+        { name: '二维码生成', url: 'tools/qrcode', icon: '📱', desc: '在线二维码生成器' }
       ]
     },
     {
@@ -65,15 +65,15 @@ const ToolsConfig = {
       title: '单位转换',
       icon: '📏',
       tools: [
-        { name: '长度转换', url: 'tools/length.html', icon: '📏', desc: '长度单位互相转换' },
-        { name: '面积转换', url: 'tools/area.html', icon: '⬜', desc: '面积单位互相转换' },
-        { name: '重量转换', url: 'tools/weight.html', icon: '⚖️', desc: '重量单位互相转换' },
-        { name: '温度转换', url: 'tools/temperature.html', icon: '🌡️', desc: '温度单位互相转换' },
-        { name: '时间转换', url: 'tools/time.html', icon: '⏱️', desc: '时间单位互相转换' },
-        { name: '压力转换', url: 'tools/pressure.html', icon: '🎈', desc: '压力单位互相转换' },
-        { name: '功率转换', url: 'tools/power.html', icon: '⚡', desc: '功率单位互相转换' },
-        { name: '存储转换', url: 'tools/storageconverter.html', icon: '💾', desc: '存储容量单位转换' },
-        { name: '热量转换', url: 'tools/heat.html', icon: '🔥', desc: '热量单位互相转换' }
+        { name: '长度转换', url: 'tools/length', icon: '📏', desc: '长度单位互相转换' },
+        { name: '面积转换', url: 'tools/area', icon: '⬜', desc: '面积单位互相转换' },
+        { name: '重量转换', url: 'tools/weight', icon: '⚖️', desc: '重量单位互相转换' },
+        { name: '温度转换', url: 'tools/temperature', icon: '🌡️', desc: '温度单位互相转换' },
+        { name: '时间转换', url: 'tools/time', icon: '⏱️', desc: '时间单位互相转换' },
+        { name: '压力转换', url: 'tools/pressure', icon: '🎈', desc: '压力单位互相转换' },
+        { name: '功率转换', url: 'tools/power', icon: '⚡', desc: '功率单位互相转换' },
+        { name: '存储转换', url: 'tools/storageconverter', icon: '💾', desc: '存储容量单位转换' },
+        { name: '热量转换', url: 'tools/heat', icon: '🔥', desc: '热量单位互相转换' }
       ]
     },
     {
@@ -81,11 +81,11 @@ const ToolsConfig = {
       title: '图表工具',
       icon: '📊',
       tools: [
-        { name: '柱状图', url: 'tools/bar.html', icon: '📊', desc: '在线柱状图生成器' },
-        { name: '折线图', url: 'tools/line.html', icon: '📈', desc: '在线折线图生成器' },
-        { name: '饼图', url: 'tools/pie.html', icon: '🥧', desc: '在线饼图生成器' },
-        { name: '散点图', url: 'tools/scatter.html', icon: '⭐', desc: '在线散点图生成器' },
-        { name: '词云图', url: 'tools/wordcloud.html', icon: '☁️', desc: '在线词云图生成器' }
+        { name: '柱状图', url: 'tools/bar', icon: '📊', desc: '在线柱状图生成器' },
+        { name: '折线图', url: 'tools/line', icon: '📈', desc: '在线折线图生成器' },
+        { name: '饼图', url: 'tools/pie', icon: '🥧', desc: '在线饼图生成器' },
+        { name: '散点图', url: 'tools/scatter', icon: '⭐', desc: '在线散点图生成器' },
+        { name: '词云图', url: 'tools/wordcloud', icon: '☁️', desc: '在线词云图生成器' }
       ]
     },
     {
@@ -93,22 +93,22 @@ const ToolsConfig = {
       title: '娱乐工具',
       icon: '🎮',
       tools: [
-        { name: '抛硬币', url: 'tools/coin.html', icon: '🪙', desc: '随机抛硬币模拟' },
-        { name: '掷骰子', url: 'tools/dice.html', icon: '🎲', desc: '虚拟骰子投掷' },
-        { name: '数字华容道', url: 'tools/klotski.html', icon: '🧩', desc: '经典滑块拼图游戏，支持3x3和4x4模式' },
-        { name: '随机选择', url: 'tools/random.html', icon: '🎯', desc: '从列表中随机选择' },
-        { name: '抽奖转盘', url: 'tools/lottery.html', icon: '🎡', desc: '创建抽奖转盘' },
-        { name: '石头剪刀布', url: 'tools/rockpaperscissors.html', icon: '✊', desc: '经典猜拳游戏' },
-        { name: '反应力测试', url: 'tools/reactiontest.html', icon: '⚡', desc: '测试你的反应速度' },
-        { name: '番茄钟', url: 'tools/pomodoro.html', icon: '🍅', desc: '番茄工作法计时器' },
-        { name: '弹幕生成', url: 'tools/barrage.html', icon: '💬', desc: '生成弹幕效果' },
-        { name: '转盘', url: 'tools/wheel.html', icon: '🎯', desc: '自定义转盘选择器' },
-        { name: 'Emoji表情', url: 'tools/emoji.html', icon: '😀', desc: 'Emoji表情复制' },
-        { name: '文本对比', url: 'tools/diff.html', icon: '🔄', desc: '文本差异对比工具' },
-        { name: '计算器', url: 'tools/calculator.html', icon: '🔢', desc: '科学计算器' },
-        { name: '色板生成', url: 'tools/colorpalette.html', icon: '🎨', desc: '生成配色方案' },
-        { name: 'IP查询', url: 'tools/ip.html', icon: '🌐', desc: '查询本机公网IP' },
-        { name: '网站信息', url: 'tools/webinfo.html', icon: 'ℹ️', desc: '查询网站基本信息' }
+        { name: '抛硬币', url: 'tools/coin', icon: '🪙', desc: '随机抛硬币模拟' },
+        { name: '掷骰子', url: 'tools/dice', icon: '🎲', desc: '虚拟骰子投掷' },
+        { name: '数字华容道', url: 'tools/klotski', icon: '🧩', desc: '经典滑块拼图游戏，支持3x3和4x4模式' },
+        { name: '随机选择', url: 'tools/random', icon: '🎯', desc: '从列表中随机选择' },
+        { name: '抽奖转盘', url: 'tools/lottery', icon: '🎡', desc: '创建抽奖转盘' },
+        { name: '石头剪刀布', url: 'tools/rockpaperscissors', icon: '✊', desc: '经典猜拳游戏' },
+        { name: '反应力测试', url: 'tools/reactiontest', icon: '⚡', desc: '测试你的反应速度' },
+        { name: '番茄钟', url: 'tools/pomodoro', icon: '🍅', desc: '番茄工作法计时器' },
+        { name: '弹幕生成', url: 'tools/barrage', icon: '💬', desc: '生成弹幕效果' },
+        { name: '转盘', url: 'tools/wheel', icon: '🎯', desc: '自定义转盘选择器' },
+        { name: 'Emoji表情', url: 'tools/emoji', icon: '😀', desc: 'Emoji表情复制' },
+        { name: '文本对比', url: 'tools/diff', icon: '🔄', desc: '文本差异对比工具' },
+        { name: '计算器', url: 'tools/calculator', icon: '🔢', desc: '科学计算器' },
+        { name: '色板生成', url: 'tools/colorpalette', icon: '🎨', desc: '生成配色方案' },
+        { name: 'IP查询', url: 'tools/ip', icon: '🌐', desc: '查询本机公网IP' },
+        { name: '网站信息', url: 'tools/webinfo', icon: 'ℹ️', desc: '查询网站基本信息' }
       ]
     }
   ],
@@ -213,12 +213,12 @@ function loadFooter() {
 
         <div class="footer-section">
           <h3>${t('footer.hotTools', '热门工具')}</h3>
-          <a href="tools/json.html">${t('tools.json.name', 'JSON格式化')}</a>
-          <a href="tools/md5.html">${t('tools.md5.name', 'MD5加密')}</a>
-          <a href="tools/base64.html">${t('tools.base64.name', 'Base64编解码')}</a>
-          <a href="tools/urlencode.html">${t('tools.urlencode.name', 'URL编解码')}</a>
-          <a href="tools/timetran.html">${t('tools.timetran.name', '时间戳转换')}</a>
-          <a href="tools/qrcode.html">${t('tools.qrcode.name', '二维码生成')}</a>
+          <a href="tools/json">${t('tools.json.name', 'JSON格式化')}</a>
+          <a href="tools/md5">${t('tools.md5.name', 'MD5加密')}</a>
+          <a href="tools/base64">${t('tools.base64.name', 'Base64编解码')}</a>
+          <a href="tools/urlencode">${t('tools.urlencode.name', 'URL编解码')}</a>
+          <a href="tools/timetran">${t('tools.timetran.name', '时间戳转换')}</a>
+          <a href="tools/qrcode">${t('tools.qrcode.name', '二维码生成')}</a>
         </div>
 
         <div class="footer-section">

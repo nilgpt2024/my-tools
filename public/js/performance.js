@@ -45,9 +45,9 @@ const PerformanceOptimizer = {
 
   setupResourceHints() {
     const hints = [
-      { rel: 'prefetch', href: '/tools/md5.html' },
-      { rel: 'prefetch', href: '/tools/json.html' },
-      { rel: 'prefetch', href: '/tools/base64.html' }
+      { rel: 'prefetch', href: '/tools/md5' },
+      { rel: 'prefetch', href: '/tools/json' },
+      { rel: 'prefetch', href: '/tools/base64' }
     ];
 
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;

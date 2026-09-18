@@ -13,7 +13,7 @@ Disallow: /.git/
 Allow: /tools/*?lang=
 
 # 站点地图
-Sitemap: https://tools.suipce.com/sitemap.xml
+Sitemap: https://tools.suipce.com/sitemap-index.xml
 
 # 特定搜索引擎规则
 User-agent: Googlebot
