@@ -12,4 +12,12 @@
         <loc>https://tools.suipce.com/sitemap-blog.xml</loc>
         <lastmod>2026-09-18</lastmod>
     </sitemap>
+    <sitemap>
+        <loc>https://game.suipce.com/sitemap.xml</loc>
+        <lastmod>2026-09-22</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://game.suipce.com/sitemap-games.xml</loc>
+        <lastmod>2026-09-22</lastmod>
+    </sitemap>
 </sitemapindex>
