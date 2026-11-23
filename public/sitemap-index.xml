@@ -12,8 +12,7 @@
         <loc>https://tools.suipce.com/sitemap-blog.xml</loc>
         <lastmod>2026-09-18</lastmod>
     </sitemap>
-    <sitemap>
-        <loc>https://game.suipce.com/sitemap.xml</loc>
-        <lastmod>2026-09-22</lastmod>
-    </sitemap>
+    <!-- 本文件只索引 tools.suipce.com 的 sitemap。
+         游戏站自 2026-11 起正典域为 game.suipce.com，其 sitemap 由该域自行提交
+         （suipce.com 为门户页，不再承载游戏 URL，也不再收录子站 sitemap）。 -->
 </sitemapindex>
