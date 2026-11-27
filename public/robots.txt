@@ -8,6 +8,8 @@ Disallow: /js/lib/
 Disallow: /admin/
 Disallow: /tmp/
 Disallow: /.git/
+# Cloudflare 邮件保护脚本路径，非页面内容，避免被误抓产生 404
+Disallow: /cdn-cgi/
 
 # 允许工具页面的lang参数（用于多语言SEO）
 Allow: /tools/*?lang=
